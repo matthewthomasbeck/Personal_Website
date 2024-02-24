@@ -1,0 +1,341 @@
+/**********************************************************************************/
+/* Copyright (c) 2024 Matthew Thomas Beck                                         */
+/*                                                                                */
+/* All rights reserved. This code and its associated files may not be reproduced, */
+/* modified, distributed, or otherwise used, in part or in whole, by any person   */
+/* or entity without the express written permission of the copyright holder,      */
+/* Matthew Thomas Beck.                                                           */
+/**********************************************************************************/
+
+
+
+
+
+/*******************************************************/
+/*************** GLOBAL FONTS AND COLORS ***************/
+/*******************************************************/
+
+
+/********** FONT STYLES **********/
+
+/***** import fonts *****/
+
+/* used for programmer text */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap');
+
+/***** standard font *****/
+
+.standardFont {
+
+    font-family: monospace;
+    color: transparent;
+}
+
+/***** fancy font *****/
+
+@font-face {
+
+    font-family: 'Mission Script';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Mission Script'), local('OpenSans-Regular'), url('../assets/fonts/Mission_Script.woff') format('woff');
+}
+
+.fancyFont {
+
+    font-family: 'Mission Script', cursive;
+    color: white;
+}
+
+/***** programmer font *****/
+
+@font-face {
+
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('../assets/fonts/Fira_Code/Static/FiraCode-Regular.ttf') format('truetype');
+}
+
+.programmerFont {
+
+    font-family: 'Fira Code', monospace;
+    color: transparent;
+}
+
+
+/********** COLORS **********/
+
+
+/***** set local constant colors *****/
+
+:root{ /* set local colors for use on index page */
+
+    /***** set primary page colors *****/
+
+    --primary: #212529;
+
+    --secondary: #343a40;
+
+    --pastel-1: #dec0f1;
+
+    --pastel-2: #bde0fe;
+
+    --pastel-3: #d0f4de;
+
+    --pastel-4: #fcf6bd;
+
+    --pastel-5: #ffd670;
+}
+
+
+
+
+
+/******************************************/
+/*************** ANIMATIONS ***************/
+/******************************************/
+
+
+/********** PORTRAIT SLIDESHOW **********/
+
+.slide { /* used to hide portrait until correct turn */
+
+    display: none;
+}
+
+
+/********** PROGRAMMER TYPING ANIMATION **********/
+
+/***** programmer typing keyframes *****/
+
+@keyframes programmerTyping { /* move across entire element */
+
+    0% {
+
+        width: 0;
+    }
+
+    50% {
+
+        width: 100%;
+    }
+
+    100% {
+
+        width: 100%;
+    }
+}
+
+/***** programmer typing classes *****/
+
+.programmerTyping.animateProgrammerTyping { /* run animation when activated by javascript */
+
+    animation: programmerTyping 1.5s steps(15, end) .5s forwards; /* duration 1.5 sec, 15 steps, .5 sec delay */
+}
+
+.programmerTyping { /* set initial settings for programmer typing */
+
+    width: 0; /* width is initially nothing */
+    color: white;
+    display: inline-block;
+    overflow: hidden;
+    border-right: 1px solid white;
+    white-space: nowrap;
+}
+
+
+/********** FADE IN ANIMATION **********/
+
+/***** fade in keyframes *****/
+
+@keyframes fadeIn { /* fade text in to view */
+
+    0% {
+
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorChange { /* change text color permanently */
+
+    0% {
+
+        color: transparent;
+    }
+    100% {
+
+        color: white;
+    }
+}
+
+/***** fade in classes *****/
+
+.fadeIn { /* set initial settings for fading in */
+
+    animation: fadeIn 1.5s 2.5s ease-out forwards, colorChange 1.5s 2.5s forwards; /* duration 1.5 sec, 2.5 sec delay */
+}
+
+.fadeInName { /* used exclusively for name */
+
+    animation: fadeIn 1.5s 2.5s ease-out; /* duration 1.5 sec, 2.5 sec delay */
+}
+
+/***** pop up classes *****/
+
+.popUp {
+
+    transition: transform 0.3s ease-out;
+}
+
+.popUp:hover {
+
+    transform: scale(1.05);
+}
+
+
+
+
+
+/********************************************************/
+/*************** STANDARD GLOBAL ELEMENTS ***************/
+/********************************************************/
+
+
+/********** ADJUST MAIN HTML ELEMENT COLORS **********/
+
+/***** customize body look *****/
+
+.body {
+
+    margin: 0;
+    background-color: var(--secondary);
+}
+
+/***** customize header look *****/
+
+.h1 {
+
+    color: white;
+    margin: 0;
+}
+
+.h2 {
+
+    color: white;
+    margin: 0;
+}
+
+.h3 {
+
+    color: white;
+    margin: 0;
+}
+
+.header {
+
+    background-color: var(--secondary);
+    color: white;
+}
+
+/***** links *****/
+
+a {
+    text-decoration: none;
+}
+
+/***** images *****/
+
+img {
+
+    align-self: flex-end;
+    aspect-ratio: 1/1;
+    height: 100%;
+    right: 0;
+}
+
+
+
+
+
+/******************************************************/
+/*************** CUSTOM GLOBAL ELEMENTS ***************/
+/******************************************************/
+
+
+/********** NAVBAR **********/
+
+#navBar { /* used to hold nav bar content */
+
+    text-align: center;
+    background-color: var(--secondary);
+    color: white;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 60px;
+}
+
+#navBarNameBox { /* used to hold my name */
+
+    margin-top: 5px;
+    width: 262px;
+}
+
+#navBarName { /* my name */
+
+    font-size: 80%;
+}
+
+
+/********** CUSTOM ELEMENTS **********/
+
+/***** standard div *****/
+
+.parentDiv { /* used for outer parent div */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary);
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/***** standard div sub element ******/
+
+.childDiv { /* used to hold content withing parent div */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
+    height: calc(100% - 120px);
+    width: 95%;
+}
+
+/***** standard div body *****/
+
+.divBody { /* used to hold text content within child div */
+
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
