@@ -47,17 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 /***** trigger fade in animation *****/
 
-                    // find current id and store as variable
-                var currentID = entry.target.id;
+                // find current id and store as variable
+                let currentID = entry.target.id;
 
                 // if current id about me header...
                 if (currentID === 'aboutMeHeader') {
 
                     // trigger fade in for additional content
-                    aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')
+                    const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')
 
                     // loop though all content in about me body box
-                    for (var i = 0; i < aboutMeBodyBoxTags.length; i++) {
+                    for (let i = 0; i < aboutMeBodyBoxTags.length; i++) {
 
                         // add animations to each p tag with delay
                         setTimeout(function(pTag) {
@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /***** create header observers *****/
 
-        // find all headers that use programmer typing and set to variable
-    var programmingHeaders = document.getElementsByClassName('programmerTyping');
+    // find all headers that use programmer typing and set to variable
+    const programmingHeaders = document.getElementsByClassName('programmerTyping');
 
     // loop through programmer typing headers
-    for (var i = 0; i < programmingHeaders.length; i++) {
+    for (let i = 0; i < programmingHeaders.length; i++) {
 
         // observe each header
         programmerTypingObserver.observe(programmingHeaders[i]);
@@ -107,10 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /***** append skill box header text *****/
 
     // find all headers that use the programmer typing animation
-    var programmingHeaders = document.getElementsByClassName('programmerTyping');
+    const programmingHeaders = document.getElementsByClassName('programmerTyping');
 
     // loop through each header that uses the programmer typing
-    for (var i = 0; i < programmingHeaders.length; i++) {
+    for (let i = 0; i < programmingHeaders.length; i++) {
 
         // once programmer typing animation terminates...
         programmingHeaders[i].addEventListener('animationend', function(event) {
@@ -118,10 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
             /***** replace text content *****/
 
             // create replacement span element
-            var replacementText = document.createElement('h3');
+            let replacementText = document.createElement('h3');
 
             // find current id
-            var currentID = event.target.id;
+            let currentID = event.target.id;
 
             // if current id nav bar name...
             if (currentID === 'navBarName') {
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // apply fancy font to span content
-            replacementText.classList = 'fancyFont';
+            replacementText.classList.add('fancyFont');
 
             // replace old span with replacement span
             event.target.innerHTML = "";

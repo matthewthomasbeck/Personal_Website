@@ -97,7 +97,19 @@
 /******************************************/
 
 
+/********** NAVBAR OPTIONS BUTTON ANIMATION **********/
+
+/***** navbar options button keyframes *****/
+
+/*.rotateNavBarOptionsButton {
+
+    transform: rotate(90deg);
+}*/
+
+
 /********** PORTRAIT SLIDESHOW **********/
+
+/***** portrait slideshow keyframes *****/
 
 .slide { /* used to hide portrait until correct turn */
 
@@ -144,6 +156,11 @@
     white-space: nowrap;
 }
 
+.programmerTypingLoaded { /* used exclusively for loaded content */
+
+    width: 100%;
+}
+
 
 /********** FADE IN ANIMATION **********/
 
@@ -186,6 +203,12 @@
 .fadeInName { /* used exclusively for name */
 
     animation: fadeIn 1.5s 2.5s ease-out; /* duration 1.5 sec, 2.5 sec delay */
+}
+
+.fadeInLoaded { /* used exclusively for loaded content */
+
+    opacity: 1;
+    color: white;
 }
 
 /***** pop up classes *****/
@@ -279,7 +302,7 @@ img {
     color: white;
     position: fixed;
     display: flex;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     width: 100%;
     top: 0;
@@ -287,8 +310,41 @@ img {
     height: 60px;
 }
 
+#navBarOptionsButtonBox { /* used for options */
+
+    aspect-ratio: 1/1;
+    height: 100%;
+}
+
+#navBarOptionsButton { /* used to select options */
+
+    aspect-ratio: 1/1;
+    height: 60%;
+    margin: 20%;
+    background-color: var(--secondary);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navBarOptionsButton.rotateNavBarOptionsButton { /* rotate button */
+
+    transform: rotate(90deg);
+}
+
+.navBarOptionsLines {
+
+    background-color: white;
+    width: 130%;
+    height: 10%;
+    transition: transform 0.3s; /* duration 0.3 sec */
+}
+
 #navBarNameBox { /* used to hold my name */
 
+    /* margins left and right is dynamically calculated in global.js */
     margin-top: 5px;
     width: 262px;
 }
@@ -296,6 +352,13 @@ img {
 #navBarName { /* my name */
 
     font-size: 80%;
+}
+
+.navBarOptions { /* different nav bar options */
+
+    color: white;
+    display: block;
+    text-align: left;
 }
 
 

@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <!-- PAGE / CHARACTER INITIALIZATION -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,6 +35,17 @@
 <!-- NAVIGATION BAR -->
 <body class="body">
 <nav id="navBar">
+
+    <!-- OPTIONS BUTTON -->
+    <div id="navBarOptionsButtonBox">
+        <button id="navBarOptionsButton" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)" onclick="rotateNavBarOptionsButton()">
+            <div class="navBarOptionsLines"></div>
+            <div class="navBarOptionsLines"></div>
+            <div class="navBarOptionsLines"></div>
+        </button>
+    </div>
+
+    <!-- NAME -->
     <div id="navBarNameBox">
         <p class="programmerFont programmerTyping" id="navBarName">printf("Matthew Thomas Beck");</p>
     </div>

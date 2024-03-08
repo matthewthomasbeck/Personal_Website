@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /***** initialize variables and process *****/
 
     // select all elements of slide class and store them as slides
-    var slides = document.querySelectorAll('.slide');
+    const slides = document.querySelectorAll('.slide');
 
     // pre-initialize current slide as 0
-    var currentSlide = 0;
+    let currentSlide = 0;
 
     // run slideshow initially
     showSlide();
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentSlide = (currentSlide + 1) % slides.length;
 
         // find about me body box and set to variable
-        aboutMeBodyBoxFirstTag = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')[0];
+        const aboutMeBodyBoxFirstTag = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')[0];
 
         // if about me content has loaded...
         if (
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function showSlide() {
 
         // loop through all slides to hide them
-        for (var i = 0; i < slides.length; i++) {
+        for (let i = 0; i < slides.length; i++) {
 
             // hide current slide
             slides[i].style.display = 'none';
@@ -139,16 +139,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 /***** trigger fade in animation *****/
 
                 // find current id and store as variable
-                var currentID = entry.target.id;
+                const currentID = entry.target.id;
 
                 // if current id about me header...
                 if (currentID === 'aboutMeHeader') {
 
                     // trigger fade in for additional content
-                    aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')
+                    const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')
 
                     // loop though all content in about me body box
-                    for (var i = 0; i < aboutMeBodyBoxTags.length; i++) {
+                    for (let i = 0; i < aboutMeBodyBoxTags.length; i++) {
 
                         // add animations to each p tag with delay
                         setTimeout(function(pTag) {
@@ -166,10 +166,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 else if (currentID === 'skillSetHeader') {
 
                     // find skills elements class and set to variable
-                    var skills = document.getElementsByClassName('skills');
+                    const skills = document.getElementsByClassName('skills');
 
                     // loop through all skills to apply fade in update
-                    for (var i = 0; i < skills.length; i++) {
+                    for (let i = 0; i < skills.length; i++) {
 
                         // add animations to each skill with delay
                         setTimeout(function(skill) {
@@ -184,10 +184,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 else if (currentID === 'projectsInfoHeader') {
 
                     // find projects elements class and set to variable
-                    var projects = document.getElementsByClassName('projects');
+                    const projects = document.getElementsByClassName('projects');
 
                     // loop through all projects to apply fade in update
-                    for (var i = 0; i < projects.length; i++) {
+                    for (let i = 0; i < projects.length; i++) {
 
                         // add animations to each project
                         projects[i].classList.add('fadeIn', 'popUp');
@@ -214,10 +214,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 else if (currentID === 'contactMeHeader') {
 
                     // find contacts elements class and set to variable
-                    var contacts = document.getElementsByClassName('contacts');
+                    const contacts = document.getElementsByClassName('contacts');
 
                     // loop through all contacts to apply fade in update
-                    for (var i = 0; i < contacts.length; i++) {
+                    for (let i = 0; i < contacts.length; i++) {
 
                         // add animations to each contact with a delay
                         setTimeout(function(contact) {
@@ -243,10 +243,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /***** create header observers *****/
 
     // find all headers that use programmer typing and set to variable
-    var programmingHeaders = document.getElementsByClassName('programmerTyping');
+    const programmingHeaders = document.getElementsByClassName('programmerTyping');
 
     // loop through programmer typing headers
-    for (var i = 0; i < programmingHeaders.length; i++) {
+    for (let i = 0; i < programmingHeaders.length; i++) {
 
         // observe each header
         programmerTypingObserver.observe(programmingHeaders[i]);
@@ -261,13 +261,13 @@ document.addEventListener("DOMContentLoaded", function () {
 // when page loads...
 document.addEventListener("DOMContentLoaded", function () {
 
-    /***** append skill box header text *****/
+    /***** append header text *****/
 
     // find all headers that use the programmer typing animation
-    var programmingHeaders = document.getElementsByClassName('programmerTyping');
+    const programmingHeaders = document.getElementsByClassName('programmerTyping');
 
     // loop through each header that uses the programmer typing
-    for (var i = 0; i < programmingHeaders.length; i++) {
+    for (let i = 0; i < programmingHeaders.length; i++) {
 
         // once programmer typing animation terminates...
         programmingHeaders[i].addEventListener('animationend', function(event) {
@@ -275,10 +275,10 @@ document.addEventListener("DOMContentLoaded", function () {
             /***** replace text content *****/
 
             // create replacement span element
-            var replacementText = document.createElement('h3');
+            let replacementText = document.createElement('h3');
 
             // find current id
-            var currentID = event.target.id;
+            let currentID = event.target.id;
 
             // if current id nav bar name...
             if (currentID === 'navBarName') {
@@ -328,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // apply fancy font to span content
-            replacementText.classList = 'fancyFont';
+            replacementText.classList.add('fancyFont');
 
             // replace old span with replacement span
             event.target.innerHTML = "";
@@ -346,21 +346,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
 /********** PROJECTS WHEEL **********/
 
 /***** initialize variables *****/
 
 // find projects scroll and store as variable
-var projectsWheel = document.getElementById('projectsWheel');
+const projectsWheel = document.getElementById('projectsWheel');
 
 // find projects background and store as variable
-var projectsBackground = document.getElementById('projectsBackground');
+const projectsBackground = document.getElementById('projectsBackground');
 
 // find name of project and store as variable
-var projectsInfoName = document.getElementById('projectsInfoName');
+const projectsInfoName = document.getElementById('projectsInfoName');
 
 // find content of project and store as variable
-var projectsInfoBody = document.getElementById('projectsInfoBody')
+const projectsInfoBody = document.getElementById('projectsInfoBody')
 
 /***** create listener *****/
 
@@ -370,13 +371,13 @@ projectsWheel.addEventListener('scroll', function() {
     /***** scroll wheel *****/
 
     // update div based on scroll position
-    var scrollPosition = projectsWheel.scrollLeft;
+    let scrollPosition = projectsWheel.scrollLeft;
 
     // get the width of a project class item
-    var itemWidth = document.querySelector('.projects').offsetWidth * 2;
+    let itemWidth = document.querySelector('.projects').offsetWidth * 2;
 
     // calculate index of currently visible item based on scroll position and item width
-    var currentItem = Math.round(scrollPosition / itemWidth);
+    let currentItem = Math.round(scrollPosition / itemWidth);
 
     /***** replace project info *****/
 
