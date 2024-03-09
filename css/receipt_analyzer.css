@@ -20,10 +20,31 @@
 
 .parentDiv {
 
-    /*height: 610vh;*/
-    height: 100vh;
+    height: 1731vh;
 }
 
 
 /********** CUSTOM ELEMENTS **********/
 
+.contentImg {
+
+    margin-top: auto;
+    margin-bottom: auto;
+    align-self: initial;
+    aspect-ratio: initial;
+    height: initial;
+    right: initial;
+    width: 50%;
+    object-position: center;
+}
+
+.contentTextBox {
+
+    width: 40%;
+    margin: auto;
+}
+
+.contentText {
+
+    color: white;
+}

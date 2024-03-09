@@ -484,6 +484,8 @@ img {
 
 .contentBoxes { /* used to hold content */
 
+    display: flex;
+    flex-direction: row;
     background-color: var(--primary);
     aspect-ratio: 2/1;
     width: 90%;
