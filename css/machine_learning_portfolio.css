@@ -27,14 +27,3 @@
 
 /********** CUSTOM ELEMENTS **********/
 
-.headers {
-
-    color: white;
-}
-
-.graphBoxes {
-
-    background-color: var(--primary);
-    aspect-ratio: 2/1;
-    width: 90%;
-}
