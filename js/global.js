@@ -36,8 +36,11 @@ const rootStyles = getComputedStyle(document.documentElement);
 
 /***** find options and name widths *****/
 
+// get the options button element
+const navBarOptionsButton = document.getElementById('navBarOptionsButton');
+
 // get width of the options button
-const optionsWidth = document.getElementById('navBarOptionsButtonBox').offsetWidth;
+const optionsWidth = navBarOptionsButton.offsetWidth + parseInt(getComputedStyle(navBarOptionsButton).marginLeft);
 
 // get with of the name box
 const nameWidth = document.getElementById('navBarNameBox').offsetWidth;
@@ -61,8 +64,47 @@ document.getElementById('navBarOptionsButton').addEventListener('click', functio
     // select the options button and set to variable
     const navBarOptionsButtonBox = document.getElementById('navBarOptionsButton');
 
+    // select the options box and set to variable
+    const navBarOptionsBox = document.getElementById('navBarOptionsBox');
+
+    // select the options dimmer and set to variable
+    const navBarOptionsDimmer = document.getElementById('navBarOptionsDimmer');
+
     // toggle the rotation of the options button
     navBarOptionsButtonBox.classList.toggle('rotateNavBarOptionsButton');
+
+    // toggle the visibility of the options box
+    navBarOptionsBox.classList.toggle('showNavBarOptionsBox');
+
+    // toggle the visibility of the options dimmer
+    navBarOptionsDimmer.classList.toggle('showNavBarOptionsDimmer');
+});
+
+
+/********** OPTIONS DIMMER **********/
+
+/***** remove dimmer on click *****/
+
+// create event listener for options dimmer
+document.getElementById('navBarOptionsDimmer').addEventListener('click', function() {
+
+    // select the options button and set to variable
+    const navBarOptionsButtonBox = document.getElementById('navBarOptionsButton');
+
+    // select the options box and set to variable
+    const navBarOptionsBox = document.getElementById('navBarOptionsBox');
+
+    // select the options dimmer and set to variable
+    const navBarOptionsDimmer = document.getElementById('navBarOptionsDimmer');
+
+    // remove the rotation of the options button
+    navBarOptionsButtonBox.classList.remove('rotateNavBarOptionsButton');
+
+    // remove the visibility of the options box
+    navBarOptionsBox.classList.remove('showNavBarOptionsBox');
+
+    // remove the visibility of the options dimmer
+    navBarOptionsDimmer.classList.remove('showNavBarOptionsDimmer');
 });
 
 
@@ -73,13 +115,23 @@ document.getElementById('navBarOptionsButton').addEventListener('click', functio
 // used to inflate the project content
 function popUp(element) {
 
-    // select text and set to variable
-    const elementText = element.getElementsByTagName('h1')[0];
+    // select header and set to variable
+    const elementHeader = element.getElementsByTagName('h1')[0];
 
     // select image and set to variable
     const elementImage = element.getElementsByTagName('img')[0];
 
-    // if there exists element text...
+    // select text and set to variable
+    const elementText = element.getElementsByTagName('p')[0];
+
+    // if there exists element header...
+    if (elementHeader) {
+
+        // inflate the element header
+        elementHeader.style.transform = 'scale(1.05)';
+    }
+
+    // if there exists an element text...
     if (elementText) {
 
         // inflate the element text
@@ -99,13 +151,23 @@ function popUp(element) {
 // used to deflate the project content
 function popDown(element) {
 
+    // select header and set to variable
+    const elementHeader = element.getElementsByTagName('h1')[0];
+
     // select text and set to variable
-    const elementText = element.getElementsByTagName('h1')[0];
+    const elementText = element.getElementsByTagName('p')[0];
 
     // select image and set to variable
     const elementImage = element.getElementsByTagName('img')[0];
 
-    // if there exists element text...
+    // if there exists element header...
+    if (elementHeader) {
+
+        // deflate the element header
+        elementHeader.style.transform = 'scale(1)';
+    }
+
+    // if there exists an element text...
     if (elementText) {
 
         // deflate the element text

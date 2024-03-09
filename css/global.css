@@ -97,16 +97,6 @@
 /******************************************/
 
 
-/********** NAVBAR OPTIONS BUTTON ANIMATION **********/
-
-/***** navbar options button keyframes *****/
-
-/*.rotateNavBarOptionsButton {
-
-    transform: rotate(90deg);
-}*/
-
-
 /********** PORTRAIT SLIDESHOW **********/
 
 /***** portrait slideshow keyframes *****/
@@ -293,34 +283,49 @@ img {
 /******************************************************/
 
 
+/********** OPTIONS DIMMING **********/
+
+#navBarOptionsDimmer { /* used to dim the page when options are selected */
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+    transition: background-color 0.3s ease; /* duration 0.3 sec, slowly ease out */
+}
+
+#navBarOptionsDimmer.showNavBarOptionsDimmer { /* show dimmer */
+
+    display: block;
+}
+
+
 /********** NAVBAR **********/
 
 #navBar { /* used to hold nav bar content */
 
+    z-index: 1000;
     text-align: center;
     background-color: var(--secondary);
     color: white;
     position: fixed;
     display: flex;
-    /*justify-content: center;*/
     align-items: center;
     width: 100%;
     top: 0;
-    z-index: 1000;
     height: 60px;
-}
-
-#navBarOptionsButtonBox { /* used for options */
-
-    aspect-ratio: 1/1;
-    height: 100%;
 }
 
 #navBarOptionsButton { /* used to select options */
 
+    z-index: 1001;
     aspect-ratio: 1/1;
-    height: 60%;
-    margin: 20%;
+    height: 50%;
+    margin-left: 0.65%;
     background-color: var(--secondary);
     border: none;
     display: flex;
@@ -331,11 +336,12 @@ img {
 
 #navBarOptionsButton.rotateNavBarOptionsButton { /* rotate button */
 
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 
 .navBarOptionsLines {
 
+    z-index: 1002;
     background-color: white;
     width: 130%;
     height: 10%;
@@ -345,20 +351,93 @@ img {
 #navBarNameBox { /* used to hold my name */
 
     /* margins left and right is dynamically calculated in global.js */
+    z-index: 1001;
     margin-top: 5px;
     width: 262px;
 }
 
 #navBarName { /* my name */
 
+    z-index: 1002;
     font-size: 80%;
+}
+
+#navBarOptionsBox { /* used to hold nav bar options */
+
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: calc(100vh - 60px);
+    width: 60px;
+    margin-left: -60px;
+    background-color: var(--secondary);
+    bottom: 0;
+    left: 0;
+    transition: margin-left 0.3s ease-out; /* duration 0.3 sec, slowly ease out */
+}
+
+#navBarOptionsBox.showNavBarOptionsBox { /* show nav bar options */
+
+    margin-left: 0;
 }
 
 .navBarOptions { /* different nav bar options */
 
+    z-index: 1001;
+    aspect-ratio: 1/1;
+    width: 60%;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: var(--secondary);
     color: white;
-    display: block;
-    text-align: left;
+    flex-direction: column;
+    text-align: center;
+}
+
+.navBarOptions.noText { /* different nav bar options */
+
+    margin-top: 18%;
+    margin-bottom: 18%;
+}
+
+.navBarOptionsImages {
+
+    z-index: 1002;
+    aspect-ratio: 1/1;
+    justify-self: center;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    transition: 0.3s; /* duration 0.3 sec */
+}
+
+.navBarOptionsText {
+
+    z-index: 1002;
+    margin-top: 20%;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 50%;
+    transition: 0.3s; /* duration 0.3 sec */
+}
+
+.navBarOptionsSeparator {
+
+    z-index: 1001;
+    width: 80%;
+    height: .3%;
+    background-color: white;
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
 
 

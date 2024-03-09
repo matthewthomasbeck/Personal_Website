@@ -32,22 +32,76 @@
     <title>Welcome!</title>
 </head>
 
-<!-- NAVIGATION BAR -->
+<!-- INDEX PAGE -->
 <body class="body">
+
+<!-- OPTIONS DIMMING -->
+<div id="navBarOptionsDimmer"></div>
+
+<!-- NAVIGATION BAR -->
 <nav id="navBar">
 
     <!-- OPTIONS BUTTON -->
-    <div id="navBarOptionsButtonBox">
-        <button id="navBarOptionsButton" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)" onclick="rotateNavBarOptionsButton()">
-            <div class="navBarOptionsLines"></div>
-            <div class="navBarOptionsLines"></div>
-            <div class="navBarOptionsLines"></div>
-        </button>
-    </div>
+    <button id="navBarOptionsButton" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+        <div class="navBarOptionsLines"></div>
+        <div class="navBarOptionsLines"></div>
+        <div class="navBarOptionsLines"></div>
+    </button>
 
     <!-- NAME -->
-    <div id="navBarNameBox">
+    <a href="index.html" id="navBarNameBox" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
         <p class="programmerFont programmerTyping" id="navBarName">printf("Matthew Thomas Beck");</p>
+    </a>
+
+    <!-- OPTIONS -->
+    <div class="standardFont" id="navBarOptionsBox">
+
+        <!-- HOME DIRECT -->
+        <a href="index.html" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/home-icon.png" alt="">
+        </a>
+
+        <!-- PROJECTS SEPARATOR -->
+        <div class="navBarOptionsSeparator"></div>
+
+        <!-- MACHINE LEARNING PORTFOLIO DIRECT -->
+        <a href="pages/machine_learning_portfolio.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/machine_learning_portfolio-icon.png" alt="">
+            <p class="navBarOptionsText">
+                M.L.P.
+            </p>
+        </a>
+
+        <!-- ATHENA DIRECT -->
+        <a href="pages/athena.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/athena-icon.png" alt="">
+            <p class="navBarOptionsText">
+                Athena
+            </p>
+        </a>
+
+        <!-- CONTACTS SEPARATOR -->
+        <div class="navBarOptionsSeparator"></div>
+
+        <!-- LINKEDIN DIRECT -->
+        <a href="https://www.linkedin.com/in/matthewthomasbeck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/linkedin-icon.png" alt="">
+        </a>
+
+        <!-- GITHUB DIRECT -->
+        <a href="https://www.github.com/matthewthomasbeck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/github-icon.png" alt="">
+        </a>
+
+        <!-- YOUTUBE DIRECT -->
+        <a href="https://www.youtube.com/@Matthew_Thomas_Beck" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/play_button-icon.png" alt="">
+        </a>
+
+        <!-- INSTAGRAM DIRECT -->
+        <a href="https://www.instagram.com/matthew_thomas_beck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/instagram-icon.png" alt="">
+        </a>
     </div>
 </nav>
 
@@ -119,45 +173,52 @@
 
         <!-- EXPERTISE CONTENT -->
         <div class="divBody standardFont" id="skillSetBodyBox">
+
+            <!-- PYTHON -->
             <div class="skills">
-                <img class="skillsIcon" src="assets/images/python.png" alt="">
-                <p class="standardFont skillsBody">
+                <img class="skillsIcon" src="assets/images/python-icon.png" alt="">
+                <p class="skillsBody">
                     Python- tensorflow, numpy, requests, beautiful soup, selenium, pandas, matplotlib, psycopg,
                     yfinance, quandl, CCXT
                 </p>
             </div>
 
+            <!-- LINUX SYSTEM ADMINISTRATION -->
             <div class="skills">
-                <img class="skillsIcon" src="assets/images/linux.png" alt="">
-                <p class="standardFont skillsBody">
+                <img class="skillsIcon" src="assets/images/linux-icon.png" alt="">
+                <p class="skillsBody">
                     Linux System Administration- nginx, let's encrypt, UFW, fail2ban, geoIP
                 </p>
             </div>
 
+            <!-- SQL DATABASES -->
             <div class="skills">
-                <img class="skillsIcon" src="assets/images/postgre_sql.png" alt="">
-                <p class="standardFont skillsBody">
+                <img class="skillsIcon" src="assets/images/postgre_sql-icon.png" alt="">
+                <p class="skillsBody">
                     SQL Databases- postgreSQL
                 </p>
             </div>
 
+            <!-- WEB DEVELOPMENT -->
             <div class="skills">
-                <img class="skillsIcon" src="assets/images/web.png" alt="">
-                <p class="standardFont skillsBody">
+                <img class="skillsIcon" src="assets/images/web-icon.png" alt="">
+                <p class="skillsBody">
                     Web Development- custom animations, custom CSS, javascript object orientation
                 </p>
             </div>
 
+            <!-- C -->
             <div class="skills">
-                <img class="skillsIcon" src="assets/images/c.png" alt="">
-                <p class="standardFont skillsBody">
+                <img class="skillsIcon" src="assets/images/c-icon.png" alt="">
+                <p class="skillsBody">
                     C- programming II (A), data structures (B+)
                 </p>
             </div>
 
+            <!-- MISCELLANEOUS -->
             <div class="skills">
-                <img class="skillsIcon" src="assets/images/command_line.png" alt="">
-                <p class="standardFont skillsBody">
+                <img class="skillsIcon" src="assets/images/command_line-icon.png" alt="">
+                <p class="skillsBody">
                     Miscellaneous- experienced in illustrator, photoshop, premiere pro, familiar with after effects
                 </p>
             </div>
@@ -224,15 +285,15 @@
         </div>
 
         <!-- PROJECTS INFO NAME -->
-        <div id="projectsInfoNameBox">
-            <h2 class="standardFont" id="projectsInfoName">
+        <div class="standardFont" id="projectsInfoNameBox">
+            <h2 id="projectsInfoName">
                 Machine Learning Portfolio
             </h2>
         </div>
 
         <!-- PROJECTS INFO CONTENT -->
-        <div id="projectsInfoBodyBox">
-            <p class="standardFont" id="projectsInfoBody">
+        <div class="standardFont" id="projectsInfoBodyBox">
+            <p id="projectsInfoBody">
                 Using a Raspberry Pi 4B, a Coral TPU, TensorFlow, an Nginx web server, and a whole host of data
                 collecting and modeling scripts, I created a portfolio that finds the most volatile financial
                 instruments, predicts their prices, and suggests when you should buy / sell (OBLIGATORY: THIS IS NOT
@@ -255,30 +316,35 @@
 
         <!-- CONTACT ME CONTENT -->
         <div class="divBody standardFont" id="contactMeBodyBox">
+
+            <!-- LINKEDIN -->
             <a class="contacts" href="https://www.linkedin.com/in/matthewthomasbeck/" onmouseover="popUp(this)" onmouseout="popDown(this)">
-                <img class="contactsIcon" src="assets/images/linkedin.png" alt="">
-                <h1 class="standardFont contactsBody">
+                <img class="contactsIcon" src="assets/images/linkedin-icon.png" alt="">
+                <h1 class="contactsBody">
                     Matthew Thomas Beck
                 </h1>
             </a>
 
+            <!-- GITHUB -->
             <a class="contacts" href="https://www.github.com/matthewthomasbeck/" onmouseover="popUp(this)" onmouseout="popDown(this)">
-                <img class="contactsIcon" src="assets/images/github.png" alt="">
-                <h1 class="standardFont contactsBody">
+                <img class="contactsIcon" src="assets/images/github-icon.png" alt="">
+                <h1 class="contactsBody">
                     owner:matthewthomasbeck
                 </h1>
             </a>
 
+            <!-- YOUTUBE -->
             <a class="contacts" href="https://www.youtube.com/@Matthew_Thomas_Beck" onmouseover="popUp(this)" onmouseout="popDown(this)">
-                <img class="contactsIcon" src="assets/images/youtube.png" alt="">
-                <h1 class="standardFont contactsBody">
+                <img class="contactsIcon" src="assets/images/youtube-icon.png" alt="">
+                <h1 class="contactsBody">
                     Matthew Thomas Beck
                 </h1>
             </a>
 
+            <!-- INSTAGRAM -->
             <a class="contacts" href="https://www.instagram.com/matthew_thomas_beck/" onmouseover="popUp(this)" onmouseout="popDown(this)">
-                <img class="contactsIcon" src="assets/images/instagram.png" alt="">
-                <h1 class="standardFont contactsBody">
+                <img class="contactsIcon" src="assets/images/instagram-icon.png" alt="">
+                <h1 class="contactsBody">
                     @matthew_thomas_beck
                 </h1>
             </a>
