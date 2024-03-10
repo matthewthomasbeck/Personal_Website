@@ -325,7 +325,7 @@ img {
     z-index: 1001;
     aspect-ratio: 1/1;
     height: 50%;
-    margin-left: 0.65%;
+    margin-left: 10px;
     background-color: var(--secondary);
     border: none;
     display: flex;
@@ -426,7 +426,7 @@ img {
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-    font-size: 50%;
+    font-size: 9px;
     transition: 0.3s; /* duration 0.3 sec */
 }
 
@@ -491,9 +491,176 @@ img {
     width: 90%;
 }
 
+.contentImg {
+
+    margin-top: auto;
+    margin-bottom: auto;
+    align-self: initial;
+    aspect-ratio: initial;
+    height: initial;
+    right: initial;
+    width: 50%;
+    object-position: center;
+}
+
+.contentTextBox {
+
+    width: 40%;
+    margin: auto;
+}
+
+.contentText {
+
+    color: white;
+}
+
 /***** modified headers *****/
 
 .headers { /* used to style headers for sub-pages */
 
     color: white;
+}
+
+/*********************************************/
+/*************** DEVICE SIZING ***************/
+/*********************************************/
+
+
+/********** LARGE DEVICES **********/
+
+@media only screen and (min-width: 1025px) { /* detect if screen is desktop */
+
+    /***** adjust custom element sizes *****/
+
+    /***** adjust image sizes *****/
+
+    /***** adjust text *****/
+
+    .standardFont {
+
+        font-size: 150%;
+    }
+
+    .programmerTyping {
+
+        font-size: 200%;
+    }
+
+    #projectsInfoHeader {
+
+        font-size: 130%;
+    }
+
+    .foreText {
+
+        display: block;
+    }
+
+    .aftText {
+
+        display: none;
+    }
+}
+
+
+/********** MEDIUM DEVICES **********/
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) { /* detect if screen is tablet */
+
+    /***** adjust custom element sizes *****/
+
+    /***** adjust image sizes *****/
+
+    /***** adjust text *****/
+
+    .standardFont {
+
+        font-size: 100%;
+    }
+
+    .programmerTyping {
+
+        font-size: 150%;
+    }
+
+    #projectsInfoHeader {
+
+        font-size: 95%;
+    }
+
+    .foreText {
+
+        display: block;
+    }
+
+    .aftText {
+
+        display: none;
+    }
+}
+
+
+/********** SMALL DEVICES **********/
+
+@media only screen and (max-width: 600px) { /* detect if screen is smartphone */
+
+    /***** adjust custom element sizes *****/
+
+    .contentBoxes {
+
+        flex-direction: column;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    #receiptAnalyzerConclusion {
+
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /***** adjust image sizes *****/
+
+    .contentImg {
+
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /***** adjust text *****/
+
+    .standardFont {
+
+        font-size: 90%;
+    }
+
+    .programmerTyping {
+
+        font-size: 95%;
+    }
+
+    #projectsInfoHeader {
+
+        font-size: 95%;
+    }
+
+    .contentTextBox {
+
+        width: 100%;
+        margin-top: 5%;
+    }
+
+    .foreText {
+
+        display: none;
+    }
+
+    .aftText {
+
+        display: block;
+    }
 }

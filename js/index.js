@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         }, i * 250, contacts[i]);
 
                         // add pop up to each contact title
-                        contacts[i].getElementsByTagName('h1')[0].classList.add('popUp');
+                        contacts[i].getElementsByTagName('h2')[0].classList.add('popUp');
 
                         // add pop up to each contact img
                         contacts[i].getElementsByTagName('img')[0].classList.add('popUp');

@@ -253,7 +253,10 @@ document.getElementById('navBarOptionsDimmer').addEventListener('click', functio
 function popUp(element) {
 
     // select header and set to variable
-    const elementHeader = element.getElementsByTagName('h1')[0];
+    const elementHeaderOne = element.getElementsByTagName('h1')[0];
+
+    // select header and set to variable
+    const elementHeaderTwo = element.getElementsByTagName('h2')[0];
 
     // select image and set to variable
     const elementImage = element.getElementsByTagName('img')[0];
@@ -262,10 +265,17 @@ function popUp(element) {
     const elementText = element.getElementsByTagName('p')[0];
 
     // if there exists element header...
-    if (elementHeader) {
+    if (elementHeaderOne) {
 
         // inflate the element header
-        elementHeader.style.transform = 'scale(1.05)';
+        elementHeaderOne.style.transform = 'scale(1.05)';
+    }
+
+    // if there exists element header...
+    if (elementHeaderTwo) {
+
+        // inflate the element header
+        elementHeaderTwo.style.transform = 'scale(1.05)';
     }
 
     // if there exists an element text...
@@ -289,7 +299,10 @@ function popUp(element) {
 function popDown(element) {
 
     // select header and set to variable
-    const elementHeader = element.getElementsByTagName('h1')[0];
+    const elementHeaderOne = element.getElementsByTagName('h1')[0];
+
+    // select header and set to variable
+    const elementHeaderTwo = element.getElementsByTagName('h2')[0];
 
     // select text and set to variable
     const elementText = element.getElementsByTagName('p')[0];
@@ -298,10 +311,17 @@ function popDown(element) {
     const elementImage = element.getElementsByTagName('img')[0];
 
     // if there exists element header...
-    if (elementHeader) {
+    if (elementHeaderOne) {
 
         // deflate the element header
-        elementHeader.style.transform = 'scale(1)';
+        elementHeaderOne.style.transform = 'scale(1)';
+    }
+
+    // if there exists element header...
+    if (elementHeaderTwo) {
+
+        // deflate the element header
+        elementHeaderTwo.style.transform = 'scale(1)';
     }
 
     // if there exists an element text...
