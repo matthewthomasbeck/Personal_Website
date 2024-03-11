@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (currentID === 'aboutMeHeader') {
 
                     // trigger fade in for additional content
-                    const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')
+                    const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p');
 
                     // loop though all content in about me body box
                     for (let i = 0; i < aboutMeBodyBoxTags.length; i++) {
