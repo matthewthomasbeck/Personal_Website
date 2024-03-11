@@ -146,11 +146,6 @@
     white-space: nowrap;
 }
 
-.programmerTypingLoaded { /* used exclusively for loaded content */
-
-    width: 100%;
-}
-
 
 /********** FADE IN ANIMATION **********/
 
@@ -252,12 +247,6 @@
     margin: 0;
 }
 
-.header {
-
-    background-color: var(--secondary);
-    color: white;
-}
-
 /***** links *****/
 
 a {
@@ -353,7 +342,7 @@ img {
     /* margins left and right is dynamically calculated in global.js */
     z-index: 1001;
     margin-top: 5px;
-    width: 262px;
+    width: 232px;
 }
 
 #navBarName { /* my name */
@@ -505,8 +494,12 @@ img {
 
 .contentTextBox {
 
-    width: 40%;
+    width: fit-content;
     margin: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
 }
 
 .contentText {
@@ -516,10 +509,14 @@ img {
 
 /***** modified headers *****/
 
-.headers { /* used to style headers for sub-pages */
+.contentHeaders { /* used to style headers for sub-pages */
 
     color: white;
 }
+
+
+
+
 
 /*********************************************/
 /*************** DEVICE SIZING ***************/
@@ -560,6 +557,15 @@ img {
 
         display: none;
     }
+
+    /***** index.html *****/
+
+    /***** receipt_analyzer.html *****/
+
+    #receiptAnalyzerConclusionSignature {
+
+        width: 450px !important;
+    }
 }
 
 
@@ -597,6 +603,27 @@ img {
 
         display: none;
     }
+
+    /***** index.html *****/
+
+    #skillSetHeaderBox {
+
+        height: 84.16px !important;
+        width: 540px !important;
+    }
+
+    #contactMeHeaderBox {
+
+        height: 84.16px !important;
+        width: 370px !important
+    }
+
+    /***** receipt_analyzer.html *****/
+
+    #receiptAnalyzerConclusionSignature {
+
+        width: 300px !important;
+    }
 }
 
 
@@ -609,7 +636,7 @@ img {
     .contentBoxes {
 
         flex-direction: column;
-        margin-top: 5%;
+        margin-top: 0;
         margin-bottom: 5%;
     }
 
@@ -652,6 +679,7 @@ img {
 
         width: 100%;
         margin-top: 5%;
+        opacity: 0;
     }
 
     .foreText {
@@ -662,5 +690,28 @@ img {
     .aftText {
 
         display: block;
+    }
+
+    /***** index.html *****/
+
+    #skillSetHeaderBox {
+
+        height: 55.34px !important;
+        width: 375px !important;
+        font-size: 105% !important;
+    }
+
+    #contactMeHeaderBox {
+
+        height: 79.34px !important;
+        width: 355px !important;
+        font-size: 150% !important;
+    }
+
+    /***** receipt_analyzer.html *****/
+
+    #receiptAnalyzerConclusionSignature { /* FIXME when the text is white again */
+
+        /*width: 450px !important;*/
     }
 }

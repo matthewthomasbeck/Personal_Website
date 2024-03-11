@@ -289,12 +289,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 // set replacement span content
                 replacementText.textContent = "Matthew Thomas Beck";
 
-                // adjust spacing to center text
-                replacementText.style.marginTop = '17px';
-
-                // adjust spacing to center text
-                replacementText.style.marginBottom = '10px';
-
                 // adjust font size for proper scaling
                 replacementText.style.fontSize = '140%';
             }

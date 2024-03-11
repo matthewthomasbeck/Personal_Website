@@ -49,7 +49,8 @@
 
 #aboutMeHeaderBox {
 
-    width: 100%;
+    /*width: 57.5%;*/
+    width: 485px;
 }
 
 #introductionSeparator {
@@ -140,6 +141,13 @@
     color: white;
     width: 70%;
     margin: auto;
+}
+
+#skillSetHeaderBox {
+
+    height: 112px;
+    width: 705px;
+    text-align: center;
 }
 
 
@@ -311,4 +319,11 @@
     text-align: center;
     width: 70%;
     margin: auto;
+}
+
+#contactMeHeaderBox {
+
+    height: 112px;
+    width: 485px;
+    text-align: center;
 }

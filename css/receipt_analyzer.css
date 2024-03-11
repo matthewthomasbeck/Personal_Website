@@ -26,7 +26,22 @@
 
 /********** CUSTOM ELEMENTS **********/
 
+.receiptAnalyzerConclusionText {
+
+    color: transparent;
+}
+
 #receiptAnalyzerConclusion {
 
-    width: 75%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#receiptAnalyzerConclusionSignature {
+
+    font-size: 100%;
+    margin-left: auto;
+    text-align: center;
+    color: white;
 }

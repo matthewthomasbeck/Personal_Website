@@ -58,7 +58,7 @@ document.getElementById('navBarNameBox').style.marginRight = 'calc(50% - ' + (na
 
 /***** create listener *****/
 
-// when pages loads...
+// run code when page loads
 document.addEventListener("DOMContentLoaded", function () {
 
     // initialize intersection observer
@@ -131,12 +131,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /***** create listener *****/
 
-// when page loads...
+// run code when page loads
 document.addEventListener("DOMContentLoaded", function () {
 
     /***** append skill box header text *****/
 
-        // find all headers that use the programmer typing animation
+    // find all headers that use the programmer typing animation
     const programmingHeaders = document.getElementsByClassName('programmerTyping');
 
     // loop through each header that uses the programmer typing
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             /***** replace text content *****/
 
-                // create replacement span element
+            // create replacement span element
             let replacementText = document.createElement('h3');
 
             // find current id
@@ -162,12 +162,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 // set replacement span content
                 replacementText.textContent = "Matthew Thomas Beck";
 
-                // adjust spacing to center text
-                replacementText.style.marginTop = '17px';
-
-                // adjust spacing to center text
-                replacementText.style.marginBottom = '10px';
-
                 // adjust font size for proper scaling
                 replacementText.style.fontSize = '140%';
             }
@@ -180,9 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // remove old right border
             event.target.style.borderRightWidth = '0px';
-
-            // change margin
-            event.target.style.margin = '0px';
 
             // commit changes to header
             event.target.appendChild(replacementText);

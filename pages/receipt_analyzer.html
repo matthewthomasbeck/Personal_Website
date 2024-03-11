@@ -23,11 +23,6 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/receipt_analyzer.css">
 
-  <!-- DEVICE DETECTION -->
-  <link rel="stylesheet" href="../css/devices/small.css" media="screen and (max-width: 600px)">
-  <link rel="stylesheet" href="../css/devices/medium.css" media="screen and (min-width: 601px) and (max-width: 1024px)">
-  <link rel="stylesheet" href="../css/devices/large.css" media="screen and (min-width: 1025px)">
-
   <!-- TAB TITLE -->
   <title>Receipt Analyzer</title>
 </head>
@@ -119,8 +114,8 @@
   <div class="childDiv">
 
     <!-- INTRODUCTION HEADER -->
-    <div class="headerBoxes" id="introductionHeaderBox">
-      <h1 class="headers programmerFont" id="introductionHeader">
+    <div class="contentHeaderBoxes" id="introductionHeaderBox">
+      <h1 class="contentHeaders programmerFont">
         Receipt Analyzer
       </h1>
     </div>
@@ -131,8 +126,8 @@
     </div>
 
     <!-- HOME PAGE HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont">
         Home Page
       </h1>
     </div>
@@ -175,8 +170,8 @@
     </div>
 
     <!-- ADDING DATA HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont">
         Adding Data
       </h1>
     </div>
@@ -203,8 +198,8 @@
         </p>
       </div>
       <img class="contentImg" src="../assets/images/receipt_analyzer/add_data-menu.jpg" alt="">
-      <div class="standardFont contentTextBox">
-        <p class="contentText aftText">
+      <div class="standardFont contentTextBox aftText">
+        <p class="contentText">
           When entering data, some items are required to fill out, and others are optional. For example, fields such as
           the date are always mandatory, some fields are mandatory only if the user has a receipt, such as the purchase
           amount, and some fields are always optional, such as the employee name.
@@ -224,8 +219,8 @@
     </div>
 
     <!-- IGNORING DATA HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont">
         Ignoring Data
       </h1>
     </div>
@@ -259,8 +254,8 @@
     </div>
 
     <!-- APPENDING DATA HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont">
         Appending Data
       </h1>
     </div>
@@ -358,8 +353,8 @@
     </div>
 
     <!-- ANALYZING DATA HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont">
         Analyzing Data
       </h1>
     </div>
@@ -428,8 +423,8 @@
     </div>
 
     <!-- COMPARING DATA HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont">
         Comparing Data
       </h1>
     </div>
@@ -483,8 +478,8 @@
     </div>
 
     <!-- HANDLING ERRORS HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont">
         Handling Errors
       </h1>
     </div>
@@ -532,8 +527,8 @@
     </div>
 
     <!-- CONCLUSION HEADER -->
-    <div class="headerBoxes">
-      <h1 class="headers programmerFont">
+    <div class="contentHeaderBoxes">
+      <h1 class="contentHeaders programmerFont" id="receiptAnalyzerConclusionHeader">
         Conclusion
       </h1>
     </div>
@@ -541,38 +536,33 @@
     <!-- CONCLUSION TEXT -->
     <div class="contentBoxes">
       <div class="standardFont contentTextBox" id="receiptAnalyzerConclusion">
-        <p class="contentText">
-          This receipt analyzer represents the first brick laid in my programmatic journey, as because it was my first
-          real project, it marks the first time I had to think about how to structure a program, how to make it
+        <p class="contentText receiptAnalyzerConclusionText">
+          This receipt analyzer represents the first brick laid in my programmatic foundation, as because it was my
+          first real project, it marks the first time I had to think about how to structure a program, how to make it
           user-friendly, and how to make it look good.
         </p>
-        <p class="contentText">
-          But on a more personal note, it was also what made me realize that if I really wanted to stand out not just as
-          a student, or as a professional, but as a human being, I would have to do more than what I was doing, and I
-          would have to start questioning the ideas that I had been taught based on the results they had given me.
+        <p class="contentText receiptAnalyzerConclusionText">
+          But on a more personal note, it was also what made me realize that if I really wanted to stand out, not just
+          as a student, or as a professional, but as a human being, I would have to do more than what I was currently
+          doing, and I would have to start questioning the ideas that I had held based on the results they had given me.
         </p>
-        <p class="contentText">
-          I would need to start perfectly managing my human resources: no, binge-watching videos/TV/movies is not
-          productive; no, don't waste a single unit of precious mental energy on video games; no, don't doom-scroll
-          through social media for 2 hours; and no, don't stay up until 3 AM, go to bed.
-        </p>
-        <p class="contentText">
+        <p class="contentText receiptAnalyzerConclusionText">
           The strategies I learned when trying to juggle everything in life while working on this little project are
-          tools I still use as of writing, and without this project started when I was 21, who knows how long it would
-          have taken me to eventually learn them.
+          tools I still use as of writing, and without this project that I started when I was barely 21, who knows how
+          long it would have taken me to eventually learn them.
         </p>
-        <p class="contentText">
-          This software needs improvement. Python GUI's leave much to be desired, the code should not be only a handful
+        <p class="contentText receiptAnalyzerConclusionText">
+          This software needs improvement. Python GUI's leave much to be desired, the code should not only be a handful
           of files, my regex functions could probably be better, and my database was accidentally OPEN TO THE WI-FI
           NETWORK (I closed the ports after an absolute hero family friend n-mapped and found them, and I'm so thankful
           nobody in my building decided to punish me).
         </p>
-        <p class="contentText">
+        <p class="contentText receiptAnalyzerConclusionText">
           But I'm not deleting a single line of code. 'Receipt_Analyzer_3.0' taught me that if I need to do this again,
-          I'm capable of writing some more.
+          I'm perfectly capable of writing some more.
         </p>
-        <p class="fancyFont contentText" style="margin-top: 5%; text-align: center; font-size: 140%">
-          -Matthew Thomas Beck
+        <p class="programmerFont programmerTyping receiptAnalyzerConclusionText" id="receiptAnalyzerConclusionSignature">
+          printf("-Matthew Thomas Beck");
         </p>
       </div>
     </div>
