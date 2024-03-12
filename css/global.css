@@ -716,9 +716,12 @@ img {
 
     .contentTextBox {
 
+        justify-content: center;
+        align-content: center;
         width: 100%;
         margin-top: 5%;
-        opacity: 0;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .foreText {
@@ -749,8 +752,8 @@ img {
 
     /***** receipt_analyzer.html *****/
 
-    #receiptAnalyzerConclusionSignatureBox { /* FIXME when the text is white again */
+    #receiptAnalyzerConclusionSignatureBox {
 
-        /*width: 450px !important;*/
+        width: 270px !important;
     }
 }
