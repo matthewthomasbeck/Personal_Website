@@ -198,6 +198,39 @@
     transform: scale(1.05);
 }
 
+/********** STAMP ANIMATION **********/
+
+/***** stamp keyframes *****/
+
+@keyframes stampAnimation {
+
+    0% {
+
+        transform: scale(1);
+    }
+
+    100% {
+
+        transform: scale(0);
+    }
+}
+
+/***** stamp classes *****/
+
+.stamp-container {
+
+    position: relative;
+    aspect-ratio: 1/1;
+}
+
+.stamp {
+
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 100%;
+    animation: stampAnimation 1s ease-in-out;
+}
+
 
 
 
@@ -454,6 +487,8 @@ img {
 
 #pageTitleBox {
 
+    display: flex;
+    flex-direction: row;
     margin: 1%;
 }
 
