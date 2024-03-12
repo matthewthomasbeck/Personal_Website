@@ -547,6 +547,26 @@ img {
     width: 185px;
 }
 
+/***** jump back *****/
+
+#jumpBackBox {
+
+    aspect-ratio: 1/1;
+    height: 50px;
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: calc(2.5% + 20px);
+    background-color: transparent;
+    z-index: 998;
+}
+
+#jumpBackArrow {
+
+    opacity: 0.25;
+    transition: transform 0.3s ease-out;
+}
+
 /***** content boxes *****/
 
 .contentBoxes { /* used to hold content */
@@ -661,6 +681,11 @@ img {
 
     /***** adjust image sizes *****/
 
+    #jumpBackBox {
+
+        height: 40px;
+    }
+
     /***** adjust text *****/
 
     #pageTitleBox {
@@ -736,6 +761,11 @@ img {
     }
 
     /***** adjust image sizes *****/
+
+    #jumpBackBox {
+
+        height: 30px;
+    }
 
     .contentImg {
 
