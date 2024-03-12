@@ -549,7 +549,7 @@ img {
 
 /***** jump back *****/
 
-#jumpBackBox {
+#jumpUpBox {
 
     aspect-ratio: 1/1;
     height: 50px;
@@ -561,7 +561,7 @@ img {
     z-index: 998;
 }
 
-#jumpBackArrow {
+#jumpUpArrow {
 
     opacity: 0.25;
     transition: transform 0.3s ease-out;
@@ -756,7 +756,7 @@ img {
 
     .indexContent {
 
-        height: 10px;
+        height: 20px;
         width: 115px;
     }
 

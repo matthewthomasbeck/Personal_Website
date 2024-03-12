@@ -153,7 +153,11 @@ function popUp(element) { // used to inflate the project content
     if (elementImage) { // if there exists an element image...
 
         elementImage.style.transform = 'scale(1.05)'; // inflate the element image
-        elementImage.style.opacity = '1'; // set opacity to 1
+
+        if (elementImage.id === 'jumpUpArrow') { // if element is jumpUpBox...
+
+            elementImage.style.opacity = '1'; // set opacity to 1
+        }
     }
 
     if (elementAnchor) { // if there exists an element list item...
@@ -194,7 +198,11 @@ function popDown(element) { // used to deflate the project content
     if (elementImage) { // if there exists an element image...
 
         elementImage.style.transform = 'scale(1)'; // deflate the element image
-        elementImage.style.opacity = '0.25'; // set opacity to 0.25
+
+        if (elementImage.id === 'jumpUpArrow') { // if element is jumpUpBox...
+
+            elementImage.style.opacity = '0.25'; // set opacity to 0.25
+        }
     }
 
     if (elementAnchor) { // if there exists an element list item...
@@ -242,27 +250,27 @@ sectionHeaderLinks.forEach(function(link) { // loop through each link
 });
 
 
-/********** BACK TO START FUNCTION **********/
+/********** JUMP UP FUNCTION **********/
 
 window.onscroll = function() {scrollFunction()}; // create event listener for scrolling
 
-function scrollFunction() { // function used to jump back to the top
+function scrollFunction() { // function used to jump up to the top
 
     /***** set variables *****/
 
-    // activation point for jump back
+    // activation point for jump up
     const jumpBackTrigger = document.getElementsByClassName("jumpBackTrigger")[0].offsetTop;
-    let jumpBackBox = document.getElementById("jumpBackBox"); // set jump back div
+    let jumpUpBox = document.getElementById("jumpUpBox"); // set jump up div
 
-    /***** jump back to the top *****/
+    /***** jump up to the top *****/
 
     if (window.pageYOffset > jumpBackTrigger) { // if user has scrolled past trigger point...
 
-        jumpBackBox.style.display = "block"; // show the jump back div
+        jumpUpBox.style.display = "block"; // show the jump back div
     }
 
     else { // if user has not scrolled past trigger point...
 
-        jumpBackBox.style.display = "none"; // hide the jump back div
+        jumpUpBox.style.display = "none"; // hide the jump back div
     }
 }
