@@ -16,6 +16,20 @@
 /************************************************************/
 
 
+/********** IMPORT DEPENDENCIES **********/
+
+/***** import root colors *****/
+
+const rootStyles = getComputedStyle(document.documentElement); // primary colors for name colors
+
+
+/********** CREATE DEPENDENCIES **********/
+
+/***** create standard time interval *****/
+
+const TIME_INTERVAL = 250; // create time interval of 250 milliseconds
+
+
 
 
 
@@ -26,360 +40,285 @@
 
 /********** PORTRAIT SLIDESHOW **********/
 
-/***** create listener *****/
+/***** set variables *****/
 
-// when page loads...
-document.addEventListener("DOMContentLoaded", function () {
+const slides = document.querySelectorAll('.slide'); // select slide class elements
+let currentSlide = 0; // pre-initialize current slide as 0
 
-    /***** wait for animation to end *****/
+/***** create looping *****/
 
-    // wait for about me body box to load
-    setTimeout(function() {}, 5000);
+setTimeout(function() {}, (TIME_INTERVAL * 20)); // wait for about me body box to load
 
-    /***** initialize variables and process *****/
+showSlide(); // run slideshow initially
 
-    // select all elements of slide class and store them as slides
-    const slides = document.querySelectorAll('.slide');
+setInterval(function () { // function to move slides every 3 seconds
 
-    // pre-initialize current slide as 0
-    let currentSlide = 0;
+    // update current slide by incrementing it and taking modulus of number of slides
+    currentSlide = (currentSlide + 1) % slides.length;
 
-    // run slideshow initially
+    /***** set variables *****/
+
+    // find about me body box and set to variable
+    const aboutMeBodyBoxFirstTag = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')[0];
+
+    /***** change name color based on slide *****/
+
+    // if about me content has loaded...
+    if (aboutMeBodyBoxFirstTag.classList.contains('fadeIn') && aboutMeBodyBoxFirstTag.style.opacity !== '1') {
+
+        if (currentSlide === 0) { // if portrait 1...
+
+            // update name color
+            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-1');
+        }
+
+        else if (currentSlide === 1) { // if portrait 2...
+
+            // update name color
+            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-2');
+        }
+
+        else if (currentSlide === 2) { // if portrait 3...
+
+            // update name color
+            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-3');
+        }
+
+        else if (currentSlide === 3) { // if portrait 4...
+
+            // update name color
+            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-4');
+        }
+    }
+
+    // call showSlide to show new current slide
     showSlide();
 
-    /***** create looping *****/
+}, (TIME_INTERVAL * 12)); // run every 3 seconds
 
-    // function to move slides every 3 seconds
-    setInterval(function () {
+/***** hide/show slides *****/
 
-        // update current slide by incrementing it and taking modulus of number of slides
-        currentSlide = (currentSlide + 1) % slides.length;
+function showSlide() { // function to run slide show when called
 
-        // find about me body box and set to variable
-        const aboutMeBodyBoxFirstTag = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')[0];
+    for (let i = 0; i < slides.length; i++) { // loop through all slides to hide them
 
-        // if about me content has loaded...
-        if (
-            aboutMeBodyBoxFirstTag.classList.contains('fadeIn') &&
-            aboutMeBodyBoxFirstTag.style.opacity !== '1'
-        ) {
-
-            // if portrait 1...
-            if (currentSlide === 0) {
-
-                // update name color
-                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-1');
-            }
-
-            // if portrait 2...
-            else if (currentSlide === 1) {
-
-                // update name color
-                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-2');
-            }
-
-            // if portrait 3...
-            else if (currentSlide === 2) {
-
-                // update name color
-                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-3');
-            }
-
-            // if portrait 4...
-            else if (currentSlide === 3) {
-
-                // update name color
-                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-4');
-            }
-        }
-
-        // call showSlide to show new current slide
-        showSlide();
-    }, 3000);
-
-    /***** hide/show slides *****/
-
-    // function to run slide show when called
-    function showSlide() {
-
-        // loop through all slides to hide them
-        for (let i = 0; i < slides.length; i++) {
-
-            // hide current slide
-            slides[i].style.display = 'none';
-        }
-
-        // display current slide
-        slides[currentSlide].style.display = 'block';
+        slides[i].style.display = 'none'; // hide current slide
     }
-});
+
+    slides[currentSlide].style.display = 'block'; // display current slide
+}
 
 
 /********** ANIMATION TRIGGER **********/
 
-/***** create listener *****/
+/***** set variables *****/
 
-// when pages loads...
-document.addEventListener("DOMContentLoaded", function () {
+// find all headers that use programmer typing and set to variable
+const programmingHeadersAnimate = document.getElementsByClassName('programmerTyping');
 
-    // initialize intersection observer
-    const programmerTypingObserver = new IntersectionObserver(entries => {
+/***** animate programmer typing headers *****/
 
-        // go through each header with programmer typing
-        entries.forEach(entry => {
+// initialize intersection observer
+const programmerTypingObserver = new IntersectionObserver(entries => {
 
-            /***** trigger programmer typing animation *****/
+    entries.forEach(entry => { // go through each header with programmer typing
 
-            // if header is in view...
-            if (entry.isIntersecting) {
+        if (entry.isIntersecting) { // if header is in view...
 
-                // trigger programmer typing animation
-                entry.target.classList.add('animateProgrammerTyping');
+            entry.target.classList.add('animateProgrammerTyping'); // trigger programmer typing animation
+
+            /***** trigger fade in animation *****/
+
+            const currentID = entry.target.id; // find current id and store as variable
+
+            if (currentID === 'aboutMeHeader') { // if current id about me header...
+
+                // select all body tags
+                const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p');
+
+                for (let i = 0; i < aboutMeBodyBoxTags.length; i++) { // loop through about me body box content
+
+                    setTimeout(function(pTag) { // add animations to each p tag with delay
+
+                        pTag.classList.add('fadeIn'); // add animations to p tag
+
+                    }, i * TIME_INTERVAL, aboutMeBodyBoxTags[i]); // add delay to each p tag
+                }
+
+                document.getElementById('name').classList.add('fadeInName'); // additional content fade in
+            }
+
+            else if (currentID === 'skillSetHeader') { // if current id skill set header...
+
+                /***** set variables *****/
+
+                // find skills elements class and set to variable
+                const skills = document.getElementsByClassName('skills');
 
                 /***** trigger fade in animation *****/
 
-                // find current id and store as variable
-                const currentID = entry.target.id;
+                for (let i = 0; i < skills.length; i++) { // loop through all skills to apply fade in update
 
-                // if current id about me header...
-                if (currentID === 'aboutMeHeader') {
+                    setTimeout(function(skill) { // add animations to each skill with delay
 
-                    // trigger fade in for additional content
-                    const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p');
+                        skill.classList.add('fadeIn'); // add animations to skill
 
-                    // loop though all content in about me body box
-                    for (let i = 0; i < aboutMeBodyBoxTags.length; i++) {
-
-                        // add animations to each p tag with delay
-                        setTimeout(function(pTag) {
-
-                            // add animations to p tag
-                            pTag.classList.add('fadeIn');
-                        }, i * 250, aboutMeBodyBoxTags[i]);
-                    }
-
-                    // trigger fade in for additional content
-                    document.getElementById('name').classList.add('fadeInName');
+                    }, i * TIME_INTERVAL, skills[i]); // add delay to each p tag
                 }
-
-                // if current id skill set header...
-                else if (currentID === 'skillSetHeader') {
-
-                    // find skills elements class and set to variable
-                    const skills = document.getElementsByClassName('skills');
-
-                    // loop through all skills to apply fade in update
-                    for (let i = 0; i < skills.length; i++) {
-
-                        // add animations to each skill with delay
-                        setTimeout(function(skill) {
-
-                            // add animations to skill
-                            skill.classList.add('fadeIn');
-                        }, i * 250, skills[i]);
-                    }
-                }
-
-                // if current id project info header...
-                else if (currentID === 'projectsInfoHeader') {
-
-                    // find projects elements class and set to variable
-                    const projects = document.getElementsByClassName('projects');
-
-                    // loop through all projects to apply fade in update
-                    for (let i = 0; i < projects.length; i++) {
-
-                        // add animations to each project
-                        projects[i].classList.add('fadeIn', 'popUp');
-
-                        // add pop up to each project title
-                        projects[i].getElementsByTagName('h1')[0].classList.add('popUp');
-
-                        // add pop up to each project img
-                        projects[i].getElementsByTagName('img')[0].classList.add('popUp');
-                    }
-
-                    // trigger fade in for additional content
-                    document.getElementById('projectsInfoName').classList.add('fadeIn');
-
-                    // add animations to body with delay
-                    setTimeout(function() {
-
-                        // trigger fade in for additional content
-                        document.getElementById('projectsInfoBody').classList.add('fadeIn');
-                    }, 250);
-                }
-
-                // if current id contact me header...
-                else if (currentID === 'contactMeHeader') {
-
-                    // find contacts elements class and set to variable
-                    const contacts = document.getElementsByClassName('contacts');
-
-                    // loop through all contacts to apply fade in update
-                    for (let i = 0; i < contacts.length; i++) {
-
-                        // add animations to each contact with a delay
-                        setTimeout(function(contact) {
-
-                            // add animations to contact
-                            contact.classList.add('fadeIn', 'popUp');
-                        }, i * 250, contacts[i]);
-
-                        // add pop up to each contact title
-                        contacts[i].getElementsByTagName('h2')[0].classList.add('popUp');
-
-                        // add pop up to each contact img
-                        contacts[i].getElementsByTagName('img')[0].classList.add('popUp');
-                    }
-                }
-
-                // remove observer once completed
-                programmerTypingObserver.unobserve(entry.target);
             }
-        });
-    }, { threshold: 0.5 });
 
-    /***** create header observers *****/
+            else if (currentID === 'projectsInfoHeader') { // if current id project info header...
 
-    // find all headers that use programmer typing and set to variable
-    const programmingHeaders = document.getElementsByClassName('programmerTyping');
+                /***** set variables *****/
 
-    // loop through programmer typing headers
-    for (let i = 0; i < programmingHeaders.length; i++) {
+                // find projects elements class and set to variable
+                const projects = document.getElementsByClassName('projects');
 
-        // observe each header
-        programmerTypingObserver.observe(programmingHeaders[i]);
-    }
-});
+                /***** trigger fade in animation *****/
+
+                for (let i = 0; i < projects.length; i++) { // loop through projects to apply fade in update
+
+                    projects[i].classList.add('fadeIn', 'popUp'); // add animations to each project
+
+                    projects[i].getElementsByTagName('h1')[0].classList.add('popUp'); // pop up to title
+
+                    projects[i].getElementsByTagName('img')[0].classList.add('popUp'); // add pop up to img
+                }
+
+                // additional content fade in
+                document.getElementById('projectsInfoName').classList.add('fadeIn');
+
+                setTimeout(function() { // add animations to body with delay
+
+                    // trigger fade in for additional content
+                    document.getElementById('projectsInfoBody').classList.add('fadeIn');
+
+                }, TIME_INTERVAL); // add delay to body
+            }
+
+            else if (currentID === 'contactMeHeader') { // if current id contact me header...
+
+                /***** set variables *****/
+
+                // find contacts elements class and set to variable
+                const contacts = document.getElementsByClassName('contacts');
+
+                /***** trigger fade in animation *****/
+
+                for (let i = 0; i < contacts.length; i++) { // loop through contacts to apply fade in update
+
+                    setTimeout(function(contact) { // add animations to each contact with a delay
+
+                        contact.classList.add('fadeIn', 'popUp'); // add animations to contact
+
+                    }, i * TIME_INTERVAL, contacts[i]); // add delay to each contact
+
+                    contacts[i].getElementsByTagName('h2')[0].classList.add('popUp'); // pop up to title
+
+                    contacts[i].getElementsByTagName('img')[0].classList.add('popUp'); // pop up to img
+                }
+            }
+
+            programmerTypingObserver.unobserve(entry.target); // remove observer once completed
+        }
+    });
+}, { threshold: 1 }); // element must be 100% in view to trigger animation
+
+/***** create header observers *****/
+
+for (let i = 0; i < programmingHeadersAnimate.length; i++) { // loop through programmer typing headers
+
+    programmerTypingObserver.observe(programmingHeadersAnimate[i]); // observe each header
+}
 
 
 /********** PROGRAMMER TEXT **********/
 
-/***** create listener *****/
+/***** set variables *****/
 
-// when page loads...
-document.addEventListener("DOMContentLoaded", function () {
+// find all headers that use the programmer typing animation
+const programmingHeadersReplace = document.getElementsByClassName('programmerTyping');
 
-    /***** append header text *****/
+/***** append programmer typing text *****/
 
-    // find all headers that use the programmer typing animation
-    const programmingHeaders = document.getElementsByClassName('programmerTyping');
+for (let i = 0; i < programmingHeadersReplace.length; i++) { // loop through headers using programmer typing
 
-    // loop through each header that uses the programmer typing
-    for (let i = 0; i < programmingHeaders.length; i++) {
+    // once programmer typing animation terminates...
+    programmingHeadersReplace[i].addEventListener('animationend', function(event) {
 
-        // once programmer typing animation terminates...
-        programmingHeaders[i].addEventListener('animationend', function(event) {
+        /***** set variables *****/
 
-            /***** replace text content *****/
+        let replacementText = document.createElement('h3'); // create replacement element
+        let currentID = event.target.id; // find current id
 
-            // create replacement span element
-            let replacementText = document.createElement('h3');
+        /***** replace text content *****/
 
-            // find current id
-            let currentID = event.target.id;
+        if (currentID === 'navBarName') { // if current id nav bar name...
 
-            // if current id nav bar name...
-            if (currentID === 'navBarName') {
+            replacementText = document.createElement('p'); // set replacementText to p tag
 
-                // set replacementText to p tag
-                replacementText = document.createElement('p');
+            replacementText.textContent = "Matthew Thomas Beck"; // set replacement span content
 
-                // set replacement span content
-                replacementText.textContent = "Matthew Thomas Beck";
+            replacementText.style.fontSize = '140%'; // adjust font size for proper scaling
+        }
 
-                // adjust font size for proper scaling
-                replacementText.style.fontSize = '140%';
-            }
+        if (currentID === 'aboutMeHeader') { // if current id about me header...
 
-            // if current id about me header...
-            if (currentID === 'aboutMeHeader') {
+            replacementText.textContent = "Hello There"; // set replacement span content
+        }
 
-                // set replacement span content
-                replacementText.textContent = "Hello There";
-            }
+        else if (currentID === 'skillSetHeader') { // if current id my skills header...
 
-            // if current id my skills header...
-            else if (currentID === 'skillSetHeader') {
+            replacementText.textContent = "So, What Am I Good At?"; // set replacement span content
+        }
 
-                // set replacement span content
-                replacementText.textContent = "So, What Am I Good At?";
-            }
+        else if (currentID === 'projectsInfoHeader') { // if current id projects header...
 
-            // if current id projects header...
-            else if (currentID === 'projectsInfoHeader') {
+            replacementText.textContent = "My Projects:"; // set replacement span content
+        }
 
-                // set replacement span content
-                replacementText.textContent = "My Projects:";
-            }
+        else if (currentID === 'contactMeHeader') { // if current id contact me header...
 
-            // if current id contact me header...
-            else if (currentID === 'contactMeHeader') {
+            replacementText.textContent = "Contact Me!"; // set replacement span content
+        }
 
-                // set replacement span content
-                replacementText.textContent = "Contact Me!";
-            }
+        replacementText.classList.add('fancyFont'); // apply fancy font to span content
 
-            // apply fancy font to span content
-            replacementText.classList.add('fancyFont');
+        event.target.innerHTML = ""; // replace old span with replacement span
 
-            // replace old span with replacement span
-            event.target.innerHTML = "";
+        event.target.style.borderRightWidth = '0px'; // remove old right border
 
-            // remove old right border
-            event.target.style.borderRightWidth = '0px';
+        event.target.style.margin = '0px'; // change margin
 
-            // change margin
-            event.target.style.margin = '0px';
-
-            // commit changes to header
-            event.target.appendChild(replacementText);
-        });
-    }
-});
-
+        event.target.appendChild(replacementText); // commit changes to header
+    });
+}
 
 
 /********** PROJECTS WHEEL **********/
 
-/***** initialize variables *****/
+/***** set variables *****/
 
-// find projects scroll and store as variable
-const projectsWheel = document.getElementById('projectsWheel');
+const projectsWheel = document.getElementById('projectsWheel'); // projects scroll
+const projectsBackground = document.getElementById('projectsBackground'); // projects background
+const projectsInfoName = document.getElementById('projectsInfoName'); // name of project
+const projectsInfoBody = document.getElementById('projectsInfoBody'); // content of project
 
-// find projects background and store as variable
-const projectsBackground = document.getElementById('projectsBackground');
+/***** create scroll wheel *****/
 
-// find name of project and store as variable
-const projectsInfoName = document.getElementById('projectsInfoName');
+projectsWheel.addEventListener('scroll', function() { // when scroll takes place in projectsWheel...
 
-// find content of project and store as variable
-const projectsInfoBody = document.getElementById('projectsInfoBody')
+    /***** set variables *****/
 
-/***** create listener *****/
-
-// when scroll event takes place in projectsWheel...
-projectsWheel.addEventListener('scroll', function() {
-
-    /***** scroll wheel *****/
-
-    // update div based on scroll position
-    let scrollPosition = projectsWheel.scrollLeft;
-
-    // get the width of a project class item
-    let itemWidth = document.querySelector('.projects').offsetWidth * 2;
-
-    // calculate index of currently visible item based on scroll position and item width
-    let currentItem = Math.round(scrollPosition / itemWidth);
+    let scrollPosition = projectsWheel.scrollLeft; // update div based on scroll position
+    let itemWidth = document.querySelector('.projects').offsetWidth * 2; // width of a project item
+    let currentItem = Math.round(scrollPosition / itemWidth); // index of visible item based on position
 
     /***** replace project info *****/
 
-    // info for machine learning portfolio
-    if (currentItem === 0) {
+    if (currentItem === 0) { // if current item machine learning portfolio...
 
-        // set title
-        projectsInfoName.textContent = "Machine Learning Portfolio";
+        projectsInfoName.textContent = "Machine Learning Portfolio"; // set title
 
         // set content from .txt
         projectsInfoBody.textContent = 'Using a Raspberry Pi 4B, a Coral TPU, TensorFlow, an Nginx web server, and a ' +
@@ -388,11 +327,9 @@ projectsWheel.addEventListener('scroll', function() {
             'IS NOT FINANCIAL ADVICE)';
     }
 
-    // info for athena
-    else if (currentItem === 1) {
+    else if (currentItem === 1) { // if current item athena...
 
-        // set title
-        projectsInfoName.textContent = "Project Athena";
+        projectsInfoName.textContent = "Project Athena"; // set title
 
         // set content from .txt
         projectsInfoBody.textContent = "Athena is an upcoming robotic dog project in which I will create a 'brain' " +
@@ -400,11 +337,9 @@ projectsWheel.addEventListener('scroll', function() {
             "robotic dog to somewhat think for itself";
     }
 
-    // info for receipt analyzer
-    else if (currentItem === 2) {
+    else if (currentItem === 2) { // if current item receipt analyzer...
 
-        // set title
-        projectsInfoName.textContent = "Receipt Analyzer";
+        projectsInfoName.textContent = "Receipt Analyzer"; // set title
 
         // set content from .txt
         projectsInfoBody.textContent = "I built a Python app that uses Custom TKinter, Matplotlib, Psycopg2, and a " +
@@ -412,11 +347,9 @@ projectsWheel.addEventListener('scroll', function() {
             "the early days of university";
     }
 
-    // info for personal website
-    else if (currentItem === 3) {
+    else if (currentItem === 3) { // if current item personal website...
 
-        // set title
-        projectsInfoName.textContent = "Personal Website";
+        projectsInfoName.textContent = "Personal Website"; // set title
 
         // set content from .txt
         projectsInfoBody.textContent = "This very page you're looking at! Fun fact, I made this website in 4 days " +
@@ -424,18 +357,13 @@ projectsWheel.addEventListener('scroll', function() {
             "quickly was thoughtfully crafted Google and ChatGPT queries, prior knowledge in Java, and black coffee";
     }
 
-    // info for video editor
-    else if (currentItem === 4) {
+    else if (currentItem === 4) { // if current item video editor...
 
-        // set title
-        projectsInfoName.textContent = "Video Editor";
+        projectsInfoName.textContent = "Video Editor"; // set title
 
         // set content from .txt
         projectsInfoBody.textContent = "As Adobe Premiere Pro did not have any kind of API I could use to edit my " +
             "videos automatically (at the time of writing), I created a script that primarily uses PyAutoGUI to " +
             "control my screen and edit videos for me";
     }
-
-    // log current item in index for debugging
-    console.log("Current Item:", currentItem);
 });

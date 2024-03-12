@@ -16,6 +16,13 @@
 /************************************************************/
 
 
+/********** CREATE DEPENDENCIES **********/
+
+/***** create standard time interval *****/
+
+const TIME_INTERVAL = 250; // create time interval of 250 milliseconds
+
+
 
 
 
@@ -26,121 +33,101 @@
 
 /********** FADE IN ANIMATION **********/
 
-/***** create listener *****/
+/***** set variables *****/
 
-// run code when page loads
-document.addEventListener("DOMContentLoaded", function () {
+// find conclusion header
+const conclusionHeader = document.getElementById('receiptAnalyzerConclusionHeaderBox');
 
-    // initialize intersection observer for conclusion header
-    const conclusionHeaderObserver = new IntersectionObserver(entries => {
+/***** animate conclusion *****/
 
-        // loop through each entry
-        entries.forEach(entry => {
+// initialize intersection observer for conclusion header
+const conclusionHeaderObserver = new IntersectionObserver(entries => {
 
-            // if conclusion header is intersecting...
-            if (entry.isIntersecting) {
+    entries.forEach(entry => { // loop through each entry
 
-                // get content text
-                const conclusionTags = document.getElementById('receiptAnalyzerConclusion').getElementsByTagName('p');
+        if (entry.isIntersecting) { // if conclusion header is intersecting...
 
-                // animate content text
-                for (let i = 0; i < (conclusionTags.length - 1); i++) {
+            /***** set variables *****/
 
-                    // set timeout for cascading effect
-                    setTimeout(function(pTag) {
+            // get content text
+            const conclusionTags = document.getElementById('receiptAnalyzerConclusionBox').getElementsByTagName('p');
 
-                        // add fade in effect
-                        pTag.classList.add('fadeIn');
+            /***** animate conclusion content *****/
 
-                    }, i * 250, conclusionTags[i]);
-                }
+            for (let i = 0; i < (conclusionTags.length - 1); i++) { // animate content text
 
-                // remove observer once completed
-                conclusionHeaderObserver.unobserve(entry.target);
+                setTimeout(function(pTag) { // set timeout for cascading effect
+
+                    pTag.classList.add('fadeIn'); // add fade in effect
+
+                }, i * TIME_INTERVAL, conclusionTags[i]); // set timeout for cascading effect
             }
-        });
-    }, { threshold: 0.5 });
 
-    /***** create conclusion header observer *****/
+            conclusionHeaderObserver.unobserve(entry.target); // remove observer once completed
+        }
+    });
+}, { threshold: 1 }); // element must be 100% visible to trigger observer
 
-    // create conclusion header observer
-    const conclusionHeader = document.getElementById('receiptAnalyzerConclusionHeader');
+/***** create conclusion header observer *****/
 
-    // if conclusion header exists...
-    if (conclusionHeader) {
+if (conclusionHeader) { // if conclusion header exists...
 
-        // observe conclusion header
-        conclusionHeaderObserver.observe(conclusionHeader);
-    }
-});
+    conclusionHeaderObserver.observe(conclusionHeader); // observe conclusion header
+}
 
 
 /********** PROGRAMMER TYPING SIGNATURE **********/
 
-// run code when page loads
-document.addEventListener("DOMContentLoaded", function () {
+/***** set variables *****/
 
-    /***** create constants to observe *****/
-
-    // find final tag
-    const finalTag = document.getElementById('receiptAnalyzerConclusion').getElementsByTagName('p')[4];
+// find final tag
+const finalTag = document.getElementById('receiptAnalyzerConclusionBox').getElementsByTagName('p')[4];
 
 // get content signature box text
-    const conclusionSignatureBox = document.getElementById('receiptAnalyzerConclusionSignature')
+const conclusionSignatureBox = document.getElementById('receiptAnalyzerConclusionSignature')
 
-    /***** observe last fade in *****/
+/***** observe last fade in *****/
 
-    // add event listener for fade in
-    finalTag.addEventListener('animationend', function(event) {
+// add event listener for fade in
+finalTag.addEventListener('animationend', function(event) {
 
-        // add programmer typing animation to signature box once all other animations are complete
-        setTimeout(function(signatureBox) {
+    setTimeout(function(signatureBox) { // set timeout for programmer typing effect
 
-            // make signature box visible
-            signatureBox.style.color = 'white';
+        signatureBox.style.color = 'white'; // make signature box visible
 
-            // add programmer typing animation to signature box
-            signatureBox.classList.add('programmerTyping');
+        signatureBox.classList.add('programmerTyping'); // add programmer typing animation to signature box
 
-            // add animate programmer typing animation to signature box
-            signatureBox.classList.add('animateProgrammerTyping');
+        signatureBox.classList.add('animateProgrammerTyping'); // add programmer typing animation to signature box
 
-            // adjust font size
-            signatureBox.style.fontSize = '100%';
+        signatureBox.style.fontSize = '100%'; // adjust font size
 
-        }, 250, conclusionSignatureBox);
-    });
+    }, TIME_INTERVAL, conclusionSignatureBox); // set timeout for programmer typing effect
+});
 
-    /***** observe programmer typing end *****/
+/***** observe programmer typing end *****/
 
-    // add event listener for programmer typing
-    conclusionSignatureBox.addEventListener('animationend', function(event) {
+// add event listener for programmer typing
+conclusionSignatureBox.addEventListener('animationend', function(event) {
 
-        // create replacement span element
-        let replacementText = document.createElement('p');
+    /***** set variables *****/
 
-        // set replacement span content
-        replacementText.textContent = "- Matthew Thomas Beck";
+    let replacementText = document.createElement('p'); // create replacement element
 
-        // adjust margin
-        replacementText.style.margin = '0px';
+    /***** replace signature content *****/
 
-        // adjust text align
-        replacementText.style.textAlign = 'center';
+    replacementText.textContent = "- Matthew Thomas Beck"; // set replacement span content
 
-        // adjust font size for proper scaling
-        replacementText.style.fontSize = '130%';
+    replacementText.style.margin = '0px'; // adjust margin
 
-        // apply fancy font to span content
-        replacementText.classList.add('fancyFont');
+    replacementText.style.textAlign = 'center'; // adjust text align
 
-        // replace old span with replacement span
-        event.target.innerHTML = "";
+    replacementText.style.fontSize = '130%'; // adjust font size for proper scaling
 
-        // remove old right border
-        event.target.style.borderRightWidth = '0px';
+    replacementText.classList.add('fancyFont'); // apply fancy font to span content
 
-        // commit changes to header
-        event.target.appendChild(replacementText);
-    });
+    event.target.innerHTML = ""; // replace old span with replacement span
+
+    event.target.style.borderRightWidth = '0px'; // remove old right border
+
+    event.target.appendChild(replacementText); // commit changes to header
 });

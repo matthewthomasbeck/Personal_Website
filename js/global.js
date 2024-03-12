@@ -16,14 +16,6 @@
 /************************************************************/
 
 
-/********** IMPORT COLORS **********/
-
-/***** import root colors *****/
-
-// grab primary colors for use in name color changing
-const rootStyles = getComputedStyle(document.documentElement);
-
-
 
 
 
@@ -34,16 +26,13 @@ const rootStyles = getComputedStyle(document.documentElement);
 
 /********** NAV BAR NAME POSITIONING **********/
 
-/***** find options and name widths *****/
+/***** set variables *****/
 
-// get the options button element
-const navBarOptionsButton = document.getElementById('navBarOptionsButton');
+const navBarOptionsButton = document.getElementById('navBarOptionsButton'); // options button
 
-// get width of the options button
+// get width of options button
 const optionsWidth = navBarOptionsButton.offsetWidth + parseInt(getComputedStyle(navBarOptionsButton).marginLeft);
-
-// get with of the name box
-const nameWidth = document.getElementById('navBarNameBox').offsetWidth;
+const nameWidth = document.getElementById('navBarNameBox').offsetWidth; // get with of name box
 
 /***** find margins based on auto minus width of options button and name *****/
 
@@ -54,131 +43,33 @@ document.getElementById('navBarNameBox').style.marginLeft = 'calc(50% - ' + (opt
 document.getElementById('navBarNameBox').style.marginRight = 'calc(50% - ' + (nameWidth / 2) + 'px)';
 
 
-/********** NAV BAR NAME ANIMATION TRIGGER **********/
-
-/***** create listener *****/
-
-// run code when page loads
-document.addEventListener("DOMContentLoaded", function () {
-
-    // initialize intersection observer
-    const programmerTypingObserver = new IntersectionObserver(entries => {
-
-        // go through each header with programmer typing
-        entries.forEach(entry => {
-
-            /***** trigger programmer typing animation *****/
-
-            // if header is in view...
-            if (entry.isIntersecting) {
-
-                // trigger programmer typing animation
-                entry.target.classList.add('animateProgrammerTyping');
-
-                /***** trigger fade in animation *****/
-
-                    // find current id and store as variable
-                let currentID = entry.target.id;
-
-                // if current id about me header...
-                if (currentID === 'aboutMeHeader') {
-
-                    // trigger fade in for additional content
-                    const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')
-
-                    // loop though all content in about me body box
-                    for (let i = 0; i < aboutMeBodyBoxTags.length; i++) {
-
-                        // add animations to each p tag with delay
-                        setTimeout(function(pTag) {
-
-                            // add animations to p tag
-                            pTag.classList.add('fadeIn');
-                        }, i * 250, aboutMeBodyBoxTags[i]);
-                    }
-
-                    // trigger fade in for additional content
-                    document.getElementById('name').classList.add('fadeInName');
-                }
-
-                // if current id some other element
-                else {
-
-                    // do nothing (placeholder for later)
-                }
-
-                // remove observer once completed
-                programmerTypingObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    /***** create header observers *****/
-
-        // find all headers that use programmer typing and set to variable
-    const programmingHeaders = document.getElementsByClassName('programmerTyping');
-
-    // loop through programmer typing headers
-    for (let i = 0; i < programmingHeaders.length; i++) {
-
-        // observe each header
-        programmerTypingObserver.observe(programmingHeaders[i]);
-    }
-});
-
-
 /********** NAV BAR NAME PROGRAMMER TEXT **********/
 
-/***** create listener *****/
+/***** set variables *****/
 
-// run code when page loads
-document.addEventListener("DOMContentLoaded", function () {
+const navBarName = document.getElementById('navBarName'); // find nav bar name
 
-    /***** append skill box header text *****/
+/***** replace text content *****/
 
-    // find all headers that use the programmer typing animation
-    const programmingHeaders = document.getElementsByClassName('programmerTyping');
+navBarName.addEventListener('animationend', function(event) { // once programmer typing animation ends...
 
-    // loop through each header that uses the programmer typing
-    for (let i = 0; i < programmingHeaders.length; i++) {
+    /***** set variables *****/
 
-        // once programmer typing animation terminates...
-        programmingHeaders[i].addEventListener('animationend', function(event) {
+    const replacementText = document.createElement('p'); // set replacementText
 
-            /***** replace text content *****/
+    /***** replace text content *****/
 
-            // create replacement span element
-            let replacementText = document.createElement('h3');
+    replacementText.textContent = "Matthew Thomas Beck"; // set replacement span content
 
-            // find current id
-            let currentID = event.target.id;
+    replacementText.style.fontSize = '140%'; // adjust font size for proper scaling
 
-            // if current id nav bar name...
-            if (currentID === 'navBarName') {
+    replacementText.classList.add('fancyFont'); // apply fancy font to span content
 
-                // set replacementText to p tag
-                replacementText = document.createElement('p');
+    event.target.innerHTML = ""; // replace old span with replacement span
 
-                // set replacement span content
-                replacementText.textContent = "Matthew Thomas Beck";
+    event.target.style.borderRightWidth = '0px'; // remove old right border
 
-                // adjust font size for proper scaling
-                replacementText.style.fontSize = '140%';
-            }
-
-            // apply fancy font to span content
-            replacementText.classList.add('fancyFont');
-
-            // replace old span with replacement span
-            event.target.innerHTML = "";
-
-            // remove old right border
-            event.target.style.borderRightWidth = '0px';
-
-            // commit changes to header
-            event.target.appendChild(replacementText);
-        });
-    }
+    event.target.appendChild(replacementText); // commit changes to header
 });
 
 
@@ -189,23 +80,20 @@ document.addEventListener("DOMContentLoaded", function () {
 // create event listener for options button
 document.getElementById('navBarOptionsButton').addEventListener('click', function() {
 
-    // select the options button and set to variable
+    /***** set variables *****/
+
+    // options button
     const navBarOptionsButtonBox = document.getElementById('navBarOptionsButton');
+    const navBarOptionsBox = document.getElementById('navBarOptionsBox'); // options box
+    const navBarOptionsDimmer = document.getElementById('navBarOptionsDimmer'); // options dimmer
 
-    // select the options box and set to variable
-    const navBarOptionsBox = document.getElementById('navBarOptionsBox');
+    /***** rotate options button *****/
 
-    // select the options dimmer and set to variable
-    const navBarOptionsDimmer = document.getElementById('navBarOptionsDimmer');
+    navBarOptionsButtonBox.classList.toggle('rotateNavBarOptionsButton'); // toggle rotation of options button
 
-    // toggle the rotation of the options button
-    navBarOptionsButtonBox.classList.toggle('rotateNavBarOptionsButton');
+    navBarOptionsBox.classList.toggle('showNavBarOptionsBox'); // toggle visibility of options box
 
-    // toggle the visibility of the options box
-    navBarOptionsBox.classList.toggle('showNavBarOptionsBox');
-
-    // toggle the visibility of the options dimmer
-    navBarOptionsDimmer.classList.toggle('showNavBarOptionsDimmer');
+    navBarOptionsDimmer.classList.toggle('showNavBarOptionsDimmer'); // toggle visibility of options dimmer
 });
 
 
@@ -216,116 +104,125 @@ document.getElementById('navBarOptionsButton').addEventListener('click', functio
 // create event listener for options dimmer
 document.getElementById('navBarOptionsDimmer').addEventListener('click', function() {
 
-    // select the options button and set to variable
+    /***** set variables *****/
+
+    // options button
     const navBarOptionsButtonBox = document.getElementById('navBarOptionsButton');
+    const navBarOptionsBox = document.getElementById('navBarOptionsBox'); // options box
+    const navBarOptionsDimmer = document.getElementById('navBarOptionsDimmer'); // options dimmer
 
-    // select the options box and set to variable
-    const navBarOptionsBox = document.getElementById('navBarOptionsBox');
+    /***** remove dimmer *****/
 
-    // select the options dimmer and set to variable
-    const navBarOptionsDimmer = document.getElementById('navBarOptionsDimmer');
+    navBarOptionsButtonBox.classList.remove('rotateNavBarOptionsButton'); // remove rotation of options button
 
-    // remove the rotation of the options button
-    navBarOptionsButtonBox.classList.remove('rotateNavBarOptionsButton');
+    navBarOptionsBox.classList.remove('showNavBarOptionsBox'); // remove visibility of options box
 
-    // remove the visibility of the options box
-    navBarOptionsBox.classList.remove('showNavBarOptionsBox');
-
-    // remove the visibility of the options dimmer
-    navBarOptionsDimmer.classList.remove('showNavBarOptionsDimmer');
+    navBarOptionsDimmer.classList.remove('showNavBarOptionsDimmer'); // remove visibility of options dimmer
 });
 
 
-/********** POP UP ANIMATION **********/
+/********** POP UP FUNCTION **********/
 
-/***** pop up function *****/
+function popUp(element) { // used to inflate the project content
 
-// used to inflate the project content
-function popUp(element) {
+    /***** set variables *****/
 
-    // select header and set to variable
-    const elementHeaderOne = element.getElementsByTagName('h1')[0];
+    const elementHeaderOne = element.getElementsByTagName('h1')[0]; // select header and set to variable
+    const elementHeaderTwo = element.getElementsByTagName('h2')[0]; // select header and set to variable
+    const elementImage = element.getElementsByTagName('img')[0]; // select image and set to variable
+    const elementText = element.getElementsByTagName('p')[0]; // select text and set to variable
 
-    // select header and set to variable
-    const elementHeaderTwo = element.getElementsByTagName('h2')[0];
+    /***** pop up the element *****/
 
-    // select image and set to variable
-    const elementImage = element.getElementsByTagName('img')[0];
+    if (elementHeaderOne) { // if there exists element header...
 
-    // select text and set to variable
-    const elementText = element.getElementsByTagName('p')[0];
-
-    // if there exists element header...
-    if (elementHeaderOne) {
-
-        // inflate the element header
-        elementHeaderOne.style.transform = 'scale(1.05)';
+        elementHeaderOne.style.transform = 'scale(1.05)'; // inflate the element header
     }
 
-    // if there exists element header...
-    if (elementHeaderTwo) {
+    if (elementHeaderTwo) { // if there exists element header...
 
-        // inflate the element header
-        elementHeaderTwo.style.transform = 'scale(1.05)';
+        elementHeaderTwo.style.transform = 'scale(1.05)'; // inflate the element header
     }
 
-    // if there exists an element text...
-    if (elementText) {
+    if (elementText) { // if there exists an element text...
 
-        // inflate the element text
-        elementText.style.transform = 'scale(1.05)';
+        elementText.style.transform = 'scale(1.05)'; // inflate the element text
     }
 
-    // if there exists an element image...
-    if (elementImage) {
+    if (elementImage) { // if there exists an element image...
 
-        // inflate the element image
-        elementImage.style.transform = 'scale(1.05)';
+        elementImage.style.transform = 'scale(1.05)'; // inflate the element image
     }
 }
 
-/***** pop down function *****/
+/********** POP DOWN FUNCTION **********/
 
-// used to deflate the project content
-function popDown(element) {
+function popDown(element) { // used to deflate the project content
 
-    // select header and set to variable
-    const elementHeaderOne = element.getElementsByTagName('h1')[0];
+    /***** set variables *****/
 
-    // select header and set to variable
-    const elementHeaderTwo = element.getElementsByTagName('h2')[0];
+    const elementHeaderOne = element.getElementsByTagName('h1')[0]; // select header and set to variable
+    const elementHeaderTwo = element.getElementsByTagName('h2')[0]; // select header and set to variable
+    const elementText = element.getElementsByTagName('p')[0]; // select text and set to variable
+    const elementImage = element.getElementsByTagName('img')[0]; // select image and set to variable
 
-    // select text and set to variable
-    const elementText = element.getElementsByTagName('p')[0];
+    /***** pop down the element *****/
 
-    // select image and set to variable
-    const elementImage = element.getElementsByTagName('img')[0];
+    if (elementHeaderOne) { // if there exists element header...
 
-    // if there exists element header...
-    if (elementHeaderOne) {
-
-        // deflate the element header
-        elementHeaderOne.style.transform = 'scale(1)';
+        elementHeaderOne.style.transform = 'scale(1)'; // deflate the element header
     }
 
-    // if there exists element header...
-    if (elementHeaderTwo) {
+    if (elementHeaderTwo) { // if there exists element header...
 
-        // deflate the element header
-        elementHeaderTwo.style.transform = 'scale(1)';
+        elementHeaderTwo.style.transform = 'scale(1)'; // deflate the element header
     }
 
-    // if there exists an element text...
-    if (elementText) {
+    if (elementText) { // if there exists an element text...
 
-        // deflate the element text
-        elementText.style.transform = 'scale(1)';
+        elementText.style.transform = 'scale(1)'; // deflate the element text
     }
 
-    // if there exists an element image...
-    if (elementImage) {
+    if (elementImage) { // if there exists an element image...
 
-        // deflate the element image
-        elementImage.style.transform = 'scale(1)';
+        elementImage.style.transform = 'scale(1)'; // deflate the element image
     }
 }
+
+
+/********** INDEX ADJUSTMENT **********/
+
+/***** set variables *****/
+
+// select all headers in index box
+const sectionHeaderLinks = document.querySelectorAll('#indexBox a');
+const navHeight = 60; // set nav height
+
+/***** adjust the index to jump minus 60 pixels *****/
+
+sectionHeaderLinks.forEach(function(link) { // loop through each link
+
+    link.addEventListener('click', function(event) { // when link clicked...
+
+        /***** set variables *****/
+
+        let targetId = this.getAttribute('href').substring(1); // get target id
+        let targetElement = document.getElementById(targetId); // get target element
+
+        /***** scroll to target position *****/
+
+        if (targetElement) { // if target element exists...
+
+            let targetPosition = targetElement.offsetTop - navHeight; // get target position
+
+            window.scrollTo({ // scroll to target position
+
+                top: targetPosition, // set top to target position
+
+                behavior: 'smooth' // set behavior to smooth to make it pretty
+            });
+
+            event.preventDefault(); // prevent default behavior in order to allow for nav bar pixel offset
+        }
+    });
+});
