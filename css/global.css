@@ -273,6 +273,7 @@
 /***** links *****/
 
 a {
+
     text-decoration: none;
 }
 
@@ -503,6 +504,49 @@ img {
     align-items: center;
 }
 
+/***** index *****/
+
+#indexBox {
+
+    height: max-content;
+    width: 100%;
+}
+
+#indexTitle {
+
+    font-size: 130%;
+    color: white;
+    margin: 1%;
+    text-align: center;
+}
+
+#index {
+
+    box-sizing: border-box;
+}
+
+#index ul {
+
+    list-style-type: none;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#index li {
+
+    margin: 0.1%;
+    text-align: center;
+}
+
+.indexContent {
+
+    height: 30px;
+    width: 185px;
+}
+
 /***** content boxes *****/
 
 .contentBoxes { /* used to hold content */
@@ -609,6 +653,12 @@ img {
 
     /***** adjust custom element sizes *****/
 
+    .indexContent {
+
+        height: 20px;
+        width: 125px;
+    }
+
     /***** adjust image sizes *****/
 
     /***** adjust text *****/
@@ -677,6 +727,12 @@ img {
         flex-direction: column;
         margin-top: 0;
         margin-bottom: 5%;
+    }
+
+    .indexContent {
+
+        height: 10px;
+        width: 115px;
     }
 
     /***** adjust image sizes *****/

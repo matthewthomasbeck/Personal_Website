@@ -131,6 +131,7 @@ function popUp(element) { // used to inflate the project content
     const elementHeaderTwo = element.getElementsByTagName('h2')[0]; // select header and set to variable
     const elementImage = element.getElementsByTagName('img')[0]; // select image and set to variable
     const elementText = element.getElementsByTagName('p')[0]; // select text and set to variable
+    const elementAnchor = element.getElementsByTagName('a')[0]; // select anchor and set to variable
 
     /***** pop up the element *****/
 
@@ -153,6 +154,11 @@ function popUp(element) { // used to inflate the project content
 
         elementImage.style.transform = 'scale(1.05)'; // inflate the element image
     }
+
+    if (elementAnchor) { // if there exists an element list item...
+
+        elementAnchor.style.fontSize = '105%'; // inflate the element anchor
+    }
 }
 
 /********** POP DOWN FUNCTION **********/
@@ -165,6 +171,7 @@ function popDown(element) { // used to deflate the project content
     const elementHeaderTwo = element.getElementsByTagName('h2')[0]; // select header and set to variable
     const elementText = element.getElementsByTagName('p')[0]; // select text and set to variable
     const elementImage = element.getElementsByTagName('img')[0]; // select image and set to variable
+    const elementAnchor = element.getElementsByTagName('a')[0]; // select anchor and set to variable
 
     /***** pop down the element *****/
 
@@ -186,6 +193,11 @@ function popDown(element) { // used to deflate the project content
     if (elementImage) { // if there exists an element image...
 
         elementImage.style.transform = 'scale(1)'; // deflate the element image
+    }
+
+    if (elementAnchor) { // if there exists an element list item...
+
+        elementAnchor.style.fontSize = '100%'; // deflate the element anchor
     }
 }
 
