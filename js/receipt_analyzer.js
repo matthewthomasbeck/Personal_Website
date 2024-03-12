@@ -24,7 +24,7 @@
 /**************************************************************/
 
 
-/********** ANIMATION TRIGGER **********/
+/********** FADE IN ANIMATION **********/
 
 /***** create listener *****/
 
@@ -44,22 +44,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 const conclusionTags = document.getElementById('receiptAnalyzerConclusion').getElementsByTagName('p');
 
                 // animate content text
-                for (let i = 0; i < conclusionTags.length; i++) {
+                for (let i = 0; i < (conclusionTags.length - 1); i++) {
 
-                    // add fade in to all but the last p tags
-                    if (i < (conclusionTags.length - 1)) {
+                    // set timeout for cascading effect
+                    setTimeout(function(pTag) {
 
-                        // set timeout for cascading effect
-                        setTimeout(function(pTag) {
+                        // add fade in effect
+                        pTag.classList.add('fadeIn');
 
-                            // print message to test
-                            console.log(pTag);
-
-                            // add fade in effect
-                            pTag.classList.add('fadeIn');
-
-                        }, i * 250, conclusionTags[i]);
-                    }
+                    }, i * 250, conclusionTags[i]);
                 }
 
                 // remove observer once completed
@@ -82,22 +75,46 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/********** CONCLUSION SIGNATURE PROGRAMMER TEXT **********/
-
-/***** create listener *****/
+/********** PROGRAMMER TYPING SIGNATURE **********/
 
 // run code when page loads
 document.addEventListener("DOMContentLoaded", function () {
 
-    /***** append skill box header text *****/
+    /***** create constants to observe *****/
 
-    // find all headers that use the programmer typing animation
-    const receiptAnalyzerConclusionSignature = document.getElementById('receiptAnalyzerConclusionSignature');
+    // find final tag
+    const finalTag = document.getElementById('receiptAnalyzerConclusion').getElementsByTagName('p')[4];
 
-    // once programmer typing animation terminates...
-    receiptAnalyzerConclusionSignature.addEventListener('animationend', function(event){
+// get content signature box text
+    const conclusionSignatureBox = document.getElementById('receiptAnalyzerConclusionSignature')
 
-        /***** replace text content *****/
+    /***** observe last fade in *****/
+
+    // add event listener for fade in
+    finalTag.addEventListener('animationend', function(event) {
+
+        // add programmer typing animation to signature box once all other animations are complete
+        setTimeout(function(signatureBox) {
+
+            // make signature box visible
+            signatureBox.style.color = 'white';
+
+            // add programmer typing animation to signature box
+            signatureBox.classList.add('programmerTyping');
+
+            // add animate programmer typing animation to signature box
+            signatureBox.classList.add('animateProgrammerTyping');
+
+            // adjust font size
+            signatureBox.style.fontSize = '100%';
+
+        }, 250, conclusionSignatureBox);
+    });
+
+    /***** observe programmer typing end *****/
+
+    // add event listener for programmer typing
+    conclusionSignatureBox.addEventListener('animationend', function(event) {
 
         // create replacement span element
         let replacementText = document.createElement('p');
@@ -105,8 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // set replacement span content
         replacementText.textContent = "- Matthew Thomas Beck";
 
-        // adjust spacing to center text
-        replacementText.style.marginTop = '6%';
+        // adjust margin
+        replacementText.style.margin = '0px';
 
         // adjust text align
         replacementText.style.textAlign = 'center';

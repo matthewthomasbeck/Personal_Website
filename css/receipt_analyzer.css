@@ -11,9 +11,17 @@
 
 
 
-/**************************************************************/
-/*************** receipt_analyzer.html ELEMENTS ***************/
-/**************************************************************/
+/****************************************************************/
+/*************** receipt_analyzer.html ANIMATIONS ***************/
+/****************************************************************/
+
+
+
+
+
+/*********************************************************************/
+/*************** receipt_analyzer.html CUSTOM ELEMENTS ***************/
+/*********************************************************************/
 
 
 /********** MODIFY GLOBAL ELEMENTS **********/
@@ -38,10 +46,20 @@
     flex-direction: column;
 }
 
+#receiptAnalyzerConclusionSignatureBox {
+
+    margin-top: 6%;
+    margin-bottom: auto;
+    margin-left: auto;
+    height: 32px;
+    width: 450px;
+    color: transparent;
+}
+
 #receiptAnalyzerConclusionSignature {
 
     font-size: 100%;
-    margin-left: auto;
+    margin: 0;
     text-align: center;
-    color: white;
+    color: transparent;
 }

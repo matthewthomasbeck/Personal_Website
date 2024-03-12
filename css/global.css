@@ -561,11 +561,6 @@ img {
     /***** index.html *****/
 
     /***** receipt_analyzer.html *****/
-
-    #receiptAnalyzerConclusionSignature {
-
-        width: 450px !important;
-    }
 }
 
 
@@ -620,7 +615,7 @@ img {
 
     /***** receipt_analyzer.html *****/
 
-    #receiptAnalyzerConclusionSignature {
+    #receiptAnalyzerConclusionSignatureBox {
 
         width: 300px !important;
     }
@@ -710,7 +705,7 @@ img {
 
     /***** receipt_analyzer.html *****/
 
-    #receiptAnalyzerConclusionSignature { /* FIXME when the text is white again */
+    #receiptAnalyzerConclusionSignatureBox { /* FIXME when the text is white again */
 
         /*width: 450px !important;*/
     }
