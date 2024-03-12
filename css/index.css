@@ -15,6 +15,7 @@
 /*************** MODIFY GLOBAL ELEMENTS ***************/
 /******************************************************/
 
+
 /********** CUSTOM ELEMENTS **********/
 
 .parentDiv {
@@ -35,6 +36,16 @@
 /***************************************************/
 /*************** index.html ELEMENTS ***************/
 /***************************************************/
+
+
+/********** PORTRAIT SLIDESHOW ANIMATION **********/
+
+/***** portrait slideshow keyframes *****/
+
+.slide { /* used to hide portrait until correct turn */
+
+    display: none;
+}
 
 
 /********** FIRST ELEMENT **********/

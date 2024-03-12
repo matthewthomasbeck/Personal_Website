@@ -97,16 +97,6 @@
 /******************************************/
 
 
-/********** PORTRAIT SLIDESHOW **********/
-
-/***** portrait slideshow keyframes *****/
-
-.slide { /* used to hide portrait until correct turn */
-
-    display: none;
-}
-
-
 /********** PROGRAMMER TYPING ANIMATION **********/
 
 /***** programmer typing keyframes *****/
