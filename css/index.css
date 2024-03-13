@@ -136,7 +136,7 @@
 }
 
 
-/********** EXPERTISE **********/
+/********** SKILLS **********/
 
 .skills {
 
@@ -375,16 +375,12 @@
         width: 460px;
     }
 
+    /***** skills *****/
+
     #skillSetHeaderBox {
 
         height: auto;
-        width: 705px;
-    }
-
-    #contactMeHeaderBox {
-
-        height: auto;
-        width: 485px;
+        width: 670px;
     }
 
     /***** projects *****/
@@ -443,6 +439,14 @@
         height: 75%;
         width: 375px;
     }
+
+    /***** contact me *****/
+
+    #contactMeHeaderBox {
+
+        height: auto;
+        width: 460px;
+    }
 }
 
 
@@ -477,18 +481,13 @@
         width: 345px;
     }
 
+    /***** skills *****/
+
     #skillSetHeaderBox {
 
         height: auto;
         width: 460px;
         font-size: 90%;
-    }
-
-    #contactMeHeaderBox {
-
-        height: auto;
-        width: 450px;
-        font-size: 130%;
     }
 
     /***** projects *****/
@@ -551,6 +550,15 @@
         width: 90%;
         margin: 2.5%;
     }
+
+    /***** contact me *****/
+
+    #contactMeHeaderBox {
+
+        height: auto;
+        width: 450px;
+        font-size: 130%;
+    }
 }
 
 
@@ -586,19 +594,14 @@
         width: 220px;
     }
 
+    /***** skills *****/
+
     #skillSetHeaderBox {
 
         margin: 2%;
         height: auto;
         width: 335px;
         font-size: 105%;
-    }
-
-    #contactMeHeaderBox {
-
-        height: auto;
-        width: 330px;
-        font-size: 150%;
     }
 
     /***** projects *****/
@@ -655,5 +658,14 @@
         height: 40%;
         width: 90%;
         margin: 2.5%;
+    }
+
+    /***** contact me *****/
+
+    #contactMeHeaderBox {
+
+        height: auto;
+        width: 330px;
+        font-size: 150%;
     }
 }
