@@ -661,15 +661,13 @@ img {
         display: none;
     }
 
-    /***** index.html *****/
-
     /***** receipt_analyzer.html *****/
 }
 
 
 /********** MEDIUM DEVICES **********/
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) { /* detect if screen is tablet */
+@media only screen and (min-width: 501px) and (max-width: 1024px) { /* detect if screen is tablet */
 
     /***** adjust custom element sizes *****/
 
@@ -695,7 +693,7 @@ img {
 
     .standardFont {
 
-        font-size: 100%;
+        font-size: 120%;
     }
 
     .programmerTyping {
@@ -718,20 +716,6 @@ img {
         display: none;
     }
 
-    /***** index.html *****/
-
-    #skillSetHeaderBox {
-
-        height: 84.16px !important;
-        width: 540px !important;
-    }
-
-    #contactMeHeaderBox {
-
-        height: 84.16px !important;
-        width: 370px !important
-    }
-
     /***** receipt_analyzer.html *****/
 
     #receiptAnalyzerConclusionSignatureBox {
@@ -743,7 +727,7 @@ img {
 
 /********** SMALL DEVICES **********/
 
-@media only screen and (max-width: 600px) { /* detect if screen is smartphone */
+@media only screen and (max-width: 500px) { /* detect if screen is smartphone */
 
     /***** adjust custom element sizes *****/
 
@@ -778,7 +762,7 @@ img {
 
     .standardFont {
 
-        font-size: 90%;
+        font-size: 80%;
     }
 
     .programmerTyping {
@@ -809,23 +793,6 @@ img {
     .aftText {
 
         display: block;
-    }
-
-    /***** index.html *****/
-
-    #skillSetHeaderBox {
-
-        margin: 2%;
-        height: 55.34px !important;
-        width: 375px !important;
-        font-size: 105% !important;
-    }
-
-    #contactMeHeaderBox {
-
-        height: 79.34px !important;
-        width: 355px !important;
-        font-size: 150% !important;
     }
 
     /***** receipt_analyzer.html *****/

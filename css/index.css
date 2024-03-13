@@ -45,6 +45,7 @@
 .slide { /* used to hide portrait until correct turn */
 
     display: none;
+    overflow: hidden;
 }
 
 
@@ -83,40 +84,23 @@
     z-index: 2;
     background-color: var(--secondary);
     margin: 2.5%;
-    height: 50%;
-    width: 50%;
 }
 
-#aboutMeHeaderBox {
+#aboutMeBodyBox {
 
-    /*width: 57.5%;*/
-    width: 485px;
-}
-
-#introductionSeparator {
-
-    visibility: hidden;
-    height: 100vh;
-    position: absolute;
-    align-content: center;
-    justify-content: center;
-    z-index: 1;
-    margin-left: 40.5%;
-    background-color: var(--secondary);
-    width: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
 #portraitBox {
 
-    aspect-ratio: 1/1;
-    height: 100vh;
     position: absolute;
     z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    right: 0;
 }
 
 #portrait1 {
@@ -185,8 +169,6 @@
 
 #skillSetHeaderBox {
 
-    height: 112px;
-    width: 705px;
     text-align: center;
 }
 
@@ -204,12 +186,9 @@
 
 #projectsBackground {
 
-    left: 0;
     background-color: var(--pastel-5);
     position: absolute;
     z-index: 1;
-    height: 100vh;
-    width: 78.75%;
 }
 
 #projectsWheel {
@@ -220,39 +199,32 @@
     flex-direction: row;
     align-items: center;
     overflow-x: scroll;
-    margin-top: 3%;
+    overflow-y: hidden;
     left: 0;
-    height: 75%;
-    width: 78.75%;
 }
 
 .projects {
 
     text-align: center;
     aspect-ratio: 1/1;
-    height: 100%;
     flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 8;
-    margin-left: 18%;
-    margin-right: 32%;
     opacity: 0;
 }
 
 .projectHeaders {
 
     color: white;
+    text-align: center;
 }
 
 .projectImg {
 
+    margin: auto;
     aspect-ratio: 1/1;
-    height: 70%;
-    margin-top: 15%;
-    margin-left: 15%;
-    margin-right: 15%;
 }
 
 #lastItem {
@@ -284,12 +256,12 @@
 
 #projectsInfoBackground {
 
-    background-color: var(--primary);
-    position: absolute;
-    z-index: 7;
     right: 0;
     height: 100vh;
     width: 21.25%;
+    background-color: var(--primary);
+    position: absolute;
+    z-index: 7;
 }
 
 #projectsInfoBox {
@@ -300,11 +272,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 3%;
-    margin-right: 2.5%;
-    right: 0;
-    height: 75%;
-    width: 375px;
+}
+
+#projectsInfoHeaderBox {
+
+    text-align: center;
 }
 
 #projectsInfoHeader {
@@ -316,9 +288,6 @@
 
     text-align: center;
     color: transparent;
-    margin-top: 10%;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 
 #projectsInfoBody {
@@ -363,7 +332,329 @@
 
 #contactMeHeaderBox {
 
-    height: 112px;
-    width: 485px;
     text-align: center;
+}
+
+
+
+
+
+/*********************************************/
+/*************** DEVICE SIZING ***************/
+/*********************************************/
+
+
+/********** LARGE DEVICES **********/
+
+@media only screen and (min-width: 1025px) { /* detect if screen is desktop */
+
+    /***** introduction *****/
+
+    #myIntroduction {
+
+        flex-direction: row;
+    }
+
+    #portraitBox {
+
+        aspect-ratio: 1/1;
+        right: 0;
+        height: 100vh;
+    }
+
+    #aboutMe {
+
+        height: 50%;
+        width: 50%
+    }
+
+    #aboutMeHeaderBox {
+
+        margin-left: 5%;
+        margin-right: auto;
+        width: 460px;
+    }
+
+    #skillSetHeaderBox {
+
+        height: auto;
+        width: 705px;
+    }
+
+    #contactMeHeaderBox {
+
+        height: auto;
+        width: 485px;
+    }
+
+    /***** projects *****/
+
+    #myProjects {
+
+        flex-direction: row;
+    }
+
+    #projectsBackground {
+
+        left: 0;
+        height: 100vh;
+        width: 78.75%;
+    }
+
+    #projectsInfoBackground {
+
+        display: block;
+    }
+
+    #projectsWheel {
+
+        margin-top: 3%;
+        height: 75%;
+        width: 78.75%;
+    }
+
+    .projects {
+
+        height: 100%;
+        margin-left: 18%;
+        margin-right: 32%;
+    }
+
+    .projectImg {
+
+        height: 70%;
+        margin-top: 15%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    #projectsInfoName {
+
+        margin-top: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #projectsInfoBox {
+
+        margin-top: 3%;
+        margin-right: 2.5%;
+        right: 0;
+        height: 75%;
+        width: 375px;
+    }
+}
+
+
+/********** MEDIUM DEVICES **********/
+
+@media only screen and (min-width: 501px) and (max-width: 1024px) { /* detect if screen is tablet */
+
+    /***** introduction *****/
+
+    #myIntroduction {
+
+        flex-direction: column-reverse;
+    }
+
+    #portraitBox {
+
+        top: 0;
+        width: 100vw;
+        aspect-ratio: 1/1;
+    }
+
+    #aboutMe {
+
+        height: 40%;
+        width: 90%;
+    }
+
+    #aboutMeHeaderBox {
+
+        margin-left: 5%;
+        margin-right: auto;
+        width: 345px;
+    }
+
+    #skillSetHeaderBox {
+
+        height: auto;
+        width: 460px;
+        font-size: 90%;
+    }
+
+    #contactMeHeaderBox {
+
+        height: auto;
+        width: 450px;
+        font-size: 130%;
+    }
+
+    /***** projects *****/
+
+    #myProjects {
+
+        flex-direction: column-reverse;
+    }
+
+    #projectsBackground {
+
+        width: 100vw;
+        height: 70%;
+        margin-bottom: 30vh;
+    }
+
+    #projectsInfoBackground {
+
+        display: none;
+    }
+
+    #projectsWheel {
+
+        margin-bottom: calc(30vh + 20%);
+        height: 50%;
+        width: 100%;
+    }
+
+    .projects {
+
+        height: 80%;
+    }
+
+    .projectHeaders {
+
+        height: 10%;
+        font-size: 200%;
+    }
+
+    .projectImg {
+
+        height: 65%;
+    }
+
+    #projectsInfoHeaderBox {
+
+        font-size: 150%;
+    }
+
+    #projectsInfoName {
+
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #projectsInfoBox {
+
+        height: 40%;
+        width: 90%;
+        margin: 2.5%;
+    }
+}
+
+
+/********** SMALL DEVICES **********/
+
+@media only screen and (max-width: 500px) { /* detect if screen is smartphone */
+
+    /***** introduction *****/
+
+    #myIntroduction {
+
+        flex-direction: column-reverse;
+    }
+
+    #portraitBox {
+
+        margin-top: 60px;
+        top: 0;
+        width: 100vw;
+        height: 60%;
+    }
+
+    #aboutMe {
+
+        height: 40%;
+        width: 90%;
+    }
+
+    #aboutMeHeaderBox {
+
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 220px;
+    }
+
+    #skillSetHeaderBox {
+
+        margin: 2%;
+        height: auto;
+        width: 335px;
+        font-size: 105%;
+    }
+
+    #contactMeHeaderBox {
+
+        height: auto;
+        width: 330px;
+        font-size: 150%;
+    }
+
+    /***** projects *****/
+
+    #myProjects {
+
+        flex-direction: column-reverse;
+    }
+
+    #projectsBackground {
+
+        width: 100vw;
+        height: 70%;
+        margin-bottom: 30vh;
+    }
+
+    #projectsInfoBackground {
+
+        display: none;
+    }
+
+    #projectsWheel {
+
+        margin-bottom: calc(30vh + 25%);
+        height: 50%;
+        width: 100%;
+    }
+
+    .projects {
+
+        height: 80%;
+    }
+
+    .projectHeaders {
+
+        height: 10%;
+        font-size: 110%;
+    }
+
+    .projectImg {
+
+        height: 65%;
+    }
+
+    #projectsInfoName {
+
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #projectsInfoBox {
+
+        height: 40%;
+        width: 90%;
+        margin: 2.5%;
+    }
 }
