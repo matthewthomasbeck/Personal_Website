@@ -75,9 +75,15 @@
 
     --navBarHeight: 60px;
 
-    /***** time interval in milliseconds *****/
+    /***** time intervals in milliseconds *****/
 
     --timeInterval: 250ms;
+
+    --fadeInDuration: calc(6 * var(--timeInterval));
+
+    --fadeInDelay: calc(10 * var(--timeInterval));
+
+    --stampDuration: calc(4 * var(--timeInterval));
 
     /***** primary page colors *****/
 
@@ -180,12 +186,12 @@
 
 .fadeIn { /* set initial settings for fading in */
 
-    animation: fadeIn 1.5s 2.5s ease-out forwards, colorChange 1.5s 2.5s forwards;
+    animation: fadeIn var(--fadeInDuration) var(--fadeInDelay) ease-out forwards, colorChange var(--fadeInDuration) var(--fadeInDelay) forwards;
 }
 
 .fadeInName { /* used exclusively for name */
 
-    animation: fadeIn 1.5s 2.5s ease-out; /* duration 1.5 sec, 2.5 sec delay */
+    animation: fadeIn var(--fadeInDuration) var(--fadeInDelay) ease-out;
 }
 
 .fadeInLoaded { /* used exclusively for loaded content */
@@ -236,7 +242,7 @@
     position: absolute;
     aspect-ratio: 1/1;
     width: 100%;
-    animation: stampAnimation 1s ease-in-out;
+    animation: stampAnimation var(--stampDuration) ease-in-out;
 }
 
 
