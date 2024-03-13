@@ -40,12 +40,34 @@
 
 /********** PORTRAIT SLIDESHOW ANIMATION **********/
 
-/***** portrait slideshow keyframes *****/
+/***** portrait slideshow classes *****/
 
 .slide { /* used to hide portrait until correct turn */
 
     display: none;
     overflow: hidden;
+}
+
+/***** fade in name keyframes *****/
+
+@keyframes colorChangeName {
+
+    0% {
+
+        color: transparent;
+    }
+
+    100% {
+
+        opacity: var(--pastel-1);
+    }
+}
+
+/***** fade in name classes *****/
+
+.fadeInName { /* used exclusively for name */
+
+    animation: fadeIn var(--fadeInDuration) var(--fadeInDelay) ease-out forwards, colorChangeName var(--fadeInDuration) var(--fadeInDelay) forwards;
 }
 
 
@@ -99,6 +121,11 @@
     width: 90%;
 }
 
+#name {
+
+    opacity: 0;
+}
+
 #portraitBox {
 
     position: absolute;
@@ -111,6 +138,7 @@
 
 #portrait1 {
 
+    display: block;
     align-self: flex-end;
     height: 100%;
     aspect-ratio: 1/1;

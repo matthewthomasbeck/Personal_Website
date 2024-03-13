@@ -189,11 +189,6 @@
     animation: fadeIn var(--fadeInDuration) var(--fadeInDelay) ease-out forwards, colorChange var(--fadeInDuration) var(--fadeInDelay) forwards;
 }
 
-.fadeInName { /* used exclusively for name */
-
-    animation: fadeIn var(--fadeInDuration) var(--fadeInDelay) ease-out;
-}
-
 .fadeInLoaded { /* used exclusively for loaded content */
 
     opacity: 1;

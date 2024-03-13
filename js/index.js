@@ -36,71 +36,83 @@ const TIME_INTERVAL = parseFloat(rootStyles.getPropertyValue('--timeInterval'));
 
 /***** set variables *****/
 
-const slides = document.querySelectorAll('.slide'); // select slide class elements
-let currentSlide = 0; // pre-initialize current slide as 0
+const aboutMeBodyBox = document.getElementById('aboutMeBodyBox'); // find about me body box
 
-/***** create looping *****/
+// find final tag
+const finalTag = aboutMeBodyBox.getElementsByTagName('p')[aboutMeBodyBox.getElementsByTagName('p').length - 1];
 
-setTimeout(function() {}, (TIME_INTERVAL * 20)); // wait for about me body box to load
+/***** observe last fade in *****/
 
-showSlide(); // run slideshow initially
-
-setInterval(function () { // function to move slides every 3 seconds
-
-    // update current slide by incrementing it and taking modulus of number of slides
-    currentSlide = (currentSlide + 1) % slides.length;
+finalTag.addEventListener('animationend', function(event) { // add event listener for fade in
 
     /***** set variables *****/
 
-    // find about me body box and set to variable
-    const aboutMeBodyBoxFirstTag = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')[0];
+    const slides = document.querySelectorAll('.slide'); // select slide class elements
+    let currentSlide = 0; // pre-initialize current slide as 0
 
-    /***** change name color based on slide *****/
+    /***** create looping *****/
 
-    // if about me content has loaded...
-    if (aboutMeBodyBoxFirstTag.classList.contains('fadeIn') && aboutMeBodyBoxFirstTag.style.opacity !== '1') {
+    setTimeout(function() {}, (TIME_INTERVAL * 20)); // wait for about me body box to load
 
-        if (currentSlide === 0) { // if portrait 1...
+    showSlide(); // run slideshow initially
 
-            // update name color
-            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-1');
+    setInterval(function () { // function to move slides every 3 seconds
+
+        // update current slide by incrementing it and taking modulus of number of slides
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        /***** set variables *****/
+
+            // find about me body box and set to variable
+        const aboutMeBodyBoxFirstTag = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')[0];
+
+        /***** change name color based on slide *****/
+
+        // if about me content has loaded...
+        if (aboutMeBodyBoxFirstTag.classList.contains('fadeIn') && aboutMeBodyBoxFirstTag.style.opacity !== '1') {
+
+            if (currentSlide === 0) { // if portrait 1...
+
+                // update name color
+                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-1');
+            }
+
+            else if (currentSlide === 1) { // if portrait 2...
+
+                // update name color
+                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-2');
+            }
+
+            else if (currentSlide === 2) { // if portrait 3...
+
+                // update name color
+                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-3');
+            }
+
+            else if (currentSlide === 3) { // if portrait 4...
+
+                // update name color
+                document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-4');
+            }
         }
 
-        else if (currentSlide === 1) { // if portrait 2...
+        // call showSlide to show new current slide
+        showSlide();
 
-            // update name color
-            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-2');
+    }, (TIME_INTERVAL * 12)); // run every 3 seconds
+
+    /***** hide/show slides *****/
+
+    function showSlide() { // function to run slide show when called
+
+        for (let i = 0; i < slides.length; i++) { // loop through all slides to hide them
+
+            slides[i].style.display = 'none'; // hide current slide
         }
 
-        else if (currentSlide === 2) { // if portrait 3...
-
-            // update name color
-            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-3');
-        }
-
-        else if (currentSlide === 3) { // if portrait 4...
-
-            // update name color
-            document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-4');
-        }
+        slides[currentSlide].style.display = 'block'; // display current slide
     }
-
-    // call showSlide to show new current slide
-    showSlide();
-
-}, (TIME_INTERVAL * 12)); // run every 3 seconds
-
-/***** hide/show slides *****/
-
-function showSlide() { // function to run slide show when called
-
-    for (let i = 0; i < slides.length; i++) { // loop through all slides to hide them
-
-        slides[i].style.display = 'none'; // hide current slide
-    }
-
-    slides[currentSlide].style.display = 'block'; // display current slide
-}
+});
 
 
 /********** ANIMATION TRIGGER **********/
@@ -109,6 +121,7 @@ function showSlide() { // function to run slide show when called
 
 // find all headers that use programmer typing and set to variable
 const programmingHeadersAnimate = document.getElementsByClassName('programmerTyping');
+const aboutMeName = document.getElementById('name'); // find name
 
 /***** animate programmer typing headers *****/
 
@@ -130,6 +143,10 @@ const programmerTypingObserver = new IntersectionObserver(entries => {
                 // select all body tags
                 const aboutMeBodyBoxTags = document.getElementById('aboutMeBodyBox').getElementsByTagName('p');
 
+                aboutMeName.style.color = rootStyles.getPropertyValue('--pastel-1'); // change name color
+
+                aboutMeName.classList.add('fadeInName'); // additional content fade in
+
                 for (let i = 0; i < aboutMeBodyBoxTags.length; i++) { // loop through about me body box content
 
                     setTimeout(function(pTag) { // add animations to each p tag with delay
@@ -138,8 +155,6 @@ const programmerTypingObserver = new IntersectionObserver(entries => {
 
                     }, i * TIME_INTERVAL, aboutMeBodyBoxTags[i]); // add delay to each p tag
                 }
-
-                document.getElementById('name').classList.add('fadeInName'); // additional content fade in
             }
 
             else if (currentID === 'skillSetHeader') { // if current id skill set header...
