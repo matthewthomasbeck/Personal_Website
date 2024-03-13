@@ -660,8 +660,6 @@ img {
 
         display: none;
     }
-
-    /***** receipt_analyzer.html *****/
 }
 
 
@@ -714,13 +712,6 @@ img {
     .aftText {
 
         display: none;
-    }
-
-    /***** receipt_analyzer.html *****/
-
-    #receiptAnalyzerConclusionSignatureBox {
-
-        width: 300px !important;
     }
 }
 
@@ -793,12 +784,5 @@ img {
     .aftText {
 
         display: block;
-    }
-
-    /***** receipt_analyzer.html *****/
-
-    #receiptAnalyzerConclusionSignatureBox {
-
-        width: 270px !important;
     }
 }

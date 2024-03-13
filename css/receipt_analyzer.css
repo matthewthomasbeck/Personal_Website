@@ -41,7 +41,6 @@
 
 #receiptAnalyzerConclusionBox {
 
-    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -50,9 +49,6 @@
 
     margin-top: 6%;
     margin-bottom: 6%;
-    margin-left: auto;
-    height: 32px;
-    width: 450px;
     color: transparent;
 }
 
@@ -60,6 +56,59 @@
 
     font-size: 100%;
     margin: 0;
-    text-align: center;
     color: transparent;
+}
+
+
+
+
+
+/*********************************************/
+/*************** DEVICE SIZING ***************/
+/*********************************************/
+
+
+/********** LARGE DEVICES **********/
+
+@media only screen and (min-width: 1025px) { /* detect if screen is desktop */
+
+    /***** receipt_analyzer.html *****/
+
+    #receiptAnalyzerConclusionSignatureBox {
+
+        margin-left: auto;
+        height: 20px;
+        width: 450px;
+    }
+}
+
+
+/********** MEDIUM DEVICES **********/
+
+@media only screen and (min-width: 501px) and (max-width: 1024px) { /* detect if screen is tablet */
+
+    /***** receipt_analyzer.html *****/
+
+    #receiptAnalyzerConclusionSignatureBox {
+
+        margin-left: auto;
+        height: 15px;
+        width: 360px;
+    }
+}
+
+
+/********** SMALL DEVICES **********/
+
+@media only screen and (max-width: 500px) { /* detect if screen is smartphone */
+
+    /***** receipt_analyzer.html *****/
+
+    #receiptAnalyzerConclusionSignatureBox {
+
+        margin-left: auto;
+        margin-right: auto;
+        height: 15px;
+        width: 240px;
+    }
 }
