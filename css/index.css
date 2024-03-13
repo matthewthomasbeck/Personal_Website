@@ -243,17 +243,6 @@
     z-index: 8;
 }
 
-#projectsSeparator {
-
-    visibility: hidden;
-    height: 100vh;
-    position: absolute;
-    z-index: 8;
-    margin-left: 80%;
-    background-color: var(--secondary);
-    width: 8px;
-}
-
 #projectsInfoBackground {
 
     right: 0;
