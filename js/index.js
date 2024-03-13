@@ -282,7 +282,7 @@ for (let i = 0; i < programmingHeadersReplace.length; i++) { // loop through hea
 
         event.target.style.borderRightWidth = '0px'; // remove old right border
 
-        event.target.style.margin = '0px'; // change margin
+        event.target.style.margin = 'auto'; // change margin
 
         event.target.appendChild(replacementText); // commit changes to header
     });
