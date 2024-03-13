@@ -306,6 +306,14 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
 
     let scrollPosition = projectsWheel.scrollLeft; // update div based on scroll position
     let itemWidth = document.querySelector('.projects').offsetWidth * 2; // width of a project item
+
+    /***** calculate scroll position based on screen width *****/
+
+    if (window.innerWidth <= 1024) { // if screen is small size...
+
+        scrollPosition *= 1.3; // add 30% to scroll position as scroll wheel is 30% smaller
+    }
+
     let currentItem = Math.round(scrollPosition / itemWidth); // index of visible item based on position
 
     /***** replace project info *****/

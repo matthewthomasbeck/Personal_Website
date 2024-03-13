@@ -279,6 +279,11 @@
     color: white;
 }
 
+#projectsInfoNameBox {
+
+    width: 90%;
+}
+
 #projectsInfoName {
 
     text-align: center;
@@ -406,7 +411,7 @@
 
     .projects {
 
-        height: 100%;
+        width: 50%;
         margin-left: 18%;
         margin-right: 32%;
     }
@@ -513,7 +518,9 @@
 
     .projects {
 
-        height: 80%;
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
     }
 
     .projectHeaders {
@@ -627,7 +634,9 @@
 
     .projects {
 
-        height: 80%;
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
     }
 
     .projectHeaders {
