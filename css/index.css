@@ -567,10 +567,9 @@
 
     #portraitBox {
 
-        margin-top: 60px;
         top: 0;
         width: 100vw;
-        height: 60%;
+        height: calc(60% + 60px);
     }
 
     #aboutMe {
