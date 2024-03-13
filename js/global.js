@@ -16,6 +16,20 @@
 /************************************************************/
 
 
+/********** IMPORT DEPENDENCIES **********/
+
+/***** import root variables for use in all files using global.js *****/
+
+const rootStyles = getComputedStyle(document.documentElement); // nav height and colors
+
+
+/********** CREATE DEPENDENCIES **********/
+
+/***** create standard nav height *****/
+
+const NAV_HEIGHT = rootStyles.getPropertyValue('--navBarHeight'); // set nav height
+
+
 
 
 
@@ -218,9 +232,8 @@ function popDown(element) { // used to deflate the project content
 
 // select all headers in index box
 const sectionHeaderLinks = document.querySelectorAll('#indexBox a');
-const navHeight = 60; // set nav height
 
-/***** adjust the index to jump minus 60 pixels *****/
+/***** adjust the index to jump minus nav height *****/
 
 sectionHeaderLinks.forEach(function(link) { // loop through each link
 
@@ -235,7 +248,7 @@ sectionHeaderLinks.forEach(function(link) { // loop through each link
 
         if (targetElement) { // if target element exists...
 
-            let targetPosition = targetElement.offsetTop - navHeight; // get target position
+            let targetPosition = targetElement.offsetTop - NAV_HEIGHT; // get target position
 
             window.scrollTo({ // scroll to target position
 

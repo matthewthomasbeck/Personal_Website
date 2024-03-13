@@ -11,9 +11,9 @@
 
 
 
-/*******************************************************/
-/*************** GLOBAL FONTS AND COLORS ***************/
-/*******************************************************/
+/***************************************************/
+/*************** GLOBAL DEPENDENCIES ***************/
+/***************************************************/
 
 
 /********** FONT STYLES **********/
@@ -64,14 +64,22 @@
 }
 
 
-/********** COLORS **********/
+/********** ROOT STYLES **********/
 
 
 /***** set local constant colors *****/
 
-:root{ /* set local colors for use on index page */
+:root{ /* set global vars */
 
-    /***** set primary page colors *****/
+    /***** nav bar height in pixels *****/
+
+    --navBarHeight: 60;
+
+    /***** time interval in milliseconds *****/
+
+    --timeInterval: 250;
+
+    /***** primary page colors *****/
 
     --primary: #212529;
 

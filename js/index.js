@@ -16,18 +16,11 @@
 /************************************************************/
 
 
-/********** IMPORT DEPENDENCIES **********/
-
-/***** import root colors *****/
-
-const rootStyles = getComputedStyle(document.documentElement); // primary colors for name colors
-
-
 /********** CREATE DEPENDENCIES **********/
 
 /***** create standard time interval *****/
 
-const TIME_INTERVAL = 250; // create time interval of 250 milliseconds
+const TIME_INTERVAL = rootStyles.getPropertyValue('--timeInterval'); // time interval of 250 milliseconds
 
 
 
