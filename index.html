@@ -1,0 +1,360 @@
+<!------------------------------------------------------------------------------------>
+<!-- Copyright (c) 2024 Matthew Thomas Beck                                         -->
+<!--                                                                                -->
+<!-- All rights reserved. This code and its associated files may not be reproduced, -->
+<!-- modified, distributed, or otherwise used, in part or in whole, by any person   -->
+<!-- or entity without the express written permission of the copyright holder,      -->
+<!-- Matthew Thomas Beck.                                                           -->
+<!------------------------------------------------------------------------------------>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- PAGE / CHARACTER INITIALIZATION -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLE SHEETS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!-- TAB TITLE -->
+    <title>Welcome!</title>
+</head>
+
+<!-- INDEX PAGE -->
+<body class="body">
+
+<!-- OPTIONS DIMMING -->
+<div id="navBarOptionsDimmer"></div>
+
+<!-- NAVIGATION BAR -->
+<nav id="navBar">
+
+    <!-- OPTIONS BUTTON -->
+    <button id="navBarOptionsButton" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+        <div class="navBarOptionsLines"></div>
+        <div class="navBarOptionsLines"></div>
+        <div class="navBarOptionsLines"></div>
+    </button>
+
+    <!-- NAME -->
+    <a href="index.html" id="navBarNameBox" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+        <p class="programmerFont programmerTyping" id="navBarName">printf("Matthew Thomas Beck");</p>
+    </a>
+
+    <!-- OPTIONS -->
+    <div class="standardFont" id="navBarOptionsBox">
+
+        <!-- HOME DIRECT -->
+        <a href="index.html" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/icons/home-icon.png" alt="">
+        </a>
+
+        <!-- PROJECTS SEPARATOR -->
+        <div class="navBarOptionsSeparator"></div>
+
+        <!-- MACHINE LEARNING PORTFOLIO DIRECT -->
+        <a href="pages/machine_learning_portfolio.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/images/index/machine_learning_portfolio-icon.png" alt="">
+            <p class="navBarOptionsText">
+                M.L.P.
+            </p>
+        </a>
+
+        <!-- ATHENA DIRECT -->
+        <a href="pages/athena.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/icons/athena-icon.png" alt="">
+            <p class="navBarOptionsText">
+                Athena
+            </p>
+        </a>
+
+        <!-- RECEIPT ANALYZER DIRECT -->
+        <a href="pages/receipt_analyzer.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/icons/receipt_analyzer-icon.png" alt="">
+            <p class="navBarOptionsText">
+                Receipt
+                Analyzer
+            </p>
+        </a>
+
+        <!-- CONTACTS SEPARATOR -->
+        <div class="navBarOptionsSeparator"></div>
+
+        <!-- LINKEDIN DIRECT -->
+        <a href="https://www.linkedin.com/in/matthewthomasbeck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/icons/linkedin-icon.png" alt="">
+        </a>
+
+        <!-- GITHUB DIRECT -->
+        <a href="https://www.github.com/matthewthomasbeck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/icons/github-icon.png" alt="">
+        </a>
+
+        <!-- YOUTUBE DIRECT -->
+        <a href="https://www.youtube.com/@Matthew_Thomas_Beck" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/icons/play_button-icon.png" alt="">
+        </a>
+
+        <!-- INSTAGRAM DIRECT -->
+        <a href="https://www.instagram.com/matthew_thomas_beck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="assets/icons/instagram-icon.png" alt="">
+        </a>
+    </div>
+</nav>
+
+<!-- INTRODUCTION -->
+<div id="myIntroduction">
+
+    <!-- ABOUT ME -->
+    <div class="firstElement" id="aboutMe">
+
+        <!-- ABOUT ME HEADER -->
+        <div id="aboutMeHeaderBox">
+            <h1 class="programmerFont programmerTyping" id="aboutMeHeader">
+                printf("Hello There\n");
+            </h1>
+        </div>
+
+        <!-- ABOUT ME CONTENT -->
+        <div class="standardFont" id="aboutMeBodyBox">
+            <p>
+                My name is <span id="name">Matthew Thomas Beck</span>, and I am a Computer Science student attending the
+                University of Texas at San Antonio
+            </p>
+
+            <p>
+                I love all things computers, be it working with hardware like single-board computers and
+                microcontrollers, to artsy stuff, like this website you're viewing right now
+            </p>
+
+            <p>
+                I believe that the computer has been the most impactful thing not just in my life, but in all of our
+                lives, and so that is why I believe it is so important to be 'good' at them...
+            </p>
+        </div>
+    </div>
+
+    <!-- PORTRAITS -->
+    <div id="portraitBox">
+        <div class="slide" id="portrait1">
+            <img src="assets/images/index/portrait1.png" alt="">
+        </div>
+
+        <div class="slide" id="portrait2">
+            <img src="assets/images/index/portrait2.png" alt="">
+        </div>
+
+        <div class="slide" id="portrait3">
+            <img src="assets/images/index/portrait3.png" alt="">
+        </div>
+
+        <div class="slide" id="portrait4">
+            <img src="assets/images/index/portrait4.png" alt="">
+        </div>
+    </div>
+</div>
+
+<!-- EXPERTISE -->
+<div class="parentDiv" id="myExpertise">
+    <div class="childDiv" id="skillSet">
+
+        <!-- EXPERTISE HEADER -->
+        <div id="skillSetHeaderBox">
+            <h1 class="programmerFont programmerTyping" id="skillSetHeader">
+                printf("So, What Am I Good At?\n");
+            </h1>
+        </div>
+
+        <!-- EXPERTISE CONTENT -->
+        <div class="divBody standardFont" id="skillSetBodyBox">
+
+            <!-- PYTHON -->
+            <div class="skills" style="margin-top: 0;">
+                <img class="skillsIcon" src="assets/icons/python-icon.png" alt="">
+                <p class="skillsBody">
+                    Python- tensorflow, numpy, requests, beautiful soup, selenium, pandas, matplotlib, psycopg,
+                    yfinance, quandl, CCXT
+                </p>
+            </div>
+
+            <!-- LINUX SYSTEM ADMINISTRATION -->
+            <div class="skills">
+                <img class="skillsIcon" src="assets/icons/linux-icon.png" alt="">
+                <p class="skillsBody">
+                    Linux System Administration- nginx, let's encrypt, UFW, fail2ban, geoIP
+                </p>
+            </div>
+
+            <!-- SQL DATABASES -->
+            <div class="skills">
+                <img class="skillsIcon" src="assets/icons/postgre_sql-icon.png" alt="">
+                <p class="skillsBody">
+                    SQL Databases- postgreSQL
+                </p>
+            </div>
+
+            <!-- WEB DEVELOPMENT -->
+            <div class="skills">
+                <img class="skillsIcon" src="assets/icons/web-icon.png" alt="">
+                <p class="skillsBody">
+                    Web Development- custom animations, custom CSS, javascript object orientation
+                </p>
+            </div>
+
+            <!-- C -->
+            <div class="skills">
+                <img class="skillsIcon" src="assets/icons/c-icon.png" alt="">
+                <p class="skillsBody">
+                    C- programming II (A), data structures (B+)
+                </p>
+            </div>
+
+            <!-- MISCELLANEOUS -->
+            <div class="skills">
+                <img class="skillsIcon" src="assets/icons/command_line-icon.png" alt="">
+                <p class="skillsBody">
+                    Miscellaneous- experienced in illustrator, photoshop, premiere pro, familiar with after effects
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="myProjects">
+
+    <!-- PROJECTS BACKGROUND -->
+    <div id="projectsBackground">
+    </div>
+
+    <!-- PROJECTS WHEEL -->
+    <div id="projectsWheel">
+
+        <!-- MACHINE LEARNING PORTFOLIO PROJECT -->
+        <a href="pages/machine_learning_portfolio.html" class="projects" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <h1 class="programmerFont projectHeaders">Machine Learning Portfolio</h1>
+            <img class="projectImg" id="machineLearningPortfolio" src="assets/images/index/machine_learning_portfolio.png" alt="">
+        </a>
+
+        <!-- ATHENA PROJECT -->
+        <a href="pages/athena.html" class="projects" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <h1 class="programmerFont projectHeaders">Athena</h1>
+            <img class="projectImg" id="athena" src="assets/images/index/athena.png" alt="">
+        </a>
+
+        <!-- RECEIPT Analyzer -->
+        <a href="https://www.youtube.com/watch?v=TLnXB63zZYs" class="projects" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <h1 class="programmerFont projectHeaders">Receipt Analyzer</h1>
+            <img class="projectImg" id="receiptAnalyzer" src="assets/images/index/receipt_analyzer.png" alt="">
+        </a>
+
+        <!-- WEBSITE PROJECT -->
+        <a href="" class="projects" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <h1 class="programmerFont projectHeaders">Personal Website</h1>
+            <img class="projectImg" id="personalWebsite" src="assets/images/index/personal_website.png" alt="">
+        </a>
+
+        <!-- VIDEO EDITING PROJECT -->
+        <a href="https://youtu.be/NyUpeTPKruo" class="projects" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <h1 class="programmerFont projectHeaders">Video Editor</h1>
+            <img class="projectImg" id="videoEditor" src="assets/images/index/video_editor.png" alt="">
+        </a>
+
+        <div id="glitchItem"></div>
+    </div>
+
+    <!-- DIVISION LINE -->
+    <div id="projectsSeparator"></div>
+
+    <!-- PROJECTS INFO-->
+    <div id="projectsInfoBackground"></div>
+
+    <div id="projectsInfoBox">
+
+        <!-- PROJECTS INFO TITLE -->
+        <div id="projectsInfoHeaderBox">
+            <h3 class="programmerFont programmerTyping" id="projectsInfoHeader">
+                printf("My Projects:\n");
+            </h3>
+        </div>
+
+        <!-- PROJECTS INFO NAME -->
+        <div class="standardFont" id="projectsInfoNameBox">
+            <h2 id="projectsInfoName">
+                Machine Learning Portfolio
+            </h2>
+        </div>
+
+        <!-- PROJECTS INFO CONTENT -->
+        <div class="standardFont" id="projectsInfoBodyBox">
+            <p id="projectsInfoBody">
+                Using a Raspberry Pi 4B, a Coral TPU, TensorFlow, an Nginx web server, and a whole host of data
+                collecting and modeling scripts, I created a portfolio that finds the most volatile financial
+                instruments, predicts their prices, and suggests when you should buy / sell (OBLIGATORY: THIS IS NOT
+                FINANCIAL ADVICE)
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT ME -->
+<div class="parentDiv" id="contactMeBox">
+    <div class="childDiv" id="contactMe">
+
+        <!-- CONTACT ME HEADER -->
+        <div id="contactMeHeaderBox">
+            <h1 class="programmerFont programmerTyping" id="contactMeHeader">
+                printf("Contact Me!\n");
+            </h1>
+        </div>
+
+        <!-- CONTACT ME CONTENT -->
+        <div class="divBody standardFont" id="contactMeBodyBox">
+
+            <!-- LINKEDIN -->
+            <a class="contacts" href="https://www.linkedin.com/in/matthewthomasbeck/" onmouseover="popUp(this)" onmouseout="popDown(this)" style="margin-top: 0;">
+                <img class="contactsIcon" src="assets/icons/linkedin-icon.png" alt="">
+                <h2 class="contactsBody">
+                    Matthew Thomas Beck
+                </h2>
+            </a>
+
+            <!-- GITHUB -->
+            <a class="contacts" href="https://www.github.com/matthewthomasbeck/" onmouseover="popUp(this)" onmouseout="popDown(this)">
+                <img class="contactsIcon" src="assets/icons/github-icon.png" alt="">
+                <h2 class="contactsBody">
+                    owner:matthewthomasbeck
+                </h2>
+            </a>
+
+            <!-- YOUTUBE -->
+            <a class="contacts" href="https://www.youtube.com/@Matthew_Thomas_Beck" onmouseover="popUp(this)" onmouseout="popDown(this)">
+                <img class="contactsIcon" src="assets/icons/youtube-icon.png" alt="">
+                <h2 class="contactsBody">
+                    Matthew Thomas Beck
+                </h2>
+            </a>
+
+            <!-- INSTAGRAM -->
+            <a class="contacts" href="https://www.instagram.com/matthew_thomas_beck/" onmouseover="popUp(this)" onmouseout="popDown(this)">
+                <img class="contactsIcon" src="assets/icons/instagram-icon.png" alt="">
+                <h2 class="contactsBody">
+                    @matthew_thomas_beck
+                </h2>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script src="./js/global.js"></script>
+<script src="./js/index.js"></script>
+</body>
+</html>

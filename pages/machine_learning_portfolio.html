@@ -1,0 +1,207 @@
+<!------------------------------------------------------------------------------------>
+<!-- Copyright (c) 2024 Matthew Thomas Beck                                         -->
+<!--                                                                                -->
+<!-- All rights reserved. This code and its associated files may not be reproduced, -->
+<!-- modified, distributed, or otherwise used, in part or in whole, by any person   -->
+<!-- or entity without the express written permission of the copyright holder,      -->
+<!-- Matthew Thomas Beck.                                                           -->
+<!------------------------------------------------------------------------------------>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- PAGE / CHARACTER INITIALIZATION -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- STYLE SHEETS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/machine_learning_portfolio.css">
+
+    <!-- TAB TITLE -->
+    <title>Machine Learning Portfolio</title>
+</head>
+
+<!-- MACHINE LEARNING PORTFOLIO PAGE -->
+<body class="body">
+
+<!-- OPTIONS DIMMING -->
+<div id="navBarOptionsDimmer"></div>
+
+<!-- NAVIGATION BAR -->
+<nav id="navBar">
+
+    <!-- OPTIONS BUTTON -->
+    <button id="navBarOptionsButton" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+        <div class="navBarOptionsLines"></div>
+        <div class="navBarOptionsLines"></div>
+        <div class="navBarOptionsLines"></div>
+    </button>
+
+    <!-- NAME -->
+    <a href="../index.html" id="navBarNameBox" class="popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+        <p class="programmerFont programmerTyping" id="navBarName">printf("Matthew Thomas Beck");</p>
+    </a>
+
+    <!-- OPTIONS -->
+    <div class="standardFont" id="navBarOptionsBox">
+
+        <!-- HOME DIRECT -->
+        <a href="../index.html" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/icons/home-icon.png" alt="">
+        </a>
+
+        <!-- PROJECTS SEPARATOR -->
+        <div class="navBarOptionsSeparator"></div>
+
+        <!-- MACHINE LEARNING PORTFOLIO DIRECT -->
+        <a href="../pages/machine_learning_portfolio.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/images/index/machine_learning_portfolio-icon.png" alt="">
+            <p class="navBarOptionsText">
+                M.L.P.
+            </p>
+        </a>
+
+        <!-- ATHENA DIRECT -->
+        <a href="../pages/athena.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/icons/athena-icon.png" alt="">
+            <p class="navBarOptionsText">
+                Athena
+            </p>
+        </a>
+
+        <!-- RECEIPT ANALYZER DIRECT -->
+        <a href="../pages/receipt_analyzer.html" class="navBarOptions popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/icons/receipt_analyzer-icon.png" alt="">
+            <p class="navBarOptionsText">
+                Receipt
+                Analyzer
+            </p>
+        </a>
+
+        <!-- CONTACTS SEPARATOR -->
+        <div class="navBarOptionsSeparator"></div>
+
+        <!-- LINKEDIN DIRECT -->
+        <a href="https://www.linkedin.com/in/matthewthomasbeck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/icons/linkedin-icon.png" alt="">
+        </a>
+
+        <!-- GITHUB DIRECT -->
+        <a href="https://www.github.com/matthewthomasbeck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/icons/github-icon.png" alt="">
+        </a>
+
+        <!-- YOUTUBE DIRECT -->
+        <a href="https://www.youtube.com/@Matthew_Thomas_Beck" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/icons/play_button-icon.png" alt="">
+        </a>
+
+        <!-- INSTAGRAM DIRECT -->
+        <a href="https://www.instagram.com/matthew_thomas_beck/" class="navBarOptions noText popUp" onmouseover="popUp(this)" onmouseout="popDown(this)">
+            <img class="navBarOptionsImages" src="../assets/icons/instagram-icon.png" alt="">
+        </a>
+    </div>
+</nav>
+
+<!-- FINANCIAL INSTRUMENTS -->
+<div class="parentDiv">
+    <div class="childDiv">
+
+        <!-- STOCKS HEADER -->
+        <div class="contentHeaderBoxes">
+            <h1 class="contentHeaders programmerFont" id="stocksHeader">
+                Stocks
+            </h1>
+        </div>
+
+        <!-- STOCKS GRAPH -->
+        <div class="contentBoxes" id="stocksGraphBox">
+
+        </div>
+
+        <!-- CRYPTO HEADER -->
+        <!--<div class="headerBoxes" id="cryptoHeaderBox">
+            <h1 class="headers programmerFont" id="cryptoHeader">
+                Crypto
+            </h1>
+        </div>-->
+
+        <!-- CRYPTO GRAPH -->
+        <!--<div class="graphBoxes" id="cryptoGraphBox">
+
+        </div>-->
+
+        <!-- FOREIGN EXCHANGE HEADER -->
+        <!--<div class="headerBoxes" id="foreignExchangeHeaderBox">
+            <h1 class="headers programmerFont" id="foreignExchangeHeader">
+                Foreign Exchange
+            </h1>
+        </div>-->
+
+        <!-- FOREIGN EXCHANGE GRAPH -->
+        <!--<div class="graphBoxes" id="foreignExchangeGraphBox">
+
+        </div>-->
+
+
+        <!-- METALS HEADER -->
+        <!--<div class="headerBoxes" id="metalsHeaderBox">
+            <h1 class="headers programmerFont" id="metalsHeader">
+                Metals
+            </h1>
+        </div>-->
+
+        <!-- METALS GRAPH -->
+        <!--<div class="graphBoxes" id="metalsGraphBox">
+
+        </div>-->
+
+        <!-- ENERGY HEADER -->
+        <!--<div class="headerBoxes" id="energyHeaderBox">
+            <h1 class="headers programmerFont" id="energyHeader">
+                Energy
+            </h1>
+        </div>-->
+
+        <!-- ENERGY GRAPH -->
+        <!--<div class="graphBoxes" id="energyGraphBox">
+
+        </div>-->
+
+        <!-- MATERIALS HEADER -->
+        <!--<div class="headerBoxes" id="materialsHeaderBox">
+            <h1 class="headers programmerFont" id="materialsHeader">
+                Materials
+            </h1>
+        </div>-->
+
+        <!-- MATERIALS GRAPH -->
+        <!--<div class="graphBoxes" id="materialsGraphBox">
+
+        </div>-->
+
+        <!-- AGRICULTURE HEADER -->
+        <!--<div class="headerBoxes" id="agricultureHeaderBox">
+            <h1 class="headers programmerFont" id="agricultureHeader">
+                Agriculture
+            </h1>
+        </div>-->
+
+        <!-- AGRICULTURE GRAPH -->
+        <!--<div class="graphBoxes" id="agricultureGraphBox">
+
+        </div>-->
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script src="../js/global.js"></script>
+<script src="../js/machine_learning_portfolio.js"></script>
+</body>
+</html>
