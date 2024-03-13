@@ -61,7 +61,7 @@
 
 .firstElement {
 
-    margin-top: 60px;
+    margin-top: var(--navBarHeight);
     padding: 1.57%;
 }
 
@@ -577,7 +577,7 @@
 
         top: 0;
         width: 100vw;
-        height: calc(60% + 60px);
+        height: calc(60% + var(--navBarHeight));
     }
 
     #aboutMe {

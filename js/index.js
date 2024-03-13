@@ -20,7 +20,8 @@
 
 /***** create standard time interval *****/
 
-const TIME_INTERVAL = rootStyles.getPropertyValue('--timeInterval'); // time interval of 250 milliseconds
+// time interval of 250 milliseconds
+const TIME_INTERVAL = parseFloat(rootStyles.getPropertyValue('--timeInterval'));
 
 
 

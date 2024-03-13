@@ -73,11 +73,11 @@
 
     /***** nav bar height in pixels *****/
 
-    --navBarHeight: 60;
+    --navBarHeight: 60px;
 
     /***** time interval in milliseconds *****/
 
-    --timeInterval: 250;
+    --timeInterval: 250ms;
 
     /***** primary page colors *****/
 
@@ -198,7 +198,7 @@
 
 .popUp {
 
-    transition: transform 0.3s ease-out;
+    transition: transform var(--timeInterval) ease-out;
 }
 
 .popUp:hover {
@@ -316,7 +316,7 @@ img {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 999;
-    transition: background-color 0.3s ease; /* duration 0.3 sec, slowly ease out */
+    transition: background-color var(--timeInterval) ease;
 }
 
 #navBarOptionsDimmer.showNavBarOptionsDimmer { /* show dimmer */
@@ -338,7 +338,7 @@ img {
     align-items: center;
     width: 100%;
     top: 0;
-    height: 60px;
+    height: var(--navBarHeight);
 }
 
 #navBarOptionsButton { /* used to select options */
@@ -366,7 +366,7 @@ img {
     background-color: white;
     width: 130%;
     height: 10%;
-    transition: transform 0.3s; /* duration 0.3 sec */
+    transition: transform var(--timeInterval);
 }
 
 #navBarNameBox { /* used to hold my name */
@@ -391,13 +391,13 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: calc(100vh - 60px);
-    width: 60px;
-    margin-left: -60px;
+    height: calc(100vh - var(--navBarHeight));
+    width: var(--navBarHeight);
+    margin-left: calc(-1 * var(--navBarHeight));
     background-color: var(--secondary);
     bottom: 0;
     left: 0;
-    transition: margin-left 0.3s ease-out; /* duration 0.3 sec, slowly ease out */
+    transition: margin-left var(--timeInterval) ease-out;
 }
 
 #navBarOptionsBox.showNavBarOptionsBox { /* show nav bar options */
@@ -437,7 +437,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     border: none;
-    transition: 0.3s; /* duration 0.3 sec */
+    transition: var(--timeInterval);
 }
 
 .navBarOptionsText {
@@ -448,7 +448,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     font-size: 9px;
-    transition: 0.3s; /* duration 0.3 sec */
+    transition: var(--timeInterval);
 }
 
 .navBarOptionsSeparator {
@@ -480,10 +480,10 @@ img {
 
 /***** standard div sub element ******/
 
-.childDiv { /* used to hold content withing parent div */
+.childDiv { /* used to hold content within parent div */
 
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: var(--navBarHeight);
+    margin-bottom: var(--navBarHeight);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -572,7 +572,7 @@ img {
 #jumpUpArrow {
 
     opacity: 0.25;
-    transition: transform 0.3s ease-out;
+    transition: transform var(--timeInterval) ease-out;
 }
 
 /***** content boxes *****/

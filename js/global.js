@@ -27,7 +27,7 @@ const rootStyles = getComputedStyle(document.documentElement); // nav height and
 
 /***** create standard nav height *****/
 
-const NAV_HEIGHT = rootStyles.getPropertyValue('--navBarHeight'); // set nav height
+const NAV_HEIGHT = parseFloat(rootStyles.getPropertyValue('--navBarHeight')); // set nav height
 
 
 
