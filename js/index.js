@@ -368,9 +368,10 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
         projectsInfoName.textContent = "Personal Website"; // set title
 
         // set content from .txt
-        projectsInfoBody.textContent = "This very page you're looking at! Fun fact, I made this website in 4 days " +
-            "and with barely any experience in either HTML, CSS, or Javascript; what really helped me move forward " +
-            "quickly was thoughtfully crafted Google and ChatGPT queries, prior knowledge in Java, and black coffee";
+        projectsInfoBody.textContent = "This very page you're looking at! Fun fact, I made this website in less than " +
+            "a month as a full-time student and with barely any experience in either HTML, CSS, or Javascript; what" +
+            "really helped me move forward quickly was thoughtfully crafted searches, prior knowledge in Java, and" +
+            "black coffee";
     }
 
     else if (currentItem === 4) { // if current item video editor...
