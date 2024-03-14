@@ -292,7 +292,7 @@ for (let i = 0; i < programmingHeadersReplace.length; i++) { // loop through hea
 
         replacementText.classList.add('fancyFont'); // apply fancy font to span content
 
-        event.target.innerHTML = ""; // replace old span with replacement span
+        event.target.textContent= ""; // replace old span with replacement span
 
         event.target.style.borderRightWidth = '0px'; // remove old right border
 

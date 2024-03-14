@@ -92,7 +92,8 @@ const navBarName = document.getElementById('navBarName'); // find nav bar name
 
 /***** replace text content *****/
 
-navBarName.addEventListener('animationend', function(event) { // once programmer typing animation ends...
+// once programmer typing animation ends...
+navBarName.addEventListener('animationend', function(event) {
 
     /***** set variables *****/
 
@@ -106,7 +107,7 @@ navBarName.addEventListener('animationend', function(event) { // once programmer
 
     replacementText.classList.add('fancyFont'); // apply fancy font to span content
 
-    event.target.innerHTML = ""; // replace old span with replacement span
+    event.target.textContent = ""; // replace old span with replacement span
 
     event.target.style.borderRightWidth = '0px'; // remove old right border
 
