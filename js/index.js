@@ -369,8 +369,8 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
 
         // set content from .txt
         projectsInfoBody.textContent = "This very page you're looking at! Fun fact, I made this website in less than " +
-            "a month as a full-time student and with barely any experience in either HTML, CSS, or Javascript; what" +
-            "really helped me move forward quickly was thoughtfully crafted searches, prior knowledge in Java, and" +
+            "a month as a full-time student and with barely any experience in either HTML, CSS, or Javascript; what " +
+            "really helped me move forward quickly was thoughtfully crafted searches, prior knowledge in Java, and " +
             "black coffee";
     }
 
