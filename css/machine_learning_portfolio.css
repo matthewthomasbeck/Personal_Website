@@ -33,3 +33,12 @@
 
 
 /********** CUSTOM ELEMENTS **********/
+
+/***** charts *****/
+
+.machineLearningPortfolioCharts {
+
+    position: unset !important;
+    aspect-ratio: 16/9 !important;
+    width: 100vw !important;
+}

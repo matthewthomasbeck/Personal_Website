@@ -27,40 +27,47 @@
 /********** INTERACTIVE GRAPH **********/
 
 
-// Fetch data from the server
-fetch('/api/data')
-    .then(response => response.json())
-    .then(data => {
-        // Process data and create a Chart.js chart
-        const labels = data.map(entry => entry.date);
-        const values = data.map(entry => entry.value);
+/*// Function to dynamically load Plotly.js library
+function loadPlotly(callback) {
 
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Stock Value',
-                    data: values,
-                    borderColor: 'rgb(75, 192, 192)',
-                    borderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
-                    hoverRadius: 7,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        type: 'linear',
-                        position: 'bottom'
-                    },
-                    y: {
-                        min: 0,
-                    }
-                }
-            }
-        });
-    });
+    var script = document.createElement('script');
+
+    script.onload = callback;
+
+    script.src = 'https://cdn.plot.ly/plotly-latest.min.js';
+
+    document.head.appendChild(script);
+}
+
+// Callback function to execute after Plotly.js is loaded
+function plotlyLoaded() {
+
+    // Sample data
+    var data = [{
+        x: [1, 2, 3, 4, 5],
+        y: [10, 15, 13, 17, 10],
+        type: 'scatter'
+    }];
+
+    // Layout configuration
+    var layout = {
+
+        title: 'Sample Plotly.js Chart',
+
+        xaxis: {
+
+            title: 'X Axis'
+        },
+
+        yaxis: {
+
+            title: 'Y Axis'
+        }
+    };
+
+    // Create a Plotly.js chart inside the specified div
+    Plotly.newPlot('stocksChart', data, layout);
+}
+
+// Load Plotly.js dynamically and execute callback when loaded
+loadPlotly(plotlyLoaded); */
