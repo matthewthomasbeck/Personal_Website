@@ -110,6 +110,7 @@
 
 #aboutMeHeaderBox {
 
+    height: auto;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -129,6 +130,7 @@
 #portraitBox {
 
     position: absolute;
+    overflow: hidden;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -139,7 +141,8 @@
 #portrait1 {
 
     display: block;
-    align-self: flex-end;
+    align-self: center;
+    overflow: hidden;
     height: 100%;
     aspect-ratio: 1/1;
     background-color: var(--pastel-1);
@@ -147,7 +150,8 @@
 
 #portrait2 {
 
-    align-self: flex-end;
+    align-self: center;
+    overflow: hidden;
     height: 100%;
     aspect-ratio: 1/1;
     background-color: var(--pastel-2);
@@ -155,7 +159,8 @@
 
 #portrait3 {
 
-    align-self: flex-end;
+    align-self: center;
+    overflow: hidden;
     height: 100%;
     aspect-ratio: 1/1;
     background-color: var(--pastel-3);
@@ -163,7 +168,8 @@
 
 #portrait4 {
 
-    align-self: flex-end;
+    align-self: center;
+    overflow: hidden;
     height: 100%;
     aspect-ratio: 1/1;
     background-color: var(--pastel-4);

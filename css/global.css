@@ -599,6 +599,18 @@ img {
     object-position: center;
 }
 
+.contentVideo {
+
+    aspect-ratio: 16/9;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-self: initial;
+    height: initial;
+    right: initial;
+    width: 100%;
+    object-position: center;
+}
+
 .contentTextBox {
 
     width: fit-content;
