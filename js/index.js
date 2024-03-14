@@ -38,12 +38,12 @@ const TIME_INTERVAL = parseFloat(rootStyles.getPropertyValue('--timeInterval'));
 
 const aboutMeBodyBox = document.getElementById('aboutMeBodyBox'); // find about me body box
 
-// find final tag
-const finalTag = aboutMeBodyBox.getElementsByTagName('p')[aboutMeBodyBox.getElementsByTagName('p').length - 1];
+const firstTag = aboutMeBodyBox.getElementsByTagName('p')[0]; // find first tag
 
 /***** observe last fade in *****/
 
-finalTag.addEventListener('animationend', function(event) { // add event listener for fade in
+// add event listener for fade in
+firstTag.addEventListener('animationend', function(event) {
 
     /***** set variables *****/
 
