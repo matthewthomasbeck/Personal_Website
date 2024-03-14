@@ -406,7 +406,7 @@
 
         margin-left: 5%;
         margin-right: auto;
-        width: 485px;
+        width: 460px;
     }
 
     /***** skills *****/
@@ -414,7 +414,7 @@
     #skillSetHeaderBox {
 
         height: auto;
-        width: 705px;
+        width: 670px;
     }
 
     /***** projects *****/
@@ -479,7 +479,7 @@
     #contactMeHeaderBox {
 
         height: auto;
-        width: 490px;
+        width: 460px;
     }
 }
 
