@@ -27,6 +27,8 @@ const rootStyles = getComputedStyle(document.documentElement); // nav height and
 
 /***** create standard nav height *****/
 
+// time interval of 250 milliseconds
+const TIME_INTERVAL = parseFloat(rootStyles.getPropertyValue('--timeInterval'));
 const NAV_HEIGHT = parseFloat(rootStyles.getPropertyValue('--navBarHeight')); // set nav height
 
 
@@ -36,6 +38,31 @@ const NAV_HEIGHT = parseFloat(rootStyles.getPropertyValue('--navBarHeight')); //
 /****************************************************/
 /*************** global.js JAVASCRIPT ***************/
 /****************************************************/
+
+
+/********** COLOR CHANGING FAVICON **********/
+
+/***** set variables *****/
+
+const favicon = document.getElementById('favicon'); // get favicon element
+const favicons = ['pastel1.png', 'pastel2.png', 'pastel3.png', 'pastel4.png']; // set favicon paths
+let index = 0; // set index to 0
+
+/***** change favicon color *****/
+
+if (favicon) { // if favicon exists...
+
+    function changeFavicon() { // function used to change favicon color
+
+        favicon.href = '../assets/favicons/favicon-' + favicons[index]; // change favicon color with path
+
+        index = (index + 1) % favicons.length; // increment index by 1 and mod by length of favicons
+
+        setTimeout(changeFavicon, (TIME_INTERVAL * 12)); // change favicon color at same rate of index.js
+    }
+
+    changeFavicon(); // start changing favicon color
+}
 
 
 /********** NAV BAR NAME POSITIONING **********/

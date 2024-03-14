@@ -13,15 +13,6 @@
 
 /************************************************************/
 /*************** IMPORT / CREATE DEPENDENCIES ***************/
-/************************************************************/
-
-
-/********** CREATE DEPENDENCIES **********/
-
-/***** create standard time interval *****/
-
-// time interval of 250 milliseconds
-const TIME_INTERVAL = parseFloat(rootStyles.getPropertyValue('--timeInterval'));
 
 
 
@@ -37,7 +28,6 @@ const TIME_INTERVAL = parseFloat(rootStyles.getPropertyValue('--timeInterval'));
 /***** set variables *****/
 
 const aboutMeBodyBox = document.getElementById('aboutMeBodyBox'); // find about me body box
-
 const firstTag = aboutMeBodyBox.getElementsByTagName('p')[0]; // find first tag
 
 /***** observe last fade in *****/
@@ -48,6 +38,7 @@ firstTag.addEventListener('animationend', function(event) {
     /***** set variables *****/
 
     const slides = document.querySelectorAll('.slide'); // select slide class elements
+    const favicon = document.getElementById('faviconIndex');
     let currentSlide = 0; // pre-initialize current slide as 0
 
     /***** create looping *****/
@@ -63,7 +54,7 @@ firstTag.addEventListener('animationend', function(event) {
 
         /***** set variables *****/
 
-            // find about me body box and set to variable
+        // find about me body box and set to variable
         const aboutMeBodyBoxFirstTag = document.getElementById('aboutMeBodyBox').getElementsByTagName('p')[0];
 
         /***** change name color based on slide *****/
@@ -75,24 +66,32 @@ firstTag.addEventListener('animationend', function(event) {
 
                 // update name color
                 document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-1');
+
+                favicon.href = '../assets/favicons/favicon-pastel1.png'; // update favicon
             }
 
             else if (currentSlide === 1) { // if portrait 2...
 
                 // update name color
                 document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-2');
+
+                favicon.href = '../assets/favicons/favicon-pastel2.png'; // update favicon
             }
 
             else if (currentSlide === 2) { // if portrait 3...
 
                 // update name color
                 document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-3');
+
+                favicon.href = '../assets/favicons/favicon-pastel3.png'; // update favicon
             }
 
             else if (currentSlide === 3) { // if portrait 4...
 
                 // update name color
                 document.getElementsByClassName('fadeInName')[0].style.color = rootStyles.getPropertyValue('--pastel-4');
+
+                favicon.href = '../assets/favicons/favicon-pastel4.png'; // update favicon
             }
         }
 

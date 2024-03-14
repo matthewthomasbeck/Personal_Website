@@ -16,14 +16,6 @@
 /************************************************************/
 
 
-/********** CREATE DEPENDENCIES **********/
-
-/***** create standard time interval *****/
-
-// time interval of 250 milliseconds
-const TIME_INTERVAL = parseFloat(rootStyles.getPropertyValue('--timeInterval'));
-
-
 
 
 
