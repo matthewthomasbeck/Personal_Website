@@ -36,9 +36,12 @@
 
 /***** charts *****/
 
-.machineLearningPortfolioCharts {
+.portfolioChart {
 
-    position: unset !important;
-    aspect-ratio: 16/9 !important;
-    width: 100vw !important;
+    margin: auto;
+    position: unset;
+    aspect-ratio: 16/9;
+    width: 100%;
+    border: none;
+    overflow: hidden;
 }

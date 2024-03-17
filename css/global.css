@@ -552,6 +552,14 @@ img {
     width: 185px;
 }
 
+/***** content headers *****/
+
+.contentHeaders { /* used to style headers for sub-pages */
+
+    color: white;
+    text-align: center;
+}
+
 /***** jump back *****/
 
 #jumpUpBox {
@@ -618,13 +626,6 @@ img {
 }
 
 .contentText {
-
-    color: white;
-}
-
-/***** modified headers *****/
-
-.contentHeaders { /* used to style headers for sub-pages */
 
     color: white;
 }
