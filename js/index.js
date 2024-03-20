@@ -383,4 +383,6 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
             "videos automatically (at the time of writing), I created a script that primarily uses PyAutoGUI to " +
             "control my screen and edit videos for me";
     }
+
+    projectsInfoBody.style.textAlign = 'left'; // set text alignment to left
 });

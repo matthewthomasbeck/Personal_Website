@@ -70,25 +70,29 @@ if (favicon) { // if favicon exists...
 /***** set variables *****/
 
 const navBarOptionsButton = document.getElementById('navBarOptionsButton'); // options button
+const navBarNameBox = document.getElementById('navBarNameBox'); // name box
+const navBarName = document.getElementById('navBarName'); // name
 
 // get width of options button
 const optionsWidth = navBarOptionsButton.offsetWidth + parseInt(getComputedStyle(navBarOptionsButton).marginLeft);
-const nameWidth = document.getElementById('navBarNameBox').offsetWidth; // get with of name box
+const nameWidth = navBarNameBox.offsetWidth; // get with of name box
 
 /***** find margins based on auto minus width of options button and name *****/
 
 // find margin-left based on auto minus width of options button plus half of name width
-document.getElementById('navBarNameBox').style.marginLeft = 'calc(50% - ' + (optionsWidth + (nameWidth / 2)) + 'px)';
+navBarNameBox.style.marginLeft = 'calc(50% - ' + (optionsWidth + (nameWidth / 2)) + 'px)';
 
 // find margin-right based on auto minus half of name width
-document.getElementById('navBarNameBox').style.marginRight = 'calc(50% - ' + (nameWidth / 2) + 'px)';
+navBarNameBox.style.marginRight = 'calc(50% - ' + (nameWidth / 2) + 'px)';
+
+navBarName.classList.add('programmerTyping'); // show border once text has been positioned
 
 
 /********** NAV BAR NAME PROGRAMMER TEXT **********/
 
 /***** set variables *****/
 
-const navBarName = document.getElementById('navBarName'); // find nav bar name
+// navBarName inherited from above
 
 /***** replace text content *****/
 
