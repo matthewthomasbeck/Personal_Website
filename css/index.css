@@ -181,9 +181,7 @@
 .skills {
 
     background-color: var(--secondary);
-    height: 12%;
     width: 100%;
-    margin-top: 2%;
     margin-left: 1.25%;
     margin-right: 1.25%;
     opacity: 0;
@@ -339,9 +337,9 @@
 .contacts {
 
     background-color: var(--secondary);
-    height: 17%;
     width: 100%;
-    margin: 1.25%;
+    margin-left: 1.25%;
+    margin-right: 1.25%;
     opacity: 0;
     display: flex;
     flex-direction: row;
@@ -400,7 +398,7 @@
 
     #aboutMe {
 
-        height: 50%;
+        height: 60%;
         width: 50%
     }
 
@@ -412,6 +410,12 @@
     }
 
     /***** skills *****/
+
+    .skills {
+
+        margin-top: 0.75%;
+        height: 12%;
+    }
 
     #skillSetHeaderBox {
 
@@ -483,6 +487,12 @@
         height: auto;
         width: 460px;
     }
+
+    .contacts {
+
+        height: 17%;
+        margin-top: 0.75%;
+    }
 }
 
 
@@ -506,7 +516,7 @@
 
     #aboutMe {
 
-        height: 40%;
+        height: 45%;
         width: 90%;
     }
 
@@ -518,6 +528,12 @@
     }
 
     /***** skills *****/
+
+    .skills {
+
+        margin-top: 1%;
+        height: 13%;
+    }
 
     #skillSetHeaderBox {
 
@@ -597,6 +613,12 @@
         width: 450px;
         font-size: 130%;
     }
+
+    .contacts {
+
+        height: 18%;
+        margin-top: 1%;
+    }
 }
 
 
@@ -620,7 +642,7 @@
 
     #aboutMe {
 
-        height: 40%;
+        height: 45%;
         width: 90%;
     }
 
@@ -634,9 +656,14 @@
 
     /***** skills *****/
 
+    .skills {
+
+        margin-top: 1.25%;
+        height: 14%;
+    }
+
     #skillSetHeaderBox {
 
-        margin: 2%;
         height: auto;
         width: 335px;
         font-size: 105%;
@@ -707,5 +734,11 @@
         height: auto;
         width: 330px;
         font-size: 150%;
+    }
+
+    .contacts {
+
+        height: 19%;
+        margin-top: 1.25%;
     }
 }
