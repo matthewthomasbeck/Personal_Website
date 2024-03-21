@@ -351,7 +351,7 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
         projectsInfoBody.innerHTML = "Athena is an upcoming robotic dog project in which I will create a 'brain' " +
             "using a Raspberry Pi 4B and an Intel Movidius Neural Compute Stick 2 running OpenVino that will allow a " +
             "robotic dog to somewhat think for itself using the ARES platform by the very-talented:" +
-            "<div class='popUp' style='text-align: center; margin-top: 10%; font-size: 150%;' onmouseover='popUp(this)' onmouseout='popDown(this)'><a href='https://www.youtube.com/@aaedmusa' target='_blank' style='color: var(--pastel-5)'>Aaed Musa</a><div>";
+            "<div class='popUp' style='text-align: center; margin-top: 10%; font-size: 130%;' onmouseover='popUp(this)' onmouseout='popDown(this)'><a href='https://www.youtube.com/@aaedmusa' target='_blank' style='color: var(--pastel-5)'>Aaed Musa</a><div>";
     }
 
     else if (currentItem === 2) { // if current item receipt analyzer...
