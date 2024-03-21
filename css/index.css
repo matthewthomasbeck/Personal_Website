@@ -244,6 +244,7 @@
 
 #projectsBackground {
 
+    top: 200vh;
     background-color: var(--pastel-5);
     position: absolute;
     z-index: 1;
