@@ -382,7 +382,7 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
         // set content from .txt
         projectsInfoBody.textContent = "This very page you're looking at! Fun fact, I made this website in less than " +
             "a month as a full-time student and with limited experience in HTML, CSS, or JavaScript; what really " +
-            "helped me move forward quickly was thoughtfully crafted searches, prior knowledge in Java, and " +
+            "helped me move forward quickly was forcefully blocking all distractions, prior knowledge in Java, and " +
             "black coffee";
 
         aaedNameOne.textContent = ""; // unset Aaed's name
