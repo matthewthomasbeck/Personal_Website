@@ -13,6 +13,7 @@
 
 /************************************************************/
 /*************** IMPORT / CREATE DEPENDENCIES ***************/
+/************************************************************/
 
 
 
@@ -121,6 +122,7 @@ firstTag.addEventListener('animationend', function(event) {
 // find all headers that use programmer typing and set to variable
 const programmingHeadersAnimate = document.getElementsByClassName('programmerTyping');
 const aboutMeName = document.getElementById('name'); // find name
+const aaedName = document.getElementById('aaedMusaName'); // find Aaed's name
 
 /***** animate programmer typing headers *****/
 
@@ -200,6 +202,9 @@ const programmerTypingObserver = new IntersectionObserver(entries => {
 
                     // trigger fade in for additional content
                     document.getElementById('projectsInfoBody').classList.add('fadeIn');
+
+                    // trigger fade in for additional content
+                    aaedName.classList.add('fadeInAaedName');
 
                 }, TIME_INTERVAL); // add delay to body
             }
@@ -320,6 +325,7 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
 
     let scrollPosition = projectsWheel.scrollLeft; // update div based on scroll position
     let itemWidth = document.querySelector('.projects').offsetWidth * 2; // width of a project item
+    let aaedNameOne = document.getElementById('aaedMusaName'); // get Aaed's name
 
     /***** calculate scroll position based on screen width *****/
 
@@ -341,6 +347,8 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
             'whole host of data collecting and modeling scripts, I created a portfolio that finds the most volatile ' +
             'financial instruments, predicts their prices, and suggests when you should buy / sell (OBLIGATORY: THIS ' +
             'IS NOT FINANCIAL ADVICE)';
+
+        aaedNameOne.textContent = ""; // unset Aaed's name
     }
 
     else if (currentItem === 1) { // if current item athena...
@@ -350,8 +358,9 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
         // set content from .txt
         projectsInfoBody.innerHTML = "Athena is an upcoming robotic dog project in which I will create a 'brain' " +
             "using a Raspberry Pi 4B and an Intel Movidius Neural Compute Stick 2 running OpenVino that will allow a " +
-            "robotic dog to somewhat think for itself using the ARES platform by the very-talented:" +
-            "<div class='popUp' style='text-align: center; margin-top: 10%; font-size: 130%;' onmouseover='popUp(this)' onmouseout='popDown(this)'><a href='https://www.youtube.com/@aaedmusa' target='_blank' style='color: var(--pastel-5)'>Aaed Musa</a><div>";
+            "robotic dog to somewhat think for itself using the ARES platform by the very-talented:";
+
+        aaedNameOne.textContent = "Aaed Musa"; // set Aaed's name
     }
 
     else if (currentItem === 2) { // if current item receipt analyzer...
@@ -362,6 +371,8 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
         projectsInfoBody.textContent = "I built a Python app that uses Custom TKinter, Matplotlib, Psycopg2, and a " +
             "host of other technologies including its own SQL database in order to better track my spending during " +
             "the early days of university";
+
+        aaedNameOne.textContent = ""; // unset Aaed's name
     }
 
     else if (currentItem === 3) { // if current item personal website...
@@ -373,6 +384,8 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
             "a month as a full-time student and with limited experience in HTML, CSS, or JavaScript; what really " +
             "helped me move forward quickly was thoughtfully crafted searches, prior knowledge in Java, and " +
             "black coffee";
+
+        aaedNameOne.textContent = ""; // unset Aaed's name
     }
 
     else if (currentItem === 4) { // if current item video editor...
@@ -383,6 +396,8 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
         projectsInfoBody.textContent = "As Adobe Premiere Pro did not have any kind of API I could use to edit my " +
             "videos automatically (at the time of writing), I created a script that primarily uses PyAutoGUI to " +
             "control my screen and edit videos for me";
+
+        aaedNameOne.textContent = ""; // unset Aaed's name
     }
 
     projectsInfoBody.style.textAlign = 'left'; // set text alignment to left

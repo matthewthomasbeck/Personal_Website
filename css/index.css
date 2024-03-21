@@ -63,11 +63,29 @@
     }
 }
 
+@keyframes colorChangeAaedName {
+
+    0% {
+
+        color: transparent;
+    }
+
+    100% {
+
+        opacity: var(--pastel-5);
+    }
+}
+
 /***** fade in name classes *****/
 
 .fadeInName { /* used exclusively for name */
 
     animation: fadeIn var(--fadeInDuration) var(--fadeInDelay) ease-out forwards, colorChangeName var(--fadeInDuration) var(--fadeInDelay) forwards;
+}
+
+.fadeInAaedName {
+
+    animation: fadeIn var(--fadeInDuration) var(--fadeInDelay) ease-out forwards, colorChangeAaedName var(--fadeInDuration) var(--fadeInDelay) forwards;
 }
 
 
@@ -334,6 +352,20 @@
 #projectsInfoBody {
 
     color: transparent;
+}
+
+#aaedMusaNameBox {
+
+    text-align: center;
+    margin-top: 10%;
+    font-size: 130%;
+}
+
+#aaedMusaName {
+
+    opacity: 0;
+    color: var(--pastel-5);
+    text-decoration: none;
 }
 
 
