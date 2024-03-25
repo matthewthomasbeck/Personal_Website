@@ -123,6 +123,7 @@ firstTag.addEventListener('animationend', function(event) {
 const programmingHeadersAnimate = document.getElementsByClassName('programmerTyping');
 const aboutMeName = document.getElementById('name'); // find name
 const aaedName = document.getElementById('aaedMusaName'); // find Aaed's name
+const aaedNameLarge = document.getElementById('aaedMusaNameLarge'); // find Aaed's name large
 
 /***** animate programmer typing headers *****/
 
@@ -183,6 +184,10 @@ const programmerTypingObserver = new IntersectionObserver(entries => {
 
                 // find projects elements class and set to variable
                 const projects = document.getElementsByClassName('projects');
+                const arrow = document.getElementById('swipeArrow'); // find swipe arrow
+
+                // find swipe arrow text
+                const arrowText = document.getElementById('swipeArrowText');
 
                 /***** trigger fade in animation *****/
 
@@ -195,6 +200,10 @@ const programmerTypingObserver = new IntersectionObserver(entries => {
                     projects[i].getElementsByTagName('img')[0].classList.add('popUp'); // add pop up to img
                 }
 
+                arrow.classList.add('fadeIn'); // add animations to arrow
+
+                arrowText.classList.add('fadeIn'); // add animations to arrow text
+
                 // additional content fade in
                 document.getElementById('projectsInfoName').classList.add('fadeIn');
 
@@ -205,6 +214,9 @@ const programmerTypingObserver = new IntersectionObserver(entries => {
 
                     // trigger fade in for additional content
                     aaedName.classList.add('fadeInAaedName');
+
+                    // trigger fade in for additional content
+                    aaedNameLarge.classList.add('fadeInAaedName');
 
                 }, TIME_INTERVAL); // add delay to body
             }
@@ -325,7 +337,9 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
 
     let scrollPosition = projectsWheel.scrollLeft; // update div based on scroll position
     let itemWidth = document.querySelector('.projects').offsetWidth * 2; // width of a project item
-    let aaedNameOne = document.getElementById('aaedMusaName'); // get Aaed's name
+    const aaedName = document.getElementById('aaedMusaName'); // get Aaed's name
+    const aaedNameLarge = document.getElementById('aaedMusaNameLarge'); // get Aaed's name large
+    const swipeArrowBox = document.getElementById('swipeArrowBox'); // get swipe arrow box
 
     /***** calculate scroll position based on screen width *****/
 
@@ -348,7 +362,9 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
             'financial instruments, predicts their prices, and suggests when you should buy / sell (OBLIGATORY: THIS ' +
             'IS NOT FINANCIAL ADVICE)';
 
-        aaedNameOne.textContent = ""; // unset Aaed's name
+        aaedName.textContent = ""; // unset Aaed's name
+
+        aaedNameLarge.textContent = ""; // unset Aaed's name large
     }
 
     else if (currentItem === 1) { // if current item athena...
@@ -358,9 +374,13 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
         // set content from .txt
         projectsInfoBody.innerHTML = "Athena is an upcoming robotic dog project in which I will create a 'brain' " +
             "using a Raspberry Pi 4B and an Intel Movidius Neural Compute Stick 2 running OpenVino that will allow a " +
-            "robotic dog to somewhat think for itself using the ARES platform by the very-talented:";
+            "robotic dog to somewhat think for itself using the ARES platform by the talented:";
 
-        aaedNameOne.textContent = "Aaed Musa"; // set Aaed's name
+        aaedName.textContent = "Aaed Musa!"; // set Aaed's name
+
+        aaedNameLarge.textContent = "Aaed Musa!"; // set Aaed's name large
+
+        swipeArrowBox.style.display = 'none'; // hide swipe arrow box
     }
 
     else if (currentItem === 2) { // if current item receipt analyzer...
@@ -372,7 +392,9 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
             "host of other technologies including its own SQL database in order to better track my spending during " +
             "the early days of university";
 
-        aaedNameOne.textContent = ""; // unset Aaed's name
+        aaedName.textContent = ""; // unset Aaed's name
+
+        aaedNameLarge.textContent = ""; // unset Aaed's name large
     }
 
     else if (currentItem === 3) { // if current item personal website...
@@ -385,7 +407,9 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
             "helped me move forward quickly was forcefully blocking all distractions, prior knowledge in Java, and " +
             "black coffee";
 
-        aaedNameOne.textContent = ""; // unset Aaed's name
+        aaedName.textContent = ""; // unset Aaed's name
+
+        aaedNameLarge.textContent = ""; // unset Aaed's name large
     }
 
     else if (currentItem === 4) { // if current item video editor...
@@ -397,8 +421,20 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
             "videos automatically (at the time of writing), I created a script that primarily uses PyAutoGUI to " +
             "control my screen and edit videos for me";
 
-        aaedNameOne.textContent = ""; // unset Aaed's name
+        aaedName.textContent = ""; // unset Aaed's name
+
+        aaedNameLarge.textContent = ""; // unset Aaed's name large
     }
 
     projectsInfoBody.style.textAlign = 'left'; // set text alignment to left
 });
+
+
+/********** AAED MUSA NAME POSITION **********/
+
+/***** set variables *****/
+
+
+
+/***** calculate x position of Aaed's name *****/
+

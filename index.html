@@ -24,7 +24,7 @@
     <link rel="preload" as="font" href="assets/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf" type="font/woff2" crossorigin="anonymous">
 
     <!-- PRELOAD PLOTS -->
-    <link rel="preload" as="image" href="assets/graphs/stocksPredictionPlot.html" type="image/svg+xml" crossorigin="anonymous">
+    <link rel="preload" as="image" href="assets/graphs/StocksPredictionPlot.html" type="image/svg+xml" crossorigin="anonymous">
 
     <!-- STYLE SHEETS -->
     <link rel="stylesheet" href="css/global.css">
@@ -281,6 +281,15 @@
         <div id="glitchItem"></div>
     </div>
 
+    <!-- SWIPE ARROW -->
+
+    <div id="swipeArrowBox">
+        <img id="swipeArrow" src="assets/icons/arrow-east.png" alt="">
+        <p class="programmerFont" id="swipeArrowText">
+            Scroll For More
+        </p>
+    </div>
+
     <!-- PROJECTS INFO-->
     <div id="projectsInfoBackground"></div>
 
@@ -296,20 +305,27 @@
         <!-- PROJECTS INFO NAME -->
         <div class="programmerFont" id="projectsInfoNameBox">
             <h2 id="projectsInfoName">
-                Scroll To The Right
+                Machine Learning Portfolio
             </h2>
         </div>
 
         <!-- PROJECTS INFO CONTENT -->
         <div class="standardFont" id="projectsInfoBodyBox">
-            <p id="projectsInfoBody" style="text-align: center;">
-                (there's more!)
+            <p id="projectsInfoBody">
+                Using a Raspberry Pi 4B, a Coral TPU, TensorFlow, an Nginx web server, and a whole host of data
+                collecting and modeling scripts, I created a portfolio that finds the most volatile financial
+                instruments, predicts their prices, and suggests when you should buy / sell (OBLIGATORY: THIS IS NOT
+                FINANCIAL ADVICE)
             </p>
 
-            <div class="popUp" id="aaedMusaNameBox" onmouseover='popUp(this)' onmouseout='popDown(this)'>
-                <a id="aaedMusaName" href="https://www.youtube.com/@aaedmusa"></a>
+            <div class="popUp standardFont" id="aaedMusaNameBoxLarge" onmouseover='popUp(this)' onmouseout='popDown(this)'>
+                <a id="aaedMusaNameLarge" href="https://www.youtube.com/@aaedmusa"></a>
             </div>
         </div>
+    </div>
+
+    <div class="popUp standardFont" id="aaedMusaNameBox" onmouseover='popUp(this)' onmouseout='popDown(this)'>
+        <a id="aaedMusaName" href="https://www.youtube.com/@aaedmusa"></a>
     </div>
 </div>
 
