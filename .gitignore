@@ -1,6 +1,0 @@
-venv/
-*.json
-.idea/
-cert.pem
-key.pem
-.DS_Store
