@@ -1,5 +1,5 @@
 venv/
-*.json
+config.json
 .idea/
 cert.pem
 key.pem
