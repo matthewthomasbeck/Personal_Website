@@ -428,13 +428,3 @@ projectsWheel.addEventListener('scroll', function() { // when scroll takes place
 
     projectsInfoBody.style.textAlign = 'left'; // set text alignment to left
 });
-
-
-/********** AAED MUSA NAME POSITION **********/
-
-/***** set variables *****/
-
-
-
-/***** calculate x position of Aaed's name *****/
-

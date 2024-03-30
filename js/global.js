@@ -65,59 +65,146 @@ if (favicon) { // if favicon exists...
 }
 
 
-/********** NAV BAR NAME POSITIONING **********/
+/********** LOADING SCREEN **********/
 
-/***** set variables *****/
-
-const navBarOptionsButton = document.getElementById('navBarOptionsButton'); // options button
-const navBarNameBox = document.getElementById('navBarNameBox'); // name box
-const navBarName = document.getElementById('navBarName'); // name
-
-// get width of options button
-const optionsWidth = navBarOptionsButton.offsetWidth + parseInt(getComputedStyle(navBarOptionsButton).marginLeft);
-const nameWidth = navBarNameBox.offsetWidth; // get with of name box
-
-/***** find margins based on auto minus width of options button and name *****/
-
-// find margin-left based on auto minus width of options button plus half of name width
-navBarNameBox.style.marginLeft = 'calc(50% - ' + (optionsWidth + (nameWidth / 2)) + 'px)';
-
-// find margin-right based on auto minus half of name width
-navBarNameBox.style.marginRight = 'calc(50% - ' + (nameWidth / 2) + 'px)';
-
-navBarName.classList.add('programmerTyping'); // show border once text has been positioned
-
-
-/********** NAV BAR NAME PROGRAMMER TEXT **********/
-
-/***** set variables *****/
-
-// navBarName inherited from above
-
-/***** replace text content *****/
-
-// once programmer typing animation ends...
-navBarName.addEventListener('animationend', function(event) {
+document.addEventListener("DOMContentLoaded", function() { // when page content loaded...
 
     /***** set variables *****/
 
-    const replacementText = document.createElement('p'); // set replacementText
+    const loadingScreen = document.getElementById("loadingScreen"); // get loading screen
+
+    /***** hide loading screen *****/
+
+    if (loadingScreen) {
+
+        /***** show loading screen *****/
+
+        loadingScreen.style.display = "block"; // show loading screen by default
+
+        document.body.style.overflow = "hidden"; // hide scroll bar
+
+        /***** hide loading screen *****/
+
+        window.addEventListener("load", function() { // when page fully loaded...
+
+            loadingScreen.style.display = "none"; // hide loading screen
+
+            document.body.style.overflow = "auto"; // show scroll bar
+        });
+    }
+});
+
+
+/********** NAV BAR NAME **********/
+
+/***** recursively check if loading screen is present *****/
+
+function checkLoadingScreen() { // function to check if loading screen is present
+
+    /***** set variables *****/
+
+    const loadingScreen = document.getElementById('loadingScreen'); // get loading screen
+
+    /***** check if loading screen exists *****/
+
+    if (loadingScreen) { // if loading screen exists...
+
+        if (getComputedStyle(loadingScreen).display !== 'none') { // if loading screen is visible...
+
+            console.log("Not loaded yet, calling again...\n"); // log that loading screen is still present
+
+            setTimeout(checkLoadingScreen, 50); // check again in 100 milliseconds
+
+        } else { // if loading screen is not visible...
+
+            console.log("Loaded, calling loadNavBarName...\n"); // log that loading screen is no longer present
+
+            loadNavBarName(); // load name in nav bar
+        }
+    }
+}
+
+/***** load name in nav bar *****/
+
+function loadNavBarName() { // function to set the name in the nav bar
+
+    /***** set variables *****/
+
+    const navBarOptionsButton = document.getElementById('navBarOptionsButton'); // options button
+    const navBarNameBox = document.getElementById('navBarNameBox'); // name box
+    const navBarName = document.getElementById('navBarName'); // name
+
+    // get width of options button
+    const optionsWidth = navBarOptionsButton.offsetWidth + parseInt(getComputedStyle(navBarOptionsButton).marginLeft);
+    const nameWidth = navBarNameBox.offsetWidth; // get with of name box
+
+    /***** find margins based on auto minus width of options button and name *****/
+
+    // find margin-left based on auto minus width of options button plus half of name width 'calc(50% - 155.5px)';
+    navBarNameBox.style.marginLeft = 'calc(50% - 155.5px)';
+
+    // find margin-right based on auto minus half of name width 'calc(50% - 115.5px)';
+    navBarNameBox.style.marginRight = 'calc(50% - 115.5px)';
+
+    navBarName.classList.add('programmerTyping'); // show border once text has been positioned
+
+    navBarName.classList.add('animateProgrammerTyping'); // show border once text has been positioned
+
+    console.log("Added programmerTyping class to nav bar name.\n"); // log that programmerTyping class has been added
 
     /***** replace text content *****/
 
-    replacementText.textContent = "Matthew Thomas Beck"; // set replacement span content
+    // once programmer typing animation ends...
+    navBarName.addEventListener('animationend', function (event) {
 
-    replacementText.style.fontSize = '140%'; // adjust font size for proper scaling
+        /***** set variables *****/
 
-    replacementText.classList.add('fancyFont'); // apply fancy font to span content
+        const replacementText = document.createElement('p'); // set replacementText
 
-    event.target.textContent = ""; // replace old span with replacement span
+        /***** replace text content *****/
 
-    event.target.style.borderRightWidth = '0px'; // remove old right border
+        replacementText.textContent = "Matthew Thomas Beck"; // set replacement span content
 
-    event.target.style.margin = '0'; // remove margin
+        replacementText.style.fontSize = '140%'; // adjust font size for proper scaling
 
-    event.target.appendChild(replacementText); // commit changes to header
+        replacementText.classList.add('fancyFont'); // apply fancy font to span content
+
+        event.target.textContent = ""; // replace old span with replacement span
+
+        event.target.style.width = '130px'; // set width to 130px
+
+        event.target.style.borderRightWidth = '0px'; // remove old right border
+
+        event.target.style.marginBottom = '10px'; // remove margin
+
+        event.target.appendChild(replacementText); // commit changes to header
+
+        console.log("Replaced text content in navBarName.\n"); // log that text content has been replaced
+    });
+}
+
+/***** load nav bar depending on loading screen existence *****/
+
+document.addEventListener("DOMContentLoaded", function() { // when page content loaded...
+
+    /***** if loading screen exists *****/
+
+    if (document.getElementById('loadingScreen')) { // if there is a loading screen...
+
+        console.log("Loading screen exists, calling checkLoadingScreen...\n"); // log that loading screen exists
+
+        checkLoadingScreen(); // check if loading screen is present
+    }
+
+    /***** if loading screen does not exist *****/
+
+    else { // if there is no loading screen...
+
+        // log that loading screen does not exist
+        console.log("Loading screen does not exist, calling loadNavBarName...\n");
+
+        loadNavBarName() // load name in nav bar by itself
+    }
 });
 
 
