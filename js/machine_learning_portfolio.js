@@ -16,6 +16,13 @@
 /************************************************************/
 
 
+/********** IMPORT DEPENDENCIES **********/
+
+/***** import plotly for plot manipulation *****/
+
+//const Plotly = require('plotly'); // import plotly for plot manipulation when calling isolateFinancialInstrument
+
+
 /********** IMPORT JSON DATA FUNCTION **********/
 
 async function fetchData(financialInstrument) { // function to fetch json data
@@ -118,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             /***** set variables *****/
 
-            let nameList = []; // array to hold names of financial instruments
+            let traceNameList = []; // array to hold names of financial instruments
             let colorList = []; // array to hold colors of financial instruments
             let predictionAccuracyList = []; // array to hold prediction accuracy of financial instruments
             let prediction1List = []; // array to hold first prediction of financial instruments
@@ -131,15 +138,15 @@ document.addEventListener('DOMContentLoaded', async function () {
             let movementYearList = []; // array to hold movement of financial instruments over past year
             let movementMaxList = []; // array to hold movement of financial instruments over maximum time frame
             const tableID = financialInstrument + 'Tables'; // set table id based on financial instrument
-            const headerID = '#' + financialInstrument + 'Header'; // set header id based on financial instrument
-
+            const headerID = financialInstrument + 'Header'; // set header id based on financial instrument
+            const graphBoxID = financialInstrument + 'GraphBox'; // set graph box id
             const table = document.getElementById(tableID); // find table based on id
 
             /***** fill respective data *****/
 
             financialInstrumentData.forEach(item => {
 
-                nameList.push(item['Name']);
+                traceNameList.push(item['Name']);
                 colorList.push(item['Color']);
                 predictionAccuracyList.push(item['Prediction Accuracy']);
                 prediction1List.push(item['Prediction 1']);
@@ -155,11 +162,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             /***** create tables with collected data *****/
 
-            for (let i = 0; i < nameList.length; i++) { // loop through each financial instrument
+            for (let i = 0; i < traceNameList.length; i++) { // loop through each financial instrument
 
                 /***** set variables *****/
 
-                const name = nameList[i]; // set name
+                const traceName = traceNameList[i]; // set name
                 const predictionAccuracy = predictionAccuracyList[i]; // set prediction accuracy
                 const prediction1 = prediction1List[i]; // set prediction 1
                 const prediction2 = prediction2List[i]; // set prediction 2
@@ -170,21 +177,38 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const movementThreeMonths = movementThreeMonthsList[i]; // set movement over past three months
                 const movementYear = movementYearList[i]; // set movement over past year
                 const movementMax = movementMaxList[i]; // set movement over maximum time frame
+                const tableItemID = financialInstrument + traceName; // set table id based on financial instrument name
 
                 /***** create table box *****/
 
                 const a = document.createElement('a'); // create list item to hold the table
-                a.className = 'standardFont financialInstrumentTableItems indexContent popUp'; // add behavior classes
+
+                // add behavior classes
+                a.className = 'standardFont indexContent popUp financialInstrumentTableItems active';
                 a.setAttribute('onmouseover', 'popUp(this)'); // add pop up
                 a.setAttribute('onmouseout', 'popDown(this)'); // add pop down
                 a.style.backgroundColor = colorList[i]; // set colors
-                a.href = headerID; // set href to jump to financial instrument header
+                a.id = tableItemID; // set specific id for each table
+                a.onclick = function() { // set onclick function to isolate trace
+
+                    // call to isolate trace
+                    isolateFinancialInstrument(
+
+                        graphBoxID,
+                        headerID,
+                        tableID,
+                        tableItemID,
+                        traceNameList,
+                        traceName,
+                        this
+                    );
+                };
 
                 /***** create table header *****/
 
                 const header = document.createElement('h2'); // create header with name
                 header.className = 'standardFont tableItemsHeader'; // add header class
-                header.textContent = name; // set header text
+                header.textContent = traceName; // set header text
                 a.appendChild(header); // add header to table
 
                 /***** create table content box *****/
@@ -424,7 +448,7 @@ function changeTextByDeviceSize() { // function to change content based on devic
     /***** set variables *****/
 
     // set device width
-    var deviceWidth = window.innerWidth;
+    let deviceWidth = window.innerWidth;
 
     /***** small devices *****/
 
@@ -486,7 +510,7 @@ function showMetrics(plotId, movementClass, button) {
 
     /***** remove active state metrics *****/
 
-    for (let i = 0; i < graphs.length; i++) {
+    for (let i = 0; i < graphs.length; i++) { // loop through all graphs
 
         graphs[i].classList.remove("active"); // remove active state from all graphs
     }
@@ -521,36 +545,141 @@ function showMetrics(plotId, movementClass, button) {
 }
 
 
-/********** TABLE JUMP ADJUSTMENT **********/
+/********** HIDE TRACE **********/
 
-/***** set variables *****/
+function hideTraces(graphs, traceNameList, traceName) {
 
-document.querySelector('.financialInstrumentTable').addEventListener('click', function(event) {
+    for (let i = 0; i < graphs.length; i++) { // loop through all graphs
 
-    let anchor = event.target.closest('a'); // use closest anchor because the regular way doesn't work
+        if (graphs[i]) { // if graph exists...
 
-    if (anchor) { // if anchor exists...
+            for (let j = 0; j < traceNameList.length; j++) { // loop through all traces
 
-        let href = anchor.getAttribute('href'); // get href to jump to
+                if (traceNameList[j] !== traceName) { // if trace not selected...
 
-        if (href) { // if href exists...
+                    console.log("\nPRETEND TO REMOVE TRACE\n"); // remove traces
 
-            let targetId = href.substring(1); // get target id
-            let targetElement = document.getElementById(targetId); // get target element
+                    const traceIndices = [j]; // set indices of traces to hide
 
-            if (targetElement) { // if target element exists...
-
-                let targetPosition = targetElement.offsetTop - NAV_HEIGHT; // get target position
-
-                window.scrollTo({ // scroll to target position
-
-                    top: targetPosition, // set top to target position
-
-                    behavior: 'smooth' // set behavior to smooth to make it pretty
-                });
-
-                event.preventDefault(); // prevent default behavior in order to allow for nav bar pixel offset
+                    Plotly.restyle(graphs[i], {visible: 'legendonly'}, traceIndices); // hide traces
+                }
             }
+
+        } else { // if graph does not exist...
+
+            console.log('Graph not found.');
         }
     }
-});
+}
+
+
+/********** SHOW TRACE **********/
+
+function showTraces(graphs, traceNameList, traceName) {
+
+    for (let i = 0; i < graphs.length; i++) { // loop through all graphs
+
+        if (graphs[i]) { // if graph exists...
+
+            for (let j = 0; j < traceNameList.length; j++) { // loop through all traces
+
+                console.log("\nPRETEND TO SHOW TRACE\n"); // show traces
+            }
+
+        } else { // if graph does not exist...
+
+            console.log('Graph not found.');
+        }
+    }
+}
+
+
+/********** SELECT BUTTON TO ISOLATE TRACE **********/
+
+// function to isolate trace
+function isolateFinancialInstrument(graphBoxID, headerID, tableID, tableItemID, traceNameList, traceName, button) {
+
+    /***** set variables *****/
+
+    // collect all associated tables within financial instrument table
+    const tables = document.getElementById(tableID).getElementsByClassName("financialInstrumentTableItems");
+    const financialInstrumentHeader = document.getElementById(headerID); // find header based on id
+    const isActive = button.classList.contains("active"); // check if button is active
+    let inactiveFlag = false; // flag to check if all buttons are inactive
+
+    // collect all graphs within graph box
+    const graphs = document.getElementById(graphBoxID).getElementsByClassName("financialInstrumentGraph");
+
+    /***** check if any buttons inactive *****/
+
+    // loop through every table to check if inactive
+    for (let i = 0; i < tables.length; i++) { // loop through all table items
+
+        if (tables[i].classList.contains("active")) { // if button active...
+
+            inactiveFlag = false; // set flag to false
+            //console.log("All buttons active");
+
+        } else { // if any button inactive...
+
+            inactiveFlag = true; // set flag to true
+            //console.log("Inactive button found");
+        }
+    }
+
+    /***** remove active state for table items *****/
+
+    for (let i = 0; i < tables.length; i++) { // loop through all table items
+
+        tables[i].classList.remove("active"); // remove active state from all table items
+    }
+
+    /***** selected button inactive and wanting to isolate trace *****/
+
+    if (!isActive) { // if clicked button inactive...
+
+        for (let i = 0; i < tables.length; i++) { // loop through all table items
+
+            tables[i].classList.remove("active"); // remove active state from all table items
+        }
+
+        hideTraces(graphs, traceNameList, traceName); // hide all traces except selected financial instrument
+
+        window.scrollTo({ // scroll to header with offset
+
+            top: financialInstrumentHeader.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT,
+            behavior: 'smooth'
+        });
+    }
+
+    /***** all but one button inactive and wanting to show all traces *****/
+
+    else if (isActive && inactiveFlag) { // if clicked button active...
+
+        for (let i = 0; i < tables.length; i++) { // loop through all table items
+
+            tables[i].classList.add("active"); // add active state to all table items
+        }
+
+        showTraces(graphs, traceNameList, traceName); // show all traces
+    }
+
+    /***** all buttons are active and wanting to isolate trace *****/
+
+    else if (isActive && !inactiveFlag) { // if clicked button active and all other buttons active...
+
+        document.getElementById(tableItemID).classList.add("active"); // add active state to clicked table item
+
+        hideTraces(graphs, traceNameList, traceName); // hide all traces except selected financial instrument
+
+        window.scrollTo({ // scroll to header with offset
+
+            top: financialInstrumentHeader.getBoundingClientRect().top + window.scrollY - NAV_HEIGHT,
+            behavior: 'smooth'
+        });
+    }
+
+    /***** always make clicked button active *****/
+
+    button.classList.add("active"); // add active state to clicked button
+}
