@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 // create label for movement over maximum time frame
                 const movementMaxLabel = document.createElement('h3');
                 movementMaxLabel.className = 'tableItemsMetricLabel'; // add label class
-                movementMaxLabel.textContent = 'Movement Max: '; // set label text
+                movementMaxLabel.textContent = 'Movement\nMax: '; // set label text
                 movementMaxBox.appendChild(movementMaxLabel); // add label to box
 
                 // create value for movement over maximum time frame
@@ -622,12 +622,12 @@ function isolateFinancialInstrument(graphBoxID, headerID, tableID, tableItemID, 
         if (tables[i].classList.contains("active")) { // if button active...
 
             inactiveFlag = false; // set flag to false
-            //console.log("All buttons active");
 
         } else { // if any button inactive...
 
             inactiveFlag = true; // set flag to true
-            //console.log("Inactive button found");
+
+            break; // break loop as flag has been thrown
         }
     }
 

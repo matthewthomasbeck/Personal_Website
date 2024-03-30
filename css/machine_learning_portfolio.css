@@ -122,9 +122,9 @@
 
 .financialInstrumentTableBox {
 
+    width: 100%;
     margin-bottom: 5%;
     height: max-content;
-    width: 85%;
 }
 
 .financialInstrumentTable {
@@ -258,8 +258,13 @@
 
         height: 200px;
         width: 200px;
-        margin: 10px;
+        margin: 9px;
         font-size: 60%;
+    }
+
+    .tableItemsMetricValue {
+
+        text-align: center;
     }
 }
 
@@ -288,8 +293,13 @@
 
         height: 150px;
         width: 150px;
-        margin: 10px;
+        margin: 6px;
         font-size: 60%;
+    }
+
+    .tableItemsMetricValue {
+
+        text-align: center;
     }
 }
 
@@ -320,7 +330,12 @@
 
         height: 125px;
         width: 125px;
-        margin: 8px;
+        margin: 3px;
         font-size: 60%;
+    }
+
+    .tableItemsMetricValue {
+
+        text-align: left;
     }
 }
