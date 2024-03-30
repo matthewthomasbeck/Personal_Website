@@ -143,10 +143,6 @@
 
 .financialInstrumentTableItems {
 
-    padding: 0;
-    margin: 10px;
-    height: 200px;
-    width: 200px;
     font-size: 60%;
     list-style-type: none;
     color: var(--primary);
@@ -220,56 +216,6 @@
     display: flex;
 }
 
-/*.movement7 {
-
-    display: none;
-}
-
-.movement7.active {
-
-    display: flex;
-}
-
-.movement30 {
-
-    display: none;
-}
-
-.movement30.active {
-
-    display: flex;
-}
-
-.movement90 {
-
-    display: none;
-}
-
-.movement90.active {
-
-    display: flex;
-}
-
-.movement365 {
-
-    display: none;
-}
-
-.movement365.active {
-
-    display: flex;
-}
-
-.movementMax {
-
-    display: none;
-}
-
-.movementMax.active {
-
-    display: flex;
-}*/
-
 /***** under construction *****/
 
 .underConstructionImg {
@@ -305,6 +251,16 @@
         height: 25px;
         width: 85px;
     }
+
+    /***** financial instrument tables *****/
+
+    .financialInstrumentTableItems {
+
+        height: 200px;
+        width: 200px;
+        margin: 10px;
+        font-size: 60%;
+    }
 }
 
 
@@ -325,6 +281,16 @@
 
         width: 85px;
     }
+
+    /***** financial instrument tables *****/
+
+    .financialInstrumentTableItems {
+
+        height: 150px;
+        width: 150px;
+        margin: 5px;
+        font-size: 60%;
+    }
 }
 
 
@@ -343,6 +309,18 @@
 
     .timeFrameButton {
 
-        width: 30px;
+        height: 40px;
+        width: 50px;
+        font-size: 150%;
+    }
+
+    /***** financial instrument tables *****/
+
+    .financialInstrumentTableItems {
+
+        height: 125px;
+        width: 125px;
+        margin: 5px;
+        font-size: 60%;
     }
 }

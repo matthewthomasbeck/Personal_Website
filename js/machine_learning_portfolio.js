@@ -585,7 +585,7 @@ function showTraces(graphs, traceNameList, traceName) {
                 const plotlyGraph = embeddedDocument.getElementById('plotly-graph');
 
                 // Apply Plotly.restyle() to the Plotly graph object
-                //Plotly.restyle(plotlyGraph, { visible: 'legendonly' }, traceNameList);
+                Plotly.restyle(plotlyGraph, { visible: 'legendonly' }, traceNameList);
             } else {
                 console.log('Embedded document not found for graph:', objectElement);
             }
