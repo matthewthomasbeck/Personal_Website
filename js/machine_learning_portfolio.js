@@ -557,11 +557,7 @@ function hideTraces(graphs, traceNameList, traceName) {
 
                 if (traceNameList[j] !== traceName) { // if trace not selected...
 
-                    console.log("\nPRETEND TO REMOVE TRACE\n"); // remove traces
 
-                    const traceIndices = [j]; // set indices of traces to hide
-
-                    Plotly.restyle(graphs[i], {visible: 'legendonly'}, traceIndices); // hide traces
                 }
             }
 
@@ -581,9 +577,17 @@ function showTraces(graphs, traceNameList, traceName) {
 
         if (graphs[i]) { // if graph exists...
 
-            for (let j = 0; j < traceNameList.length; j++) { // loop through all traces
+            const objectElement = graphs[i];
+            const embeddedDocument = objectElement.contentDocument;
 
-                console.log("\nPRETEND TO SHOW TRACE\n"); // show traces
+            if (embeddedDocument) {
+                // Access the Plotly graph object within the embedded document
+                const plotlyGraph = embeddedDocument.getElementById('plotly-graph');
+
+                // Apply Plotly.restyle() to the Plotly graph object
+                //Plotly.restyle(plotlyGraph, { visible: 'legendonly' }, traceNameList);
+            } else {
+                console.log('Embedded document not found for graph:', objectElement);
             }
 
         } else { // if graph does not exist...
