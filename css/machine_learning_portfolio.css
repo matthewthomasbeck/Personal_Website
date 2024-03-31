@@ -132,6 +132,7 @@
 
 .financialInstrumentTableItems {
 
+    aspect-ratio: 1/1;
     font-size: 60%;
     list-style-type: none;
     color: var(--primary);
@@ -148,8 +149,8 @@
     font-size: 150%;
     color: var(--primary);
     text-align: center;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     padding: 0;
 }
 
@@ -258,7 +259,6 @@
     .financialInstrumentTableItems {
 
         height: 200px;
-        width: 200px;
         margin: 9px;
         font-size: 60%;
     }
@@ -305,7 +305,6 @@
     .financialInstrumentTableItems {
 
         height: 150px;
-        width: 150px;
         margin: 6px;
         font-size: 60%;
     }
@@ -353,10 +352,9 @@
 
     .financialInstrumentTableItems {
 
-        height: 125px;
-        width: 125px;
+        height: 120px;
         margin: 3px;
-        font-size: 60%;
+        font-size: 30%;
     }
 
     .tableItemsMetricValue {
