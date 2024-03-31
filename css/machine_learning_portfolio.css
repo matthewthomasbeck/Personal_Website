@@ -16,16 +16,6 @@
 /******************************************************/
 
 
-/********** MODIFY GLOBAL ELEMENTS **********/
-
-/***** content *****/
-
-.contentBoxes {
-
-    aspect-ratio: 16/9;
-}
-
-
 
 
 
@@ -68,7 +58,6 @@
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    aspect-ratio: 16/9;
     width: 85%;
 }
 
@@ -239,9 +228,21 @@
 
     /***** adjust custom element sizes *****/
 
+    .contentBoxes {
+
+        aspect-ratio: 16/9;
+    }
+
     #index li {
 
         width: 215px;
+    }
+
+    /***** graphs *****/
+
+    .financialInstrumentGraph {
+
+        aspect-ratio: 16/9;
     }
 
     /***** time frame *****/
@@ -275,9 +276,21 @@
 
     /***** adjust custom element sizes *****/
 
+    .contentBoxes {
+
+        aspect-ratio: 3/2;
+    }
+
     #index li {
 
         width: 135px;
+    }
+
+    /***** graphs *****/
+
+    .financialInstrumentGraph {
+
+        aspect-ratio: 3/2;
     }
 
     /***** time frame *****/
@@ -310,9 +323,21 @@
 
     /***** adjust custom element sizes *****/
 
+    .contentBoxes {
+
+        aspect-ratio: 1/1;
+    }
+
     #index li {
 
         width: 125px;
+    }
+
+    /***** graphs *****/
+
+    .financialInstrumentGraph {
+
+        aspect-ratio: 1/1;
     }
 
     /***** time frame *****/

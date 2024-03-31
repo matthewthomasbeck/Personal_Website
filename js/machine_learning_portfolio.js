@@ -67,7 +67,7 @@ async function fetchData(financialInstrument) { // function to fetch json data
 
 /********** DETERMINE POSITIVE OR NEGATIVE **********/
 
-function updateMovementValue(tableElement, movement) { // function to update movement value
+function updateMovementAppearance(tableElement, movement) { // function to update movement value
 
     /***** check if positive or negative *****/
 
@@ -80,6 +80,31 @@ function updateMovementValue(tableElement, movement) { // function to update mov
 
         tableElement.style.color = 'green'; // set color to green
         tableElement.textContent = '+' + movement + '%'; // set value text
+    }
+}
+
+
+/********** DETERMINE IF VALUE TOO MANY DIGITS **********/
+
+function updateMovementValue(movement) { // function to update movement value
+
+    /***** check if value is too many digits *****/
+
+    if (movement > 999 || movement < -999) { // if value is 4 digits and causes 2-digit overflow...
+
+        return Math.round(movement); // round value to nearest whole number to remove all decimals
+
+    } else if (movement > 99 || movement < -99) { // if value is 3 digits and causes 1-digit overflow...
+
+        movement = movement * 10; // multiply value by 10 to make value have 1 decimal place
+
+        movement = Math.round(movement); // round value to nearest whole number
+
+        return movement / 10; // return value divided by 10 to return to original value
+
+    } else { // if value is not greater than 99...
+
+        return movement; // return unaltered value
     }
 }
 
@@ -311,7 +336,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                 // create value for projected movement
                 const movementProjectedValue = document.createElement('p');
                 movementProjectedValue.className = 'tableItemsMetricValue'; // add value class
-                updateMovementValue(movementProjectedValue, movementProjected); // update movement value
+
+                // update movement value
+                updateMovementAppearance(movementProjectedValue, updateMovementValue(movementProjected));
                 movementProjectedBox.appendChild(movementProjectedValue); // add value to box
                 contentBox.appendChild(movementProjectedBox); // add projected movement box to content box
 
@@ -331,7 +358,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // create value for movement over past week
                 const movementWeekValue = document.createElement('p');
-                updateMovementValue(movementWeekValue, movementWeek); // update movement value
+                updateMovementAppearance(movementWeekValue, updateMovementValue(movementWeek)); // update movement value
                 movementWeekValue.className = 'tableItemsMetricValue'; // add value class
                 movementWeekBox.appendChild(movementWeekValue); // add value to box
                 contentBox.appendChild(movementWeekBox); // add movement over past week box to content box
@@ -350,7 +377,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // create value for movement over past month
                 const movementMonthValue = document.createElement('p');
-                updateMovementValue(movementMonthValue, movementMonth); // update movement value
+
+                // update movement value
+                updateMovementAppearance(movementMonthValue, updateMovementValue(movementMonth));
                 movementMonthValue.className = 'tableItemsMetricValue'; // add value class
                 movementMonthBox.appendChild(movementMonthValue); // add value to box
                 contentBox.appendChild(movementMonthBox); // add movement over past month box to content box
@@ -371,7 +400,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // create value for movement over past three months
                 const movementThreeMonthsValue = document.createElement('p');
-                updateMovementValue(movementThreeMonthsValue, movementThreeMonths); // update movement value
+
+                // update movement value
+                updateMovementAppearance(movementThreeMonthsValue, updateMovementValue(movementThreeMonths));
                 movementThreeMonthsValue.className = 'tableItemsMetricValue'; // add value class
                 movementThreeMonthsBox.appendChild(movementThreeMonthsValue); // add value to box
                 contentBox.appendChild(movementThreeMonthsBox); // add movement past three months box to content box
@@ -390,7 +421,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // create value for movement over past year
                 const movementYearValue = document.createElement('p');
-                updateMovementValue(movementYearValue, movementYear); // update movement value
+                updateMovementAppearance(movementYearValue, updateMovementValue(movementYear)); // update movement value
                 movementYearValue.className = 'tableItemsMetricValue'; // add value class
                 movementYearBox.appendChild(movementYearValue); // add value to box
                 contentBox.appendChild(movementYearBox); // add movement over past year box to content box
@@ -409,7 +440,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 // create value for movement over maximum time frame
                 const movementMaxValue = document.createElement('p');
-                updateMovementValue(movementMaxValue, movementMax); // update movement value
+                updateMovementAppearance(movementMaxValue, updateMovementValue(movementMax)); // update movement value
                 movementMaxValue.className = 'tableItemsMetricValue'; // add value class
                 movementMaxBox.appendChild(movementMaxValue); // add value to box
                 contentBox.appendChild(movementMaxBox); // add movement over maximum time frame box to content box
