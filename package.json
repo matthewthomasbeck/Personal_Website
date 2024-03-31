@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "@types/plotly.js": "^2.29.2"
-  },
-  "dependencies": {
-    "plotly": "^1.0.6"
-  }
-}
