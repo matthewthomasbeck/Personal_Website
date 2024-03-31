@@ -586,7 +586,7 @@ function showMetrics(plotId, movementClass, button) {
 
 /********** SHOW TRACES **********/
 
-function showTraces(graphs, traceNameList) { // function to show all traces
+function showTraces(graphs) { // function to show all traces
 
     if (typeof Plotly !== 'undefined') { // if plotly initialized...
 
@@ -604,19 +604,15 @@ function showTraces(graphs, traceNameList) { // function to show all traces
                     const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
                     const annotations = embeddedDocument.getElementsByClassName('annotation');
 
-                    console.log("Showing traces...");
-
                     for (let j = 0; j < traces.length; j++) { // loop through all traces
 
                         traces[j].style.opacity = 1; // show all traces
                     }
 
-                    for (let j = 0; j < annotations.length; j++) { // loop through all annotations
+                    for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
 
                         annotations[j].style.opacity = 1; // show all annotations
                     }
-
-                    console.log("Successfully showed all traces.");
 
                 } else { // if embedded document does not exist...
 
@@ -642,6 +638,14 @@ function showTraces(graphs, traceNameList) { // function to show all traces
 // function to hide all traces except selected financial instrument
 function hideTraces(graphs, traceNameList, traceName) {
 
+    /***** find index of trace name in trace name list *****/
+
+    const traceIndex = traceNameList.indexOf(traceName); // find index of trace name in trace name list
+
+    console.log(traceIndex);
+
+    /***** loop through and hide traces *****/
+
     if (typeof Plotly !== 'undefined') { // if plotly initialized...
 
         for (let i = 0; i < graphs.length; i++) { // loop through all graphs
@@ -653,19 +657,15 @@ function hideTraces(graphs, traceNameList, traceName) {
 
                 if (embeddedDocument) { // if embedded document exists...
 
-                    console.log(embeddedDocument);
-
                     const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
                     const annotations = embeddedDocument.getElementsByClassName('annotation');
-
-                    console.log("Isolating Trace '" + traceName + "'...");
 
                     for (let j = 0; j < traces.length; j++) { // loop through all traces
 
                         traces[j].style.opacity = 0; // hide all traces
                     }
 
-                    for (let j = 0; j < annotations.length; j++) { // loop through all annotations
+                    for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
 
                         annotations[j].style.opacity = 0; // hide all annotations
                     }
@@ -758,7 +758,7 @@ function isolateFinancialInstrument(graphBoxID, headerID, tableID, tableItemID, 
             tables[i].classList.add("active"); // add active state to all table items
         }
 
-        showTraces(graphs, traceNameList, traceName); // show all traces
+        showTraces(graphs); // show all traces
     }
 
     /***** all buttons are active and wanting to isolate trace *****/
