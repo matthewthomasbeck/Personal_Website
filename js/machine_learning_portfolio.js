@@ -16,13 +16,6 @@
 /************************************************************/
 
 
-/********** IMPORT DEPENDENCIES **********/
-
-/***** import plotly for plot manipulation *****/
-
-//const Plotly = require('plotly'); // import plotly for plot manipulation when calling isolateFinancialInstrument
-
-
 /********** IMPORT JSON DATA FUNCTION **********/
 
 async function fetchData(financialInstrument) { // function to fetch json data
@@ -588,47 +581,40 @@ function showMetrics(plotId, movementClass, button) {
 
 function showTraces(graphs) { // function to show all traces
 
-    if (typeof Plotly !== 'undefined') { // if plotly initialized...
+    /***** loop through and show traces *****/
 
-        for (let i = 0; i < graphs.length; i++) { // loop through all graphs
+    for (let i = 0; i < graphs.length; i++) { // loop through all graphs
 
-            if (graphs[i]) { // if graph exists...
+        if (graphs[i]) { // if graph exists...
 
-                const objectElement = graphs[i];
-                const embeddedDocument = objectElement.contentDocument;
+            const objectElement = graphs[i];
+            const embeddedDocument = objectElement.contentDocument;
 
-                if (embeddedDocument) { // if embedded document exists...
+            if (embeddedDocument) { // if embedded document exists...
 
-                    console.log(embeddedDocument);
+                const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
+                const annotations = embeddedDocument.getElementsByClassName('annotation');
 
-                    const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
-                    const annotations = embeddedDocument.getElementsByClassName('annotation');
+                for (let j = 0; j < traces.length; j++) { // loop through all traces
 
-                    for (let j = 0; j < traces.length; j++) { // loop through all traces
-
-                        traces[j].style.opacity = 1; // show all traces
-                    }
-
-                    for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
-
-                        annotations[j].style.opacity = 1; // show all annotations
-                    }
-
-                } else { // if embedded document does not exist...
-
-                    // log error if embedded document not found
-                    console.log('Error showing traces: embedded document not found for graph:', objectElement, '.');
+                    traces[j].style.opacity = 1; // show all traces
                 }
 
-            } else { // if graph does not exist...
+                for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
 
-                console.log('Error showing traces: graph not found.'); // log error if graph not found
+                    annotations[j].style.opacity = 1; // show all annotations
+                }
+
+            } else { // if embedded document does not exist...
+
+                // log error if embedded document not found
+                console.log('Error showing traces: embedded document not found for graph:', objectElement, '.');
             }
+
+        } else { // if graph does not exist...
+
+            console.log('Error showing traces: graph not found.'); // log error if graph not found
         }
-
-    } else { // if plotly not initialized...
-
-        console.log('Error showing traces: Plotly is not initialized.'); // log error if plotly not initialized
     }
 }
 
@@ -646,47 +632,40 @@ function hideTraces(graphs, traceNameList, traceName) {
 
     /***** loop through and hide traces *****/
 
-    if (typeof Plotly !== 'undefined') { // if plotly initialized...
+    for (let i = 0; i < graphs.length; i++) { // loop through all graphs
 
-        for (let i = 0; i < graphs.length; i++) { // loop through all graphs
+        if (graphs[i]) { // if graph exists...
 
-            if (graphs[i]) { // if graph exists...
+            const objectElement = graphs[i];
+            const embeddedDocument = objectElement.contentDocument;
 
-                const objectElement = graphs[i];
-                const embeddedDocument = objectElement.contentDocument;
+            if (embeddedDocument) { // if embedded document exists...
 
-                if (embeddedDocument) { // if embedded document exists...
+                const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
+                const annotations = embeddedDocument.getElementsByClassName('annotation');
 
-                    const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
-                    const annotations = embeddedDocument.getElementsByClassName('annotation');
+                for (let j = 0; j < traces.length; j++) { // loop through all traces
 
-                    for (let j = 0; j < traces.length; j++) { // loop through all traces
-
-                        traces[j].style.opacity = 0; // hide all traces
-                    }
-
-                    for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
-
-                        annotations[j].style.opacity = 0; // hide all annotations
-                    }
-
-                    console.log("Successfully isolated trace.");
-
-                } else { // if embedded document does not exist...
-
-                    // log error if embedded document not found
-                    console.log('Error isolating trace: embedded document not found for graph:', objectElement, '.');
+                    traces[j].style.opacity = 0; // hide all traces
                 }
 
-            } else { // if graph does not exist...
+                for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
 
-                console.log('Error isolating trace: graph not found.'); // log error if graph not found
+                    annotations[j].style.opacity = 0; // hide all annotations
+                }
+
+                console.log("Successfully isolated trace.");
+
+            } else { // if embedded document does not exist...
+
+                // log error if embedded document not found
+                console.log('Error isolating trace: embedded document not found for graph:', objectElement, '.');
             }
+
+        } else { // if graph does not exist...
+
+            console.log('Error isolating trace: graph not found.'); // log error if graph not found
         }
-
-    } else { // if plotly not initialized...
-
-        console.log('Error showing traces: Plotly is not initialized.'); // log error if plotly not initialized
     }
 }
 
