@@ -111,13 +111,9 @@ function checkLoadingScreen() { // function to check if loading screen is presen
 
         if (getComputedStyle(loadingScreen).display !== 'none') { // if loading screen is visible...
 
-            console.log("Not loaded yet, calling again...\n"); // log that loading screen is still present
-
-            setTimeout(checkLoadingScreen, 50); // check again in 100 milliseconds
+            setTimeout(checkLoadingScreen, 50); // check again in 50 milliseconds
 
         } else { // if loading screen is not visible...
-
-            console.log("Loaded, calling loadNavBarName...\n"); // log that loading screen is no longer present
 
             loadNavBarName(); // load name in nav bar
         }
@@ -150,8 +146,6 @@ function loadNavBarName() { // function to set the name in the nav bar
 
     navBarName.classList.add('animateProgrammerTyping'); // show border once text has been positioned
 
-    console.log("Added programmerTyping class to nav bar name.\n"); // log that programmerTyping class has been added
-
     /***** replace text content *****/
 
     // once programmer typing animation ends...
@@ -178,8 +172,6 @@ function loadNavBarName() { // function to set the name in the nav bar
         event.target.style.marginBottom = '10px'; // remove margin
 
         event.target.appendChild(replacementText); // commit changes to header
-
-        console.log("Replaced text content in navBarName.\n"); // log that text content has been replaced
     });
 }
 
@@ -191,17 +183,12 @@ document.addEventListener("DOMContentLoaded", function() { // when page content 
 
     if (document.getElementById('loadingScreen')) { // if there is a loading screen...
 
-        console.log("Loading screen exists, calling checkLoadingScreen...\n"); // log that loading screen exists
-
         checkLoadingScreen(); // check if loading screen is present
     }
 
     /***** if loading screen does not exist *****/
 
     else { // if there is no loading screen...
-
-        // log that loading screen does not exist
-        console.log("Loading screen does not exist, calling loadNavBarName...\n");
 
         loadNavBarName() // load name in nav bar by itself
     }

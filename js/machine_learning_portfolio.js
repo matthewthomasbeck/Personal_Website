@@ -88,13 +88,17 @@ function updateMovementAppearance(tableElement, movement) { // function to updat
 
 function updateMovementValue(movement) { // function to update movement value
 
-    /***** check if value is too many digits *****/
+    /***** 2 too many digits *****/
 
     if (movement > 999 || movement < -999) { // if value is 4 digits and causes 2-digit overflow...
 
         return Math.round(movement); // round value to nearest whole number to remove all decimals
 
-    } else if (movement > 99 || movement < -99) { // if value is 3 digits and causes 1-digit overflow...
+    }
+
+    /***** 1 too many digits *****/
+
+    else if (movement > 99 || movement < -99) { // if value is 3 digits and causes 1-digit overflow...
 
         movement = movement * 10; // multiply value by 10 to make value have 1 decimal place
 
@@ -102,7 +106,11 @@ function updateMovementValue(movement) { // function to update movement value
 
         return movement / 10; // return value divided by 10 to return to original value
 
-    } else { // if value is not greater than 99...
+    }
+
+    /***** no overflow *****/
+
+    else { // if value is not greater than 99...
 
         return movement; // return unaltered value
     }
@@ -576,55 +584,109 @@ function showMetrics(plotId, movementClass, button) {
 }
 
 
-/********** HIDE TRACE **********/
+/********** SHOW TRACES **********/
 
-function hideTraces(graphs, traceNameList, traceName) {
+function showTraces(graphs, traceNameList) { // function to show all traces
 
-    for (let i = 0; i < graphs.length; i++) { // loop through all graphs
+    if (typeof Plotly !== 'undefined') { // if plotly initialized...
 
-        if (graphs[i]) { // if graph exists...
+        for (let i = 0; i < graphs.length; i++) { // loop through all graphs
 
-            for (let j = 0; j < traceNameList.length; j++) { // loop through all traces
+            if (graphs[i]) { // if graph exists...
 
-                if (traceNameList[j] !== traceName) { // if trace not selected...
+                const objectElement = graphs[i];
+                const embeddedDocument = objectElement.contentDocument;
 
+                if (embeddedDocument) { // if embedded document exists...
 
+                    console.log(embeddedDocument);
+
+                    const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
+                    const annotations = embeddedDocument.getElementsByClassName('annotation');
+
+                    console.log("Showing traces...");
+
+                    for (let j = 0; j < traces.length; j++) { // loop through all traces
+
+                        traces[j].style.opacity = 1; // show all traces
+                    }
+
+                    for (let j = 0; j < annotations.length; j++) { // loop through all annotations
+
+                        annotations[j].style.opacity = 1; // show all annotations
+                    }
+
+                    console.log("Successfully showed all traces.");
+
+                } else { // if embedded document does not exist...
+
+                    // log error if embedded document not found
+                    console.log('Error showing traces: embedded document not found for graph:', objectElement, '.');
                 }
+
+            } else { // if graph does not exist...
+
+                console.log('Error showing traces: graph not found.'); // log error if graph not found
             }
-
-        } else { // if graph does not exist...
-
-            console.log('Graph not found.');
         }
+
+    } else { // if plotly not initialized...
+
+        console.log('Error showing traces: Plotly is not initialized.'); // log error if plotly not initialized
     }
 }
 
 
-/********** SHOW TRACE **********/
+/********** HIDE TRACE **********/
 
-function showTraces(graphs, traceNameList, traceName) {
+// function to hide all traces except selected financial instrument
+function hideTraces(graphs, traceNameList, traceName) {
 
-    for (let i = 0; i < graphs.length; i++) { // loop through all graphs
+    if (typeof Plotly !== 'undefined') { // if plotly initialized...
 
-        if (graphs[i]) { // if graph exists...
+        for (let i = 0; i < graphs.length; i++) { // loop through all graphs
 
-            const objectElement = graphs[i];
-            const embeddedDocument = objectElement.contentDocument;
+            if (graphs[i]) { // if graph exists...
 
-            if (embeddedDocument) {
-                // Access the Plotly graph object within the embedded document
-                const plotlyGraph = embeddedDocument.getElementById('plotly-graph');
+                const objectElement = graphs[i];
+                const embeddedDocument = objectElement.contentDocument;
 
-                // Apply Plotly.restyle() to the Plotly graph object
-                Plotly.restyle(plotlyGraph, { visible: 'legendonly' }, traceNameList);
-            } else {
-                console.log('Embedded document not found for graph:', objectElement);
+                if (embeddedDocument) { // if embedded document exists...
+
+                    console.log(embeddedDocument);
+
+                    const traces = embeddedDocument.getElementsByClassName('trace', 'scatter');
+                    const annotations = embeddedDocument.getElementsByClassName('annotation');
+
+                    console.log("Isolating Trace '" + traceName + "'...");
+
+                    for (let j = 0; j < traces.length; j++) { // loop through all traces
+
+                        traces[j].style.opacity = 0; // hide all traces
+                    }
+
+                    for (let j = 0; j < annotations.length; j++) { // loop through all annotations
+
+                        annotations[j].style.opacity = 0; // hide all annotations
+                    }
+
+                    console.log("Successfully isolated trace.");
+
+                } else { // if embedded document does not exist...
+
+                    // log error if embedded document not found
+                    console.log('Error isolating trace: embedded document not found for graph:', objectElement, '.');
+                }
+
+            } else { // if graph does not exist...
+
+                console.log('Error isolating trace: graph not found.'); // log error if graph not found
             }
-
-        } else { // if graph does not exist...
-
-            console.log('Graph not found.');
         }
+
+    } else { // if plotly not initialized...
+
+        console.log('Error showing traces: Plotly is not initialized.'); // log error if plotly not initialized
     }
 }
 
