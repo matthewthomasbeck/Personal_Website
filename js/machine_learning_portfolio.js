@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 // create label for prediction accuracy
                 const predictionAccuracyLabel = document.createElement('h3');
                 predictionAccuracyLabel.className = 'tableItemsMetricLabel'; // add label class
-                predictionAccuracyLabel.textContent = 'Prediction Accuracy: '; // set label text
+                predictionAccuracyLabel.textContent = 'Pred. Line Accuracy: '; // set label text
                 predictionAccuracyBox.appendChild(predictionAccuracyLabel); // add label to box
 
                 // create value for prediction accuracy
