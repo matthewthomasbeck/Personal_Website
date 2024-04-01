@@ -116,6 +116,9 @@ function updateMovementValue(movement) { // function to update movement value
 
 // collect all categories of financial instruments from category class
 const financialInstrumentTags = document.querySelectorAll('.financialInstrument');
+
+// collect all categories of financial instrument tables
+const graphs = document.getElementsByClassName('financialInstrumentGraph');
 const financialInstruments = [] // array to hold all financial instrument categories
 
 /***** collect each category *****/
@@ -461,6 +464,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             return null; // terminate process with error
         }
+
+        /***** show traces to hide prediction lines *****/
+
+        showTraces(graphs); // show traces to hide prediction lines
     }
 
     /***** loop through every category *****/
@@ -597,7 +604,14 @@ function showTraces(graphs) { // function to show all traces
 
                 for (let j = 0; j < traces.length; j++) { // loop through all traces
 
-                    traces[j].style.opacity = 1; // show all traces
+                    if ((j % 5) === 3) { // if hidden prediction line...
+
+                        traces[j].style.opacity = 0; // hide hidden prediction lines
+
+                    } else { // if not hidden prediction line...
+
+                        traces[j].style.opacity = 1; // show any remaining traces
+                    }
                 }
 
                 for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
@@ -619,7 +633,7 @@ function showTraces(graphs) { // function to show all traces
 }
 
 
-/********** HIDE TRACE **********/
+/********** HIDE TRACES **********/
 
 // function to hide all traces except selected financial instrument
 function hideTraces(graphs, traceNameList, traceName) {
@@ -627,8 +641,6 @@ function hideTraces(graphs, traceNameList, traceName) {
     /***** find index of trace name in trace name list *****/
 
     const traceIndex = traceNameList.indexOf(traceName); // find index of trace name in trace name list
-
-    console.log(traceIndex);
 
     /***** loop through and hide traces *****/
 
@@ -646,12 +658,42 @@ function hideTraces(graphs, traceNameList, traceName) {
 
                 for (let j = 0; j < traces.length; j++) { // loop through all traces
 
-                    traces[j].style.opacity = 0; // hide all traces
+                    if ((traceIndex * 5) === j) { // if actual data line...
+
+                        traces[j].style.opacity = 1; // show actual data line
+
+                    } else if (((traceIndex * 5) + 1) === j) { // if last trading day marker...
+
+                        traces[j].style.opacity = 1; // show last trading day marker
+
+                    } else if (((traceIndex * 5) + 2) === j) { // if prediction line...
+
+                        traces[j].style.opacity = 1; // show prediction line
+
+                    } else if (((traceIndex * 5) + 3) === j) { // if hidden prediction line...
+
+                        traces[j].style.opacity = 1; // show hidden prediction line
+
+                    } else if (((traceIndex * 5) + 4) === j) { // if prediction marker...
+
+                        traces[j].style.opacity = 1; // show prediction marker
+
+                    } else { // if any unrelated trace...
+
+                        traces[j].style.opacity = 0; // hide any remaining traces
+                    }
                 }
 
                 for (let j = 0; j < (annotations.length - 1); j++) { // loop through all annotations
 
-                    annotations[j].style.opacity = 0; // hide all annotations
+                    if (traceIndex === j) {
+
+                        annotations[j].style.opacity = 1; // show trace annotation
+
+                    } else {
+
+                        annotations[j].style.opacity = 0; // hide any remaining annotations
+                    }
                 }
 
                 console.log("Successfully isolated trace.");
