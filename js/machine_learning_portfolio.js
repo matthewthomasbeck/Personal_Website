@@ -464,10 +464,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             return null; // terminate process with error
         }
-
-        /***** show traces to hide prediction lines *****/
-
-        showTraces(graphs); // show traces to hide prediction lines
     }
 
     /***** loop through every category *****/
@@ -477,6 +473,30 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         createTables(financialInstrument); // create table for each category
     });
+});
+
+/***** show traces to hide prediction lines *****/
+
+// when the DOM has loaded and when the async function createTables is done executing, call showTraces
+document.addEventListener('DOMContentLoaded', function checkLoadingScreen() { // function to check if loading screen is present
+
+    /***** set variables *****/
+
+    const loadingScreen = document.getElementById('loadingScreen'); // get loading screen
+
+    /***** check if loading screen exists *****/
+
+    if (loadingScreen) { // if loading screen exists...
+
+        if (getComputedStyle(loadingScreen).display !== 'none') { // if loading screen is visible...
+
+            setTimeout(checkLoadingScreen, 50); // check again in 50 milliseconds
+
+        } else { // if loading screen is not visible...
+
+            showTraces(graphs); // show traces to hide prediction lines
+        }
+    }
 });
 
 
