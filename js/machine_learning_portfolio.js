@@ -23,10 +23,10 @@ async function fetchData(financialInstrument) { // function to fetch json data
     /***** set variables *****/
 
     // set base URL to S3 bucket
-    const baseCDNUrl = `http://cdn.matthewthomasbeck.com/assets/machine_learning_portfolio/data/`;
+    const baseCDNURL = `http://cdn.matthewthomasbeck.com/assets/machine_learning_portfolio/data/`;
 
     // set path to json data with financial instrument
-    let financialInstrumentDataPath = `${baseCDNUrl}${financialInstrument}Data.json`;
+    let financialInstrumentDataPath = `${baseCDNURL}${financialInstrument}Data.json`;
 
     /***** read data *****/
 
