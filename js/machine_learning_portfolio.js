@@ -19,8 +19,6 @@
 /********** DOWNLOAD GRAPHS FUNCTION **********/
 
 
-
-
 /********** IMPORT JSON DATA FUNCTION **********/
 
 async function fetchData(financialInstrument) { // function to fetch json data
