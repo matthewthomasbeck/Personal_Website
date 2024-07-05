@@ -54,7 +54,7 @@ if (favicon) { // if favicon exists...
 
     function changeFavicon() { // function used to change favicon color
 
-        favicon.href = '../assets/favicons/favicon-' + favicons[index]; // change favicon color with path
+        favicon.href = 'https://s3.us-east-2.amazonaws.com/cdn.matthewthomasbeck.com/assets/favicons/favicon-' + favicons[index]; // change favicon color with path
 
         index = (index + 1) % favicons.length; // increment index by 1 and mod by length of favicons
 
