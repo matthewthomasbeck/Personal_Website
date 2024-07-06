@@ -26,6 +26,23 @@
     color: transparent;
 }
 
+/***** programmer font *****/
+
+@font-face {
+
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('https://s3.us-east-2.amazonaws.com/cdn.matthewthomasbeck.com/assets/fonts/Fira_Code/static/FiraCode-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+.programmerFont {
+
+    font-family: 'Fira Code', monospace;
+    color: transparent;
+}
+
 /***** fancy font *****/
 
 @font-face {
@@ -41,23 +58,6 @@
 
     font-family: 'Mission Script', cursive;
     color: white;
-}
-
-/***** programmer font *****/
-
-@font-face {
-
-    font-family: 'Fira Code';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('../assets/fonts/Fira_Code/static/FiraCode-Regular.ttf') format('truetype');
-    font-display: swap;
-}
-
-.programmerFont {
-
-    font-family: 'Fira Code', monospace;
-    color: transparent;
 }
 
 
