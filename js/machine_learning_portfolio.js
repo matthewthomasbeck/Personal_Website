@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // loop through every category calling createTables function
     financialInstruments.forEach(financialInstrument => {
 
-        downloadHTMLFromS3(financialInstrument) // download graphs for each financial instrument category
+        downloadHTMLFromS3(financialInstrument); // download graphs for each financial instrument category
         //console.log(financialInstrument);
 
         createTables(financialInstrument); // create table for each category
