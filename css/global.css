@@ -33,8 +33,7 @@
     font-family: 'Mission Script';
     font-style: normal;
     font-weight: normal;
-    src: local('Mission Script'), local('OpenSans-Regular'), url('../assets/fonts/Mission_Script.woff') format('woff2'),
-    url('assets/fonts/Mission_Script.woff') format('woff');
+    src: local('Mission Script'), local('OpenSans-Regular'), url('../assets/fonts/Mission_Script.woff') format('woff');
     font-display: swap;
 }
 
