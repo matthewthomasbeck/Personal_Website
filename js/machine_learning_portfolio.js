@@ -18,6 +18,47 @@
 
 /********** DOWNLOAD GRAPHS FUNCTION **********/
 
+function downloadHTMLFromS3() {
+
+    /***** set variables *****/
+
+    // set URL to s3 bucket
+    const url = 'https://s3.us-east-2.amazonaws.com/cdn.matthewthomasbeck.com/assets/machine_learning_portfolio/graphs/';
+
+    /***** fetch data *****/
+
+    // loop through every graph type and time interval
+
+
+    fetch(url).then(response => response.text()).then(data => {
+
+        console.log('Successfully downloaded data from S3');
+
+        saveGraph(data, 'downloaded.html');
+
+    }).catch(error => console.error('Error downloading file:', error));
+}
+
+
+/********** SAVE GRAPHS FUNCTION **********/
+
+function saveGraph(data, filename) {
+
+    const blob = new Blob([data], { type: 'text/html' });
+
+    const link = document.createElement('a');
+
+    link.href = window.URL.createObjectURL(blob);
+
+    link.download = filename;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+}
+
 
 /********** IMPORT JSON DATA FUNCTION **********/
 
