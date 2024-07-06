@@ -22,30 +22,32 @@ function downloadHTMLFromS3(financialInstrument) { // TODO
 
     /***** set variables *****/
 
-    console.log(financialInstrument);
-
     // set URL to s3 bucket
-    //const url = 'https://s3.us-east-2.amazonaws.com/cdn.matthewthomasbeck.com/assets/machine_learning_portfolio/graphs/';
+    const s3URL = 'https://s3.us-east-2.amazonaws.com/cdn.matthewthomasbeck.com/assets/machine_learning_portfolio/graphs/';
+    const timeFrames = ['7', '30', '90', '365', 'max']; // set time frames
 
     /***** fetch data *****/
 
-    // loop through every graph type and time interval
+    for (let i = 0; i < timeFrames.length; i++) { // loop through every time frame
 
+        const graphURL = `${s3URL}${financialInstrument}Plot-${timeFrames[i]}.html`; // set graph URL
 
+        console.log(graphURL);
 
-    /*fetch(url).then(response => response.text()).then(data => {
+        fetch(graphURL).then(response => response.text()).then(data => { // fetch data from s3
 
-        console.log('Successfully downloaded data from S3');
+            saveGraph(data, graphURL); // save graph to local machine
 
-        saveGraph(data, 'downloaded.html');
+            console.log('Successfully downloaded data from S3');
 
-    }).catch(error => console.error('Error downloading file:', error));*/
+        }).catch(error => console.error('Error downloading file:', error));
+    }
 }
 
 
 /********** SAVE GRAPHS FUNCTION **********/
 
-function saveGraph(data, filename) { // TODO
+function saveGraph(data, graphURL) { // TODO
 
     const blob = new Blob([data], { type: 'text/html' });
 
@@ -53,7 +55,7 @@ function saveGraph(data, filename) { // TODO
 
     link.href = window.URL.createObjectURL(blob);
 
-    link.download = filename;
+    link.download = graphURL;
 
     document.body.appendChild(link);
 
@@ -522,7 +524,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     financialInstruments.forEach(financialInstrument => {
 
         downloadHTMLFromS3(financialInstrument); // download graphs for each financial instrument category
-        //console.log(financialInstrument);
 
         createTables(financialInstrument); // create table for each category
     });
