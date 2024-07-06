@@ -26,23 +26,6 @@
     color: transparent;
 }
 
-/***** programmer font *****/
-
-@font-face {
-
-    font-family: 'Fira Code';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('../assets/fonts/Fira_Code/Static/FiraCode-Regular.ttf') format('truetype');
-    font-display: swap;
-}
-
-.programmerFont {
-
-    font-family: 'Fira Code', monospace;
-    color: transparent;
-}
-
 /***** fancy font *****/
 
 @font-face {
@@ -61,9 +44,25 @@
     color: white;
 }
 
+/***** programmer font *****/
+
+@font-face {
+
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url('../assets/fonts/Fira_Code/static/FiraCode-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+.programmerFont {
+
+    font-family: 'Fira Code', monospace;
+    color: transparent;
+}
+
 
 /********** ROOT STYLES **********/
-
 
 /***** set local constant colors *****/
 
